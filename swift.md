@@ -36,46 +36,124 @@
 - variables: `var totalValue:Int`
 - constants: `let threshould:Int`
 - closure: `{ 引数 in 戻り値を返す式 }`
-- initializer: `let a:Int = 123          let b:Int64 = Int64(a)`
-- optional:
-    - 明示的アンラップ
-        - `let optionlInt: Int? = 1`
-            - 👍デフォルト (??):
-                - `let optionalInt: Int? = nil`
-                - `let int = optionalInt ?? 3 // 3`
-            - 強制アンラップ (!):
-                - `let a: Int? = 1`
-                - `let b: Int? = 1`
-                - `a! + b! // 2`
-            - 👍オプショナルバインディング:
-                - `let optionalDouble = Optional(1.0) // 1`
-                - `let optionalIsInfinite: Bool?`
-                - `if let double = optionalDouble {`
-                - `    optionalIsInfinite = double.isInfinite`
-                - `} else {`
-                - `    optionalIsInfinite = nil`
+
+### 型
+- 種類
+    - Optional
+    - コレクション
+        - 配列
+            - Array<Element>
+            - 👍\[Element]
+        - 辞書
+            - Dictionary<Key, Value>
+            - 👍\[Key, Value]
+        - 範囲
+            - Range<Bound>, CountableRange<Bound>, ClosedRange<Bound>, CountableClosedRange<Bound>
+                - `let range = 1..<4 // CountableRange(1..<4)`
+                - `let range = 1...4 // CountableClosedRange(1...4)`
+                - `for value in range {`
+                - `    print(value)`
                 - `}`
-            - 👍オプショナルチェイン (?):
-                - `let optionalDouble = Optional(1.0) // Optional(1.0)`
-                - `let optionalIsInfinite = optionalDouble?.isInfinite`
-                - `print(String(describing: optionalIsInfinite))`
-    - 暗黙的アンラップ
-        - `let a: Int! = 1`
-        - `a + 1 // Int型と同様に演算が可能`
-        - `var b: Int! = nil`
-        - `b + 1 // 値が入っていないため実行時エラー`
-- Cast:
-    - アップキャスト:
-        - 👍明示的アップキャスト:
-            - `let any = "abc" as Any`
-        - 暗黙的アップキャスト:
-            - `let any: Any = "abc"`
-    - ダウンキャスト:
-        - 👍通常のダウンキャスト (?):
-            - `let any = 1 as Any`
-            - `let int = any as? Int // Optional(1)`
-            - `let string = any as? String // nil`
-        - 強制的ダウンキャスト (!):
-            - `let any = 1 as Any`
-            - `let int = any as! Int`
-            - `let string = any as! String // 実行時エラー`
+        - 文字(列)
+            - Character
+            - String
+    - プロトコル
+        - Sequence
+            - `forEach()`, `filter()`, `map()`, `flatMap()`, `compactMap()`, `reduce()`
+        - Collection
+            - `count()`, `first()`, `last()`
+- 操作
+    - initializer: `let a:Int = 123          let b:Int64 = Int64(a)`
+    - optional:
+        - 明示的アンラップ
+            - `let optionlInt: Int? = 1`
+                - 👍デフォルト (??):
+                    - `let optionalInt: Int? = nil`
+                    - `let int = optionalInt ?? 3 // 3`
+                - 強制アンラップ (!):
+                    - `let a: Int? = 1`
+                    - `let b: Int? = 1`
+                    - `a! + b! // 2`
+                - 👍オプショナルバインディング:
+                    - `let optionalDouble = Optional(1.0) // 1`
+                    - `let optionalIsInfinite: Bool?`
+                    - `if let double = optionalDouble {`
+                    - `    optionalIsInfinite = double.isInfinite`
+                    - `} else {`
+                    - `    optionalIsInfinite = nil`
+                    - `}`
+                - 👍オプショナルチェイン (?):
+                    - `let optionalDouble = Optional(1.0) // Optional(1.0)`
+                    - `let optionalIsInfinite = optionalDouble?.isInfinite`
+                    - `print(String(describing: optionalIsInfinite))`
+        - 暗黙的アンラップ
+            - `let a: Int! = 1`
+            - `a + 1 // Int型と同様に演算が可能`
+            - `var b: Int! = nil`
+            - `b + 1 // 値が入っていないため実行時エラー`
+    - Cast:
+        - アップキャスト:
+            - 👍明示的アップキャスト:
+                - `let any = "abc" as Any`
+            - 暗黙的アップキャスト:
+                - `let any: Any = "abc"`
+        - ダウンキャスト:
+            - 👍通常のダウンキャスト (?):
+                - `let any = 1 as Any`
+                - `let int = any as? Int // Optional(1)`
+                - `let string = any as? String // nil`
+            - 強制的ダウンキャスト (!):
+                - `let any = 1 as Any`
+                - `let int = any as! Int`
+                - `let string = any as! String // 実行時エラー`
+
+### 制御文
+
+- guard
+    - `guard 条件式 else {`
+    - `    条件式がfalseの場合に実行される文`
+    - `    guard文が記述されているスコープの外に退出する必要がある`
+    - `}`
+    - `guard let int = a as? Int else {`
+    - `    print("aはInt型ではありません")`
+    - `    return`
+    - `}`
+    - `// intはguard文以降でも使用可能`
+    - `print("値はInt型の\(int)です")`
+- switch
+    - `ラベル名: switch 制御式 {`
+    - `case パターン where 条件式:`
+    - `    制御式がパターンにマッチし、かつ、条件式を満たす場合に実行される文`
+    - `    break ラベル名`
+    - `    fallthrough`
+    - `default:`
+    - `    制御式がいずれのパターンにもマッチしなかった場合に実行される文`
+    - `}`
+        - for も for の前にラベル名をつけて、break 時に指定できる
+- defer
+- いろんなパターンマッチ
+    - if
+        - `let value = 9`
+        - `if case 1...10 = value {`
+        - `    print("1以上10以下の値です")`
+        - `}`
+    - guard
+        - `let value = 9`
+        - `guard case 1...10 = value else {`
+        - `    return`
+        - `}`
+    - for
+        - `let array = [1, 2, 3, 4]`
+        - `for case 2...3 in array {`
+        - `    print("2以上3以下の値です")`
+        - `}`
+    - while
+        - `var nextValue = Optional(1)`
+        - `while case let value? = nextValue {`
+        - `    print("value: \(value)")`
+        - `    if value >= 3 {`
+        - `        nextValue = nil`
+        - `    } else {`
+        - `        nextValue = value + 1`
+        - `    }`
+        - `}`
