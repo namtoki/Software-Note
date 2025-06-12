@@ -1,7 +1,6 @@
 # Swift
 
 ## Ecosystem
-
 - ライブラリ
   - 標準ライブラリ
   - コアライブラリ
@@ -14,7 +13,6 @@
   - LLDB
 
 ## Project Structure
-
 - `swift package init --type executable`
 ```
 <your-project-name>
@@ -31,13 +29,27 @@
 ```
 - `swift build`
 
-## Rules
-
-- variables: `var totalValue:Int`
-- constants: `let threshould:Int`
-- closure: `{ 引数 in 戻り値を返す式 }`
-
 ### 型
+- class
+- struct:
+    - common:
+        - self: instance property/method にアクセス
+        - Self: static property/method にアクセス
+    - property:
+        - property observer:
+            - `var プロパティ名 = 初期値 {`
+            - `    willSet {`
+            - `        プロパティの変更前に実行する文`
+            - `        変更後の値には定数newValueとしてアクセスできる`
+            - `    }`
+            - `    didSet {`
+            - `        プロパティの変更後に実行する文`
+            - `    }`
+            - `}`
+        - lazy stored property:
+            - `static lazy var スタティックプロパティ名: プロパティの型 = 式`
+    - method:
+- enum
 - 種類
     - Optional
     - コレクション
@@ -107,8 +119,57 @@
                 - `let int = any as! Int`
                 - `let string = any as! String // 実行時エラー`
 
-### 制御文
+## 変数
+- variables: `var totalValue:Int`
+- constants: `let threshould:Int`
 
+## 関数
+- @
+    - `@discardableResult`
+- func:
+    - 引数:
+        - 可変長引数: `func print(strings: String...) {`
+        - inout: `func greet(user: inout String) {`
+- closure
+    - フォーマット:
+        - `{ (引数名1: 型, 引数名2: 型...) -> 戻り値の型 in`
+        - `    クロージャの実行時に実行される文`
+        - `    必要に応じてreturn文で戻り値を返却する`
+        - `}`
+    - キャプチャ:
+        - `let counter: () -> Int`
+        - `do {`
+        - `    var count = 0`
+        - `    counter = {`
+        - `        count += 1`
+        - `        return count`
+        - `    }`
+        - `}`
+        - `counter() // 1`
+        - `counter() // 2`
+    - @escaping
+        - `var queue = [() -> Void]()`
+        - `func enqueue(operation: @escaping () -> Void) {`
+        - `    queue.append(operation)`
+        - `}`
+        - `enqueue { print("executed") }`
+        - `enqueue { print("executed") }`
+        - `queue.forEach { $0() }`
+    - @autoclosure
+        - `func or(_ lhs: Bool, _ rhs: @autoclosure () -> Bool) -> Boo`
+            - 正格評価
+                - Swiftでは多くのプログラミング言語と同じく、関数の引数がその関数に引き渡されるより前に実行される
+                    - クロージャを引数に渡すことで、遅延評価が可能
+                    - @autoclosure を使えば、呼び出し側も簡潔になる
+    - 👍トレイリングクロージャ
+        - `func execute(parameter: Int, handler: (String) -> Void) {`
+        - `    handler("parameter is \(parameter)")`
+        - `}`
+        - `execute(parameter: 2) { string in`
+        - `    print(string)`
+        - `}`
+
+### 制御文
 - guard
     - `guard 条件式 else {`
     - `    条件式がfalseの場合に実行される文`
