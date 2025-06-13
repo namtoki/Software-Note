@@ -30,9 +30,8 @@
 - `swift build`
 
 ### 型
-- class
-- struct:
-    - common:
+- common rule:
+    - property/method:
         - self: instance property/method にアクセス
         - Self: static property/method にアクセス
     - property:
@@ -48,8 +47,53 @@
             - `}`
         - lazy stored property:
             - `static lazy var スタティックプロパティ名: プロパティの型 = 式`
+        - computed property:
+            - `var fahrenheit: Double {`
+            - `    get {`
+            - `        return (9.0 / 5.0) * celsius + 32.0`
+            - `    }`
+            - `    set {`
+            - `        celsius = (5.0 / 9.0) * (newValue - 32.0)`
+            - `    }`
+            - `}`
     - method:
-- enum
+        - initializer: `init(..) { }`
+        - failable initializer: `init?(..) { }`
+        - subscription:
+            - `struct Matrix {`
+            - `    var rows: [[Int]]`
+            - `    subscript(row: Int, column: Int) -> Int {`
+            - `        get {`
+            - `            return rows[row][column]`
+            - `        }`
+            - `        set {`
+            - `            rows[row][column] = newValue`
+            - `        }`
+            - `    }`
+            - `}`
+            - `let matrix = Matrix(rows: [`
+            - `    [1, 2, 3],`
+            - `    [4, 5, 6],`
+            - `    [7, 8, 9],`
+            - `])`
+            - `let element = matrix[1, 1] // 5`
+    - extension:
+- 値型 (struct, enum):
+    - struct:
+        - mutating:
+            - `extension Int {`
+            - `    mutating func increment() {`
+            - `        self += 1`
+            - `    }`
+            - `}`
+            - `var a = 1 // 1`
+            - `a.increment() // 2（aに再代入が行われている）`
+            - `let b = 1`
+            - `b.increment() // bに再代入できないためコンパイルエラー`
+            - struct の stored property の変更は再代入を必要とするため、stored property の変更を含む method には mutating キーワードが必要
+        - memberwise initializer:
+            - init を定義しなくても良い
+- 参照型 (class):
 - 種類
     - Optional
     - コレクション
