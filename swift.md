@@ -29,7 +29,11 @@
 ```
 - `swift build`
 
-### 型
+## 変数
+- variables: `var totalValue:Int`
+- constants: `let threshould:Int`
+
+## 型
 - struct, class, enum:
     - common rule:
         - property/method:
@@ -181,10 +185,6 @@
                 - `let int = any as! Int`
                 - `let string = any as! String // 実行時エラー`
 
-## 変数
-- variables: `var totalValue:Int`
-- constants: `let threshould:Int`
-
 ## 関数
 - @
     - `@discardableResult`
@@ -231,7 +231,7 @@
         - `    print(string)`
         - `}`
 
-### 制御文
+## 制御文
 - guard
     - `guard 条件式 else {`
     - `    条件式がfalseの場合に実行される文`
@@ -280,3 +280,79 @@
         - `        nextValue = value + 1`
         - `    }`
         - `}`
+
+## 応用
+- イベント通知
+    - Delegate Pattern
+    - Closure
+    - Observer Pattern
+        - Notification / NotificationCenter
+            - `import Foundation`
+            - `class Poster {`
+            - `    static let notificationName = Notification.Name("SomeNotification")`
+            - `    func post() {`
+            - `        NotificationCenter.default.post(name: Poster.notificationName, object: nil)`
+            - `    }`
+            - `}`
+            - `class Observer {`
+            - `    init() {`
+            - `        NotificationCenter.default.addObserver(`
+            - `            self,`
+            - `            selector: #selector(handleNotification(_:)),` Objective-C のセレクタ
+            - `            name: Poster.notificationName,`
+            - `            object: nil)`
+            - `    }`
+            - `    deinit {`
+            - `        NotificationCenter.default.removeObserver(self)`
+            - `    }`
+            - `    @objc func handleNotification(_ notification: Notification) {`
+            - `        print("通知を受け取りました")`
+            - `    }`
+            - `}`
+- 非同期処理
+    - GCD (Closure を使用)
+        - Type
+            - Serial Dispatch Queue
+            - Concurrent Dispatch Queue
+            - `import Dispatch`
+            - `\\ Main Queue` (Serial Dispatch Queue 唯一ひとつ)
+            - `let queue = DispatchQueue.main // メインディスパッチキューを取得`
+            - `\\ Global Queue` (Concurrent Dispatch Queue 複数ある)
+            - `let queue = DispatchQueue.global(qos: .userInitiated)`
+            - `\\ Original Queue` (Serial, Concurrent 好きな方を選べる)
+            - `let queue = DispatchQueue(`
+            - `    label: "com.my_company.my_app.upload_queue",`
+            - `    qos: .default,`
+            - `    attributes: [.concurrent])`
+            - `queue.async {`
+            - `    Thread.isMainThread // false`
+            - `    print("非同期の処理")`
+            - `}`
+    - Operation, OperationQueue (Class を使用)
+        - `import Foundation`
+        - `class SomeOperation : Operation {`
+        - `    let number: Int`
+        - `    init(number: Int) { self.number = number }`
+        - `    override func main() {`
+        - `        Thread.sleep(forTimeInterval: 1)`
+        - `        guard !isCancelled else { return }`
+        - `        print(number)`
+        - `    }`
+        - `}`
+        - `let queue = OperationQueue()`
+        - `queue.name = "com.example.my_operation_queue"`
+        - `queue.maxConcurrentOperationCount = 2`
+        - `queue.qualityOfService = .userInitiated`
+        - `var operations = [SomeOperation]()`
+        - `for i in 0..<10 {`
+        - `    operations.append(SomeOperation(number: i))`
+        - `    if i > 0 {`
+        - `        operations[i].addDependency(operations[i-1])`
+        - `    }`
+        - `}`
+        - `queue.addOperations(operations, waitUntilFinished: false)`
+        - `operations[6].cancel()`
+    - Thread
+- Error Handling
+    - Optional 型の利用
+    - Result 型の利用
