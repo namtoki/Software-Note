@@ -355,4 +355,15 @@
     - Thread
 - Error Handling
     - Optional 型の利用
-    - Result 型の利用
+    - Result 型の利用               `非同期処理`
+    - do catch                      `同期処理`
+        - throws キーワード
+        - try キーワード
+        - try! キーワード
+        - try? キーワード
+    - fatalError(_:)
+    - asert(_:_:)
+    - asertionFailure(_:)
+- Test
+    - XCTest
+    - Swift Testing (5.9~)
