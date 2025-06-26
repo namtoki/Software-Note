@@ -57,22 +57,63 @@
           }
           ```
 
-## Folder Tree
+## Tree
+
+- Widget Tree
+    - Immutable なオブジェクトで構成される
+    - 頻繁に作り替えられるので、生成と破棄のコストが小さくなるように設計される
+- Element Tree
+    - Mutable なオブジェクトで構成される
+    - 他の Tree の仲介
+        - Widget の状態を管理
+        - RenderObject のライフサイクルの管理
+- RenderObject Tree
+    - Mutable なオブジェクトで構成される
+    - 画面のレンダリングに関する情報
+
+## App のライフサイクル
+
+- with WidgetsBindingObserver
+    - didChangeAppLifecycleState()
+        - AppLifecycleState
+            - inactive
+            - paused
+            - resumed
+            - detached
+
+## StatefulWidget のライフサイクル
+
+1. createState()            -> created                      `[構築] state オブジェクトの作成`
+2. initState()              -> initialized                  `[構築] Widget ツリーの初期化`
+3. didChangeDependencies()  -> ready (dirty)                `[構築] state オブジェクトの依存関係が変更された時に呼ばれる`
+4. /                        -> ready (clean)
+    1. didUpdateWidget()                                    `[描画] Widget の構築が変更された時に呼ばれる`
+    2. build()                                              `[描画] Widget で作られる画面を構築`
+    3. setState()                                           `[描画] 状態が変わったことを通知する`
+5. deactivate()
+6. dispose()                -> defunct
+
+## Localization
+
+- AppLocalizations
 
 ## Library
 
 - `dart:`
-  - `ui`/
+  - ui/
     - `Locale`
-  - `io`/
+  - io/
     - `Platform`                                                    [Platform] version や OS の種類を取得できる
+  - `async`
+  - `isolate`                                                       [Thread] 別スレッドの起動、連携、停止
 - `package:`                                                        Flutter/Dart の Build System (pub) が `pubspec.yaml` の内容をもとに解決
-  - shared_preferences/shared_preferences.dart/
-    - `SharedPreferences`                                           [Storage] Flutter アプリで簡単なデータ（キー・バリュー形式）を端末に永続的に保存する
   - flutter/
     - foundation.dart                                             Flutter SDK の一部で、フレームワークの基本機能や共通ユーティリティを提供する
+      - `compute`                                                   [Thread] スレッドを非同期関数のように扱える
     - material.dart
       - `MediaQuery`                                                [Platform] 画面サイズ・文字のスケーリング・向き・デバイス情報などにアクセス
+  - shared_preferences/shared_preferences.dart/
+    - `SharedPreferences`                                           [Storage] Flutter アプリで簡単なデータ（キー・バリュー形式）を端末に永続的に保存する
   - package_info/package_info.dart/
     - `PackageInfo`                                                 [pubspec] `await PackageInfo.fromPlatform();` で `pubspec.yaml` の情報を取得できる
   - device_info_plus/device_info_plus.dart/
