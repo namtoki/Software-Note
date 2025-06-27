@@ -1,6 +1,4 @@
-# Flutter
-
-## Dart
+# Dart
 
 - NullSafety
     - Nullable 型:
@@ -56,6 +54,18 @@
               }
           }
           ```
+- Class
+    - 定数コンストラクタ
+        - `abstract class AppSessionStatus {`
+        - `  const AppSessionStatus();`
+        - `}`
+        - コンパイル時にインスタンスを生成できる コンストラクタ
+        - そのクラスのインスタンスが「不変（immutable）」であることを前提にしていて、再利用される
+        - メモリ効率が良く、Flutter では UI 表示でよく使われる（const Text(...) など）
+
+---
+
+# Flutter
 
 ## Tree
 
@@ -97,7 +107,18 @@
 
 - AppLocalizations
 
-## Library
+## BuildContext
+
+- context:
+    - Widget が自分の置かれている状況を認識できるように、親の Element への参照を持っている
+    - 参照先から子要素まで辿れる
+- of メソッド:
+    - 親要素に向かって辿る
+    - 自分 (子要素) に親要素でどのような設定が行われているか知りたい場合
+
+---
+
+# Library
 
 - `dart:`
   - ui/
@@ -150,13 +171,3 @@
         - `Listener1: 2`
         - `Listener2: 2`  // 直近の値がすぐ送られる
     - listen() で返ってくるオブジェクトは `StreamSubscription`
-
-## Class
-
-- 定数コンストラクタ
-    - `abstract class AppSessionStatus {`
-    - `  const AppSessionStatus();`
-    - `}`
-    - コンパイル時にインスタンスを生成できる コンストラクタ
-    - そのクラスのインスタンスが「不変（immutable）」であることを前提にしていて、再利用される
-    - メモリ効率が良く、Flutter では UI 表示でよく使われる（const Text(...) など）
