@@ -75,7 +75,46 @@
         - ```dart
             const Point.zero() : x = 0, y = 0;
           ```
-        - 
+    - 拡張メソッド
+        - ```dart
+          extention <拡張名> on <拡張先> {
+          }
+          ```
+    - クラス修飾子
+        - abstract      処理本体を書かない
+        - base          extends:o, implements:x
+        - interface     extends:x, implements:o
+        - final         extends:x, implements:x
+        - mixin
+            - ```dart
+              mixin Horse on Animal {
+                  void run() { print('run'); }
+              }
+              mixin Bird {
+                  void fly() { print('fly'); }
+              }
+              class Pegasus extends Animal with Bird, Horse { }
+              ```
+        - sealed
+            - ```dart
+              sealed class Shape { abstrac int corner; }
+              class Rectangle extends Shape {
+                @override
+                int corner = 4;
+              }
+              class Triangle extends Shape {
+                @override
+                int corner = 3;
+              }
+              ...
+              final Shape shpae = getShape();
+
+              switch (shape) {
+                case Rectangle(): print("Rectangle");
+                case Triangle(): print("Triangle");
+                ...
+              }
+              ```
 - 非同期処理 (Future, async)
     - then
         - ```dart
@@ -122,6 +161,12 @@
               }
           }
           ```
+- 非同期処理 (Stream)
+    - listen()
+    - pause()
+    - resume()
+    - onDone()
+    - StreamController
 
 ---
 
