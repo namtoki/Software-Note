@@ -232,7 +232,13 @@
 
 ---
 
-# Library
+# Package
+- 管理
+  - `flutter pub add ____`
+  - `flutter pub add --dev ____`
+  - `flutter pub get`
+  - `flutter pub outdated`
+  - `flutter pub upgrade ____`
 
 - `dart:`
   - ui/
@@ -247,6 +253,10 @@
       - `compute`                                                   [Thread] スレッドを非同期関数のように扱える
     - material.dart
       - `MediaQuery`                                                [Platform] 画面サイズ・文字のスケーリング・向き・デバイス情報などにアクセス
+  - flutter_localizations/
+    - `flutter_localizations.dart`                                  [L10N]
+  - intl/
+    - `intl.dart`                                                   [Date] Date
   - shared_preferences/shared_preferences.dart/
     - `SharedPreferences`                                           [Storage] Flutter アプリで簡単なデータ（キー・バリュー形式）を端末に永続的に保存する
   - package_info/package_info.dart/
