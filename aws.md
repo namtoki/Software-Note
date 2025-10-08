@@ -1,6 +1,6 @@
 # AWS
 
-## Base
+## Terminology
 - ARN (Amazon Resource Name):
   - format: `arn:partition:service:region:account-id:resource-type/resource-id`
     - `arn:aws:s3:::my-bucket/file.txt`
@@ -8,10 +8,25 @@
     - `arn:aws:iam::123456789012:user/john`
       - partition: 通常は aws（中国リージョンは aws-cn、GovCloudは aws-us-gov）
 
-## Accounts
+## Organization
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
 | - | - | - | - | - | - | - |
-| IAM | Global | User Groups, User, Roles,,, | - | - | - |AWS Identity and Access Management |
+| IAM | Global | User Groups, User, Roles,,, | - | - | - | AWS Identity and Access Management |
+| Budgets | Global | Budgets | - | - | - |  |
+
+## Instance
+
+| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
+| - | - | - | - | - | - | - |
+| EC2 | AZ | AMI, Instance Type, Key Pair, Instance Store, User Data  | ✔️| ✔️| ✔️|  |
+| + Instance Store | AZ |  | | | | Temporary |
+| + EBS | AZ | Volume Type, Size, IOPS, Snapshot ID, Encryption | | | | Elastic Block Store |
+| + Auto Scaling | Region | Auto Scaling Group (ASG), Scaling Policy | | | |  |
+| + Image Builder | Region |  | | | |  |
+| ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
+| + ECR |  |  |  |  | |  Elastic Container Registry |
+
+| Amazon Elastic File System (Amazon EFS)
 
 ## Deployment
 
@@ -22,16 +37,6 @@ AWS Cloud Development Kit (CDK)
 | AWS CodeBuild
 | AWS CodePipeline
 
-## Instance
-
-| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
-| - | - | - | - | - | - | - |
-| EC2 | AZ | AMI, Instance Type, Key Pair, EBS, User Data  | ✔️| ✔️| ✔️|  |
-| + EBS | AZ | Volume Type, Size, IOPS, Snapshot ID, Encryption | | | | Elastic Block Store |
-| + Auto Scaling | Region | Auto Scaling Group (ASG), Scaling Policy | | | |  |
-| ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
-| + ECR |  |  |  |  | |  Elastic Container Registry |
-
 
 ## Global
 | Amazon Route 53
@@ -41,7 +46,12 @@ AWS Cloud Development Kit (CDK)
 | AWS WaveLength
 | AWS Local Zones
 
-| Amazon Elastic File System (Amazon EFS)
+## Comm
+| Amazon Simple Queue Service (Amazon SQS)
+| Amazon Kinesis
+| Amazon Simple Notification Service (Amazon SNS)
+| Amazon MQ
+
 | Amazon Elastic Kubernetes Service (Amazon EKS)
 | Amazon API Gateway
 | AWS Batch
@@ -62,18 +72,14 @@ AWS Cloud Development Kit (CDK)
 | AWS IAM Identity Center
 | AWS Fargate
 | AWS Lambda
-| AWS Budgets
 | AWS Cost and Usage Reports
 | AWS Cost Explorer
 
 ---
 
 | Amazon EMR
-| Amazon Kinesis
 | Amazon OpenSearch Service
 | Amazon EventBridge
-| Amazon Simple Notification Service (Amazon SNS)
-| Amazon Simple Queue Service (Amazon SQS)
 | AWS Step Functions
 | Amazon Connect
 | Amazon Simple Email Service (Amazon SES)
