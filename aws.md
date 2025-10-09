@@ -26,7 +26,12 @@
 | ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
 | + ECR |  |  |  |  | |  Elastic Container Registry |
 
-| Amazon Elastic File System (Amazon EFS)
+## Storage
+| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
+| - | - | - | - | - | - | - |
+| FSx | AZ | Capacity | ✔️| ✔️|  | Amazon FSx |
+| EFS | AZ | Auto-Scaling | ✔️| ✔️|  | Amazon Elastic File System |
+
 
 ## Deployment
 
@@ -51,6 +56,9 @@ AWS Cloud Development Kit (CDK)
 | Amazon Kinesis
 | Amazon Simple Notification Service (Amazon SNS)
 | Amazon MQ
+
+| Amazon CloudWatch
+| Amazon EventBridge
 
 | Amazon Elastic Kubernetes Service (Amazon EKS)
 | Amazon API Gateway
@@ -79,7 +87,6 @@ AWS Cloud Development Kit (CDK)
 
 | Amazon EMR
 | Amazon OpenSearch Service
-| Amazon EventBridge
 | AWS Step Functions
 | Amazon Connect
 | Amazon Simple Email Service (Amazon SES)
@@ -104,7 +111,6 @@ AWS Cloud Development Kit (CDK)
 | Amazon Transcribe
 | Amazon Translate
 | AWS CloudTrail
-| Amazon CloudWatch
 | AWS Compute Optimizer
 | AWS Config
 | AWS Control Tower
@@ -149,4 +155,99 @@ AWS Cloud Development Kit (CDK)
 | AWS WAF
 | AWS Backup
 | AWS Elastic Disaster Recovery
-| Amazon FSx
+
+---
+
+  1. Serverless Architecture (Most Common for Modern Apps)
+
+  Mobile App
+      ↓ (HTTPS/REST)
+  Amazon API Gateway
+      ↓
+  AWS Lambda Functions
+      ↓
+  ├─→ Amazon RDS/Aurora (relational data)
+  ├─→ DynamoDB (NoSQL data)
+  ├─→ S3 (file storage)
+  ├─→ ElastiCache (caching)
+  └─→ Other AWS Services
+
+  Key Components:
+  - API Gateway: Entry point, handles routing, throttling, authentication
+  - Lambda: Serverless compute for business logic
+  - DynamoDB/RDS: Data persistence
+  - S3: Media/file storage
+  - Cognito: User authentication/authorization
+  - CloudFront: CDN for static assets
+  - SQS/SNS: Async messaging and notifications
+
+  Advantages:
+  - Pay per request (cost-effective)
+  - Auto-scaling
+  - No server management
+  - High availability built-in
+
+  2. Container-based Microservices
+
+  Mobile App
+      ↓ (HTTPS/REST)
+  Application Load Balancer
+      ↓
+  ECS/EKS (Docker containers)
+      ↓
+  ├─→ Microservice 1 (User Service)
+  ├─→ Microservice 2 (Content Service)
+  ├─→ Microservice 3 (Payment Service)
+      ↓
+  RDS/DynamoDB/S3
+
+  Key Components:
+  - ECS/EKS: Container orchestration
+  - ALB: Load balancing
+  - ECR: Container registry
+  - RDS/Aurora: Database clusters
+  - ElastiCache: Redis/Memcached for caching
+
+  Use when: Higher traffic, complex services, need more control
+
+  3. Hybrid Architecture (Very Common)
+
+  Combines serverless for lightweight operations with containers for heavier
+  workloads:
+
+  Mobile App
+      ↓
+  API Gateway + ALB
+      ↓
+  ├─→ Lambda (auth, simple CRUD)
+  └─→ ECS/Fargate (complex processing, long-running tasks)
+      ↓
+  Shared data layer (RDS, DynamoDB, S3)
+
+  Common Patterns Across All Architectures:
+
+  Security Layer:
+  - WAF (Web Application Firewall)
+  - Cognito User Pools or custom auth
+  - IAM roles and policies
+  - Secrets Manager for credentials
+
+  Observability:
+  - CloudWatch (logs, metrics, alarms)
+  - X-Ray (distributed tracing)
+  - CloudTrail (audit logs)
+
+  Data Layer:
+  - Primary DB: RDS (PostgreSQL/MySQL) or Aurora
+  - NoSQL: DynamoDB for high-scale key-value data
+  - Cache: ElastiCache (Redis)
+  - Storage: S3 for media files
+
+  Additional Services:
+  - SES (email)
+  - SNS (push notifications via FCM/APNS)
+  - SQS (job queues)
+  - EventBridge (event-driven workflows)
+
+  Best Practice: Multi-Environment Setup
+
