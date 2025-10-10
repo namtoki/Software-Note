@@ -23,6 +23,8 @@
 | + EBS | AZ | Volume Type, Size, IOPS, Snapshot ID, Encryption | | | | Elastic Block Store |
 | + Auto Scaling | Region | Auto Scaling Group (ASG), Scaling Policy | | | |  |
 | + Image Builder | Region |  | | | |  |
+| + Load Balancer | Region |  | ✔️| ✔️| |  |
+| + Auto Scaling | Region |  | ✔️| ✔️| |  |
 | ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
 | + ECR |  |  |  |  | |  Elastic Container Registry |
 
@@ -31,17 +33,32 @@
 | - | - | - | - | - | - | - |
 | FSx | AZ | Capacity | ✔️| ✔️|  | Amazon FSx |
 | EFS | AZ | Auto-Scaling | ✔️| ✔️|  | Amazon Elastic File System |
+| S3 | Region | Bucket Name, Versioning, Encryption, Storage Class | - | - | ✔️ | Simple Storage Service |
+| S3 Glacier | Region | Vault Name, Archive, Retrieval Options | - | - | ✔️ | Long-term archival storage |
 
+| Amazon Aurora
+| Amazon DocumentDB
+| Amazon DynamoDB
+| Amazon ElastiCache
+| Amazon Neptune
+| Amazon RDS
+| AWS Glue
+
+## Monitoring
+| Amazon CloudWatch
+| Amazon EventBridge
+| AWS CloudTrail
+| AWS X-Ray
+| AWS CodeGuru
+| AWS Health Dashboard
 
 ## Deployment
-
 AWS Cloud Development Kit (CDK)
 | AWS CloudFormation
 | AWS Elastic Beanstalk    PaaS
 | AWS Systems Manager (SSM)
 | AWS CodeBuild
 | AWS CodePipeline
-
 
 ## Global
 | Amazon Route 53
@@ -57,25 +74,14 @@ AWS Cloud Development Kit (CDK)
 | Amazon Simple Notification Service (Amazon SNS)
 | Amazon MQ
 
-| Amazon CloudWatch
-| Amazon EventBridge
 
 | Amazon Elastic Kubernetes Service (Amazon EKS)
 | Amazon API Gateway
 | AWS Batch
 | Amazon Lightsail
-| Amazon Aurora
-| Amazon DocumentDB
-| Amazon DynamoDB
-| Amazon ElastiCache
-| Amazon Neptune
-| Amazon RDS
-| AWS Glue
 | Amazon QuickSight
 | Amazon Redshift
 | Amazon Athena
-| Amazon S3
-| Amazon S3 Glacier
 | AWS Storage Gateway
 | AWS IAM Identity Center
 | AWS Fargate
@@ -93,7 +99,6 @@ AWS Cloud Development Kit (CDK)
 | AWS Marketplace
 | AWS Support
 | AWS CLI
-| AWS X-Ray
 | Amazon AppStream 2.0
 | Amazon WorkSpaces
 | Amazon WorkSpaces Secure Browser
@@ -110,11 +115,9 @@ AWS Cloud Development Kit (CDK)
 | Amazon Textract
 | Amazon Transcribe
 | Amazon Translate
-| AWS CloudTrail
 | AWS Compute Optimizer
 | AWS Config
 | AWS Control Tower
-| AWS Health Dashboard
 | AWS License Manager
 | AWS Management Console
 | AWS Organizations
