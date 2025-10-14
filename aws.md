@@ -33,16 +33,26 @@
 | - | - | - | - | - | - | - |
 | FSx | AZ | Capacity | ✔️| ✔️|  | Amazon FSx |
 | EFS | AZ | Auto-Scaling | ✔️| ✔️|  | Amazon Elastic File System |
-| S3 | Region | Bucket Name, Versioning, Encryption, Storage Class | - | - | ✔️ | Simple Storage Service |
-| S3 Glacier | Region | Vault Name, Archive, Retrieval Options | - | - | ✔️ | Long-term archival storage |
+| S3 | Region | Bucket Name, Versioning, Encryption, Storage Class | - | - | Bucket Policy | Simple Storage Service |
+| S3 Glacier | Region | Vault Name, Archive, Retrieval Options | - | - | Vault Access Policy | Long-term archival storage |
+| + Snowcone | Physical | 8-14 TB Storage, 2 vCPUs, 4 GB Memory | - | - | - | Smallest device, edge computing, 9 lbs |
+| + Snowball Edge Storage | Physical | 80 TB Storage, 40 vCPUs, 80 GB Memory | - | - | - | Large data migrations |
+| + Snowball Edge Compute | Physical | 28 TB NVMe, 104 vCPUs, 416 GB Memory, GPU | - | - | - | ML, video processing |
+| + Snowmobile | Physical | 100 PB per truck | - | - | - | Exabyte-scale migrations, 45-ft container |
+| + Storage Gateway | Hybrid | Gateway Type (File/FSx/Volume/Tape) | ✔️ | ✔️ | ✔️ | Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier) |
+
+| Amazon RDS
+| Amazon ElastiCache
+| Amazon DynamoDB
+| Amazon Redshift
+| Amazon EMR
+| Amazon Athena
+| Amazon QuickSight
+| Amazon DocumentDB
+| Amazon Neptune
+| AWS Glue
 
 | Amazon Aurora
-| Amazon DocumentDB
-| Amazon DynamoDB
-| Amazon ElastiCache
-| Amazon Neptune
-| Amazon RDS
-| AWS Glue
 
 ## Monitoring
 | Amazon CloudWatch
@@ -74,15 +84,12 @@ AWS Cloud Development Kit (CDK)
 | Amazon Simple Notification Service (Amazon SNS)
 | Amazon MQ
 
+| Amazon VPC
 
 | Amazon Elastic Kubernetes Service (Amazon EKS)
 | Amazon API Gateway
 | AWS Batch
 | Amazon Lightsail
-| Amazon QuickSight
-| Amazon Redshift
-| Amazon Athena
-| AWS Storage Gateway
 | AWS IAM Identity Center
 | AWS Fargate
 | AWS Lambda
@@ -91,7 +98,6 @@ AWS Cloud Development Kit (CDK)
 
 ---
 
-| Amazon EMR
 | Amazon OpenSearch Service
 | AWS Step Functions
 | Amazon Connect
@@ -131,11 +137,9 @@ AWS Cloud Development Kit (CDK)
 | Migration Evaluator
 | AWS Migration Hub
 | AWS Schema Conversion Tool (AWS SCT)
-| AWS Snow Family
 | AWS Direct Connect
 | AWS PrivateLink
 | AWS Transit Gateway
-| Amazon VPC
 | AWS VPN
 | AWS Site-to-Site VPN
 | AWS Client VPN
