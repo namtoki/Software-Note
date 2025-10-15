@@ -40,13 +40,13 @@
 | + Snowball Edge Compute | Physical | 28 TB NVMe, 104 vCPUs, 416 GB Memory, GPU | - | - | - | ML, video processing |
 | + Snowmobile | Physical | 100 PB per truck | - | - | - | Exabyte-scale migrations, 45-ft container |
 | + Storage Gateway | Hybrid | Gateway Type (File/FSx/Volume/Tape) | ✔️ | ✔️ | ✔️ | Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier) |
+| RDS | Region | Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server), Instance Class, Storage Type | ✔️ | ✔️ | ✔️ | Relational Database Service - Managed database |
+| ElastiCache | Region | Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode | ✔️ | ✔️ | ✔️ | In-memory caching service for performance |
+| DynamoDB | Region | Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables | ✔️ | - | ✔️ | NoSQL key-value/document database |
+| Redshift | Region | Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned | ✔️ | ✔️ | ✔️ | Petabyte-scale data warehouse for analytics |
+| EMR | Region | Cluster Configuration, Framework (Spark/Hadoop/Presto/Hive), Instance Types, Auto-Scaling | ✔️ | ✔️ | ✔️ | Elastic MapReduce - Big data processing platform |
+| Athena | Region | Workgroup, Data Catalog, Query Result Location (S3) | - | - | ✔️ | Serverless SQL queries on S3 data |
 
-| Amazon RDS
-| Amazon ElastiCache
-| Amazon DynamoDB
-| Amazon Redshift
-| Amazon EMR
-| Amazon Athena
 | Amazon QuickSight
 | Amazon DocumentDB
 | Amazon Neptune
