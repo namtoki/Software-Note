@@ -14,7 +14,7 @@
 | IAM | Global | User Groups, User, Roles,,, | - | - | - | AWS Identity and Access Management |
 | Budgets | Global | Budgets | - | - | - |  |
 
-## Instance
+## Computing
 
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
 | - | - | - | - | - | - | - |
@@ -27,6 +27,13 @@
 | + Auto Scaling | Region |  | ✔️| ✔️| |  |
 | ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
 | + ECR |  |  |  |  | |  Elastic Container Registry |
+
+
+| Amazon Elastic Kubernetes Service (Amazon EKS)
+| AWS Lambda
+| AWS Batch
+| Amazon API Gateway
+| Amazon Lightsail
 
 ## Storage
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
@@ -41,18 +48,22 @@
 | + Snowmobile | Physical | 100 PB per truck | - | - | - | Exabyte-scale migrations, 45-ft container |
 | + Storage Gateway | Hybrid | Gateway Type (File/FSx/Volume/Tape) | ✔️ | ✔️ | ✔️ | Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier) |
 | RDS | Region | Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server), Instance Class, Storage Type | ✔️ | ✔️ | ✔️ | Relational Database Service - Managed database |
+| Aurora | Region | Engine (MySQL/PostgreSQL), Deployment (Provisioned/Serverless v2/Global), Instance Class, Replicas | ✔️ | ✔️ | ✔️ | Cloud-native relational DB, 5x MySQL/3x PostgreSQL performance |
 | ElastiCache | Region | Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode | ✔️ | ✔️ | ✔️ | In-memory caching service for performance |
 | DynamoDB | Region | Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables | ✔️ | - | ✔️ | NoSQL key-value/document database |
 | Redshift | Region | Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned | ✔️ | ✔️ | ✔️ | Petabyte-scale data warehouse for analytics |
+| DocumentDB | Region | Cluster Configuration, Instance Class, Number of Replicas (up to 15), Storage Auto-Scaling | ✔️ | ✔️ | ✔️ | MongoDB-compatible document database |
+| Neptune | Region | Cluster Configuration, Instance Class, Graph Model (Property/RDF), Query Language (Gremlin/SPARQL) | ✔️ | ✔️ | ✔️ | Graph database for highly connected data |
 | EMR | Region | Cluster Configuration, Framework (Spark/Hadoop/Presto/Hive), Instance Types, Auto-Scaling | ✔️ | ✔️ | ✔️ | Elastic MapReduce - Big data processing platform |
 | Athena | Region | Workgroup, Data Catalog, Query Result Location (S3) | - | - | ✔️ | Serverless SQL queries on S3 data |
+| Glue | Region | Crawlers, Data Catalog, ETL Jobs, Job Triggers, Development Endpoints, DataBrew Recipes | ✔️ | ✔️ | ✔️ | Serverless ETL and data catalog service |
+| DMS | Region | Replication Instance, Source/Target Endpoints, Migration Tasks, CDC, Multi-AZ | ✔️ | ✔️ | ✔️ | Database Migration Service |
 
-| Amazon QuickSight
-| Amazon DocumentDB
-| Amazon Neptune
-| AWS Glue
+## BI
+| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
+| - | - | - | - | - | - | - |
+| QuickSight | Region | Dashboards, Datasets, SPICE Capacity, Edition (Standard/Enterprise) | ✔️ | - | ✔️ | Business intelligence and data visualization service |
 
-| Amazon Aurora
 
 ## Monitoring
 | Amazon CloudWatch
@@ -86,13 +97,8 @@ AWS Cloud Development Kit (CDK)
 
 | Amazon VPC
 
-| Amazon Elastic Kubernetes Service (Amazon EKS)
-| Amazon API Gateway
-| AWS Batch
-| Amazon Lightsail
 | AWS IAM Identity Center
 | AWS Fargate
-| AWS Lambda
 | AWS Cost and Usage Reports
 | AWS Cost Explorer
 
@@ -133,7 +139,6 @@ AWS Cloud Development Kit (CDK)
 | AWS Well-Architected Tool
 | AWS Application Discovery Service
 | AWS Application Migration Service
-| AWS Database Migration Service (AWS DMS)
 | Migration Evaluator
 | AWS Migration Hub
 | AWS Schema Conversion Tool (AWS SCT)
