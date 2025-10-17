@@ -19,3 +19,11 @@ https://qiita.com/sukimaengineer/items/845ad14a3ec2d3c39930
 ```sh
 claude mcp add context7 -- npx --yes @upstash/context7-mcp
 ```
+
+### VoiceMode
+https://getvoicemode.com/
+
+## Hooks
+
+### Notification at Stop
+https://zenn.dev/hashiiiii/articles/11e4ab6b357481
