@@ -14,26 +14,31 @@
 | IAM | Global | User Groups, User, Roles,,, | - | - | - | AWS Identity and Access Management |
 | Budgets | Global | Budgets | - | - | - |  |
 
+## Infrastructure As a Code
+| AWS Cloud Development Kit (CDK)
+| AWS CloudFormation
+| AWS Elastic Beanstalk    PaaS
+| AWS Systems Manager (SSM)
+| AWS CodeBuild
+| AWS CodePipeline
 ## Computing
 
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
 | - | - | - | - | - | - | - |
 | EC2 | AZ | AMI, Instance Type, Key Pair, Instance Store, User Data  | ✔️| ✔️| ✔️|  |
+| ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
 | + Instance Store | AZ |  | | | | Temporary |
 | + EBS | AZ | Volume Type, Size, IOPS, Snapshot ID, Encryption | | | | Elastic Block Store |
 | + Auto Scaling | Region | Auto Scaling Group (ASG), Scaling Policy | | | |  |
 | + Image Builder | Region |  | | | |  |
 | + Load Balancer | Region |  | ✔️| ✔️| |  |
 | + Auto Scaling | Region |  | ✔️| ✔️| |  |
-| ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
 | + ECR |  |  |  |  | |  Elastic Container Registry |
-
-
-| Amazon Elastic Kubernetes Service (Amazon EKS)
-| AWS Lambda
-| AWS Batch
-| Amazon API Gateway
-| Amazon Lightsail
+| + EKS | Region | Cluster, Node Groups, Fargate Profiles | ✔️| ✔️| ✔️| Elastic Kubernetes Service - Managed Kubernetes |
+| ★ Lambda | Region | Runtime, Memory, Timeout, Handler, Layers, Triggers | Optional | Optional | ✔️| Serverless compute - Event-driven, pay per invocation |
+| Batch | Region | Job Definitions, Job Queues, Compute Environments, Scheduling Policies | ✔️| ✔️| ✔️| Managed batch processing - Runs jobs on EC2/Fargate/Spot |
+| ★ API Gateway | Region | API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans | Optional | - | ✔️| Managed API service - Routing, throttling, auth, caching |
+| Lightsail | Region | Instance Plans, Blueprints, Static IP, Snapshots, Load Balancer, Databases | VPC Peering | Firewall | Limited | Simplified VPS - Bundled compute, storage, networking with predictable pricing |
 
 ## Storage
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
@@ -73,14 +78,6 @@
 | AWS CodeGuru
 | AWS Health Dashboard
 
-## Deployment
-AWS Cloud Development Kit (CDK)
-| AWS CloudFormation
-| AWS Elastic Beanstalk    PaaS
-| AWS Systems Manager (SSM)
-| AWS CodeBuild
-| AWS CodePipeline
-
 ## Global
 | Amazon Route 53
 | Amazon CloudFront
@@ -96,6 +93,15 @@ AWS Cloud Development Kit (CDK)
 | Amazon MQ
 
 | Amazon VPC
+| AWS PrivateLink
+| AWS VPN
+| AWS Site-to-Site VPN
+| AWS Client VPN
+| AWS Direct Connect
+| AWS Transit Gateway
+
+| AWS Shield
+| AWS WAF
 
 | AWS IAM Identity Center
 | AWS Fargate
@@ -104,162 +110,58 @@ AWS Cloud Development Kit (CDK)
 
 ---
 
-| Amazon OpenSearch Service
-| AWS Step Functions
-| Amazon Connect
-| Amazon Simple Email Service (Amazon SES)
-| AWS Marketplace
-| AWS Support
-| AWS CLI
-| Amazon AppStream 2.0
-| Amazon WorkSpaces
-| Amazon WorkSpaces Secure Browser
 | AWS Amplify
 | AWS AppSync
+| AWS Application Discovery Service
+| AWS Application Migration Service
+| AWS Artifact
+| AWS Audit Manager
+| AWS Backup
+| AWS CLI
+| AWS Certificate Manager (ACM)
+| AWS CloudHSM
+| AWS Compute Optimizer
+| AWS Config
+| AWS Control Tower
+| AWS Directory Service
+| AWS Elastic Disaster Recovery
+| AWS Firewall Manager
 | AWS IoT Core
+| AWS Key Management Service (AWS KMS)
+| AWS License Manager
+| AWS Management Console
+| AWS Marketplace
+| AWS Migration Hub
+| AWS Organizations
+| AWS Resource Access Manager (AWS RAM)
+| AWS Schema Conversion Tool (AWS SCT)
+| AWS Secrets Manager
+| AWS Security Hub
+| AWS Service Catalog
+| AWS Step Functions
+| AWS Support
+| AWS Trusted Advisor
+| AWS Well-Architected Tool
+| Amazon AppStream 2.0
+| Amazon Cognito
 | Amazon Comprehend
+| Amazon Connect
+| Amazon Detective
+| Amazon GuardDuty
+| Amazon Inspector
 | Amazon Kendra
 | Amazon Lex
+| Amazon Macie
+| Amazon OpenSearch Service
 | Amazon Polly
 | Amazon Q
 | Amazon Rekognition
 | Amazon SageMaker AI
+| Amazon Simple Email Service (Amazon SES)
 | Amazon Textract
 | Amazon Transcribe
 | Amazon Translate
-| AWS Compute Optimizer
-| AWS Config
-| AWS Control Tower
-| AWS License Manager
-| AWS Management Console
-| AWS Organizations
-| AWS Service Catalog
-| Service Quotas
-| AWS Trusted Advisor
-| AWS Well-Architected Tool
-| AWS Application Discovery Service
-| AWS Application Migration Service
+| Amazon WorkSpaces
+| Amazon WorkSpaces Secure Browser
 | Migration Evaluator
-| AWS Migration Hub
-| AWS Schema Conversion Tool (AWS SCT)
-| AWS Direct Connect
-| AWS PrivateLink
-| AWS Transit Gateway
-| AWS VPN
-| AWS Site-to-Site VPN
-| AWS Client VPN
-| AWS Artifact
-| AWS Audit Manager
-| AWS Certificate Manager (ACM)
-| AWS CloudHSM
-| Amazon Cognito
-| Amazon Detective
-| AWS Directory Service
-| AWS Firewall Manager
-| Amazon GuardDuty
-| Amazon Inspector
-| AWS Key Management Service (AWS KMS)
-| Amazon Macie
-| AWS Resource Access Manager (AWS RAM)
-| AWS Secrets Manager
-| AWS Security Hub
-| AWS Shield
-| AWS WAF
-| AWS Backup
-| AWS Elastic Disaster Recovery
-
----
-
-  1. Serverless Architecture (Most Common for Modern Apps)
-
-  Mobile App
-      ↓ (HTTPS/REST)
-  Amazon API Gateway
-      ↓
-  AWS Lambda Functions
-      ↓
-  ├─→ Amazon RDS/Aurora (relational data)
-  ├─→ DynamoDB (NoSQL data)
-  ├─→ S3 (file storage)
-  ├─→ ElastiCache (caching)
-  └─→ Other AWS Services
-
-  Key Components:
-  - API Gateway: Entry point, handles routing, throttling, authentication
-  - Lambda: Serverless compute for business logic
-  - DynamoDB/RDS: Data persistence
-  - S3: Media/file storage
-  - Cognito: User authentication/authorization
-  - CloudFront: CDN for static assets
-  - SQS/SNS: Async messaging and notifications
-
-  Advantages:
-  - Pay per request (cost-effective)
-  - Auto-scaling
-  - No server management
-  - High availability built-in
-
-  2. Container-based Microservices
-
-  Mobile App
-      ↓ (HTTPS/REST)
-  Application Load Balancer
-      ↓
-  ECS/EKS (Docker containers)
-      ↓
-  ├─→ Microservice 1 (User Service)
-  ├─→ Microservice 2 (Content Service)
-  ├─→ Microservice 3 (Payment Service)
-      ↓
-  RDS/DynamoDB/S3
-
-  Key Components:
-  - ECS/EKS: Container orchestration
-  - ALB: Load balancing
-  - ECR: Container registry
-  - RDS/Aurora: Database clusters
-  - ElastiCache: Redis/Memcached for caching
-
-  Use when: Higher traffic, complex services, need more control
-
-  3. Hybrid Architecture (Very Common)
-
-  Combines serverless for lightweight operations with containers for heavier
-  workloads:
-
-  Mobile App
-      ↓
-  API Gateway + ALB
-      ↓
-  ├─→ Lambda (auth, simple CRUD)
-  └─→ ECS/Fargate (complex processing, long-running tasks)
-      ↓
-  Shared data layer (RDS, DynamoDB, S3)
-
-  Common Patterns Across All Architectures:
-
-  Security Layer:
-  - WAF (Web Application Firewall)
-  - Cognito User Pools or custom auth
-  - IAM roles and policies
-  - Secrets Manager for credentials
-
-  Observability:
-  - CloudWatch (logs, metrics, alarms)
-  - X-Ray (distributed tracing)
-  - CloudTrail (audit logs)
-
-  Data Layer:
-  - Primary DB: RDS (PostgreSQL/MySQL) or Aurora
-  - NoSQL: DynamoDB for high-scale key-value data
-  - Cache: ElastiCache (Redis)
-  - Storage: S3 for media files
-
-  Additional Services:
-  - SES (email)
-  - SNS (push notifications via FCM/APNS)
-  - SQS (job queues)
-  - EventBridge (event-driven workflows)
-
-  Best Practice: Multi-Environment Setup
-
+| Service Quotas
