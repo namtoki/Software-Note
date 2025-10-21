@@ -14,13 +14,16 @@
 | IAM | Global | User Groups, User, Roles,,, | - | - | - | AWS Identity and Access Management |
 | Budgets | Global | Budgets | - | - | - |  |
 
-## Infrastructure As a Code
-| AWS Cloud Development Kit (CDK)
-| AWS CloudFormation
+
+## IaC
+- AWS Cloud Development Kit (CDK)
+- AWS CloudFormation
+
 | AWS Elastic Beanstalk    PaaS
 | AWS Systems Manager (SSM)
 | AWS CodeBuild
 | AWS CodePipeline
+
 ## Computing
 
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
