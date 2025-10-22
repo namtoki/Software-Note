@@ -8,6 +8,25 @@
     - `arn:aws:iam::123456789012:user/john`
       - partition: 通常は aws（中国リージョンは aws-cn、GovCloudは aws-us-gov）
 
+## Management
+- [Global] Compute Optimizer        EC2, Auto Scaling Groups, EBS volumes, Lambda, Aurora, RDS, ECS on Fargate, 14日以上設定課金
+- [Region] AWS Config               Record, Rule
+| AWS Organizations
+| AWS Control Tower
+| AWS License Manager
+| AWS Resource Access Manager (AWS RAM)
+| AWS Service Catalog
+| AWS Trusted Advisor
+| AWS Well-Architected Tool
+| Service Quotas
+
+## IaC
+- AWS Cloud Development Kit (CDK)
+- AWS CloudFormation
+
+## PaaS
+- AWS Elastic Beanstalk
+
 ## Organization
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
 | - | - | - | - | - | - | - |
@@ -15,11 +34,6 @@
 | Budgets | Global | Budgets | - | - | - |  |
 
 
-## IaC
-- AWS Cloud Development Kit (CDK)
-- AWS CloudFormation
-
-| AWS Elastic Beanstalk    PaaS
 | AWS Systems Manager (SSM)
 | AWS CodeBuild
 | AWS CodePipeline
@@ -113,58 +127,67 @@
 
 ---
 
-| AWS Amplify
-| AWS AppSync
-| AWS Application Discovery Service
-| AWS Application Migration Service
+## Security & Compliance
 | AWS Artifact
 | AWS Audit Manager
-| AWS Backup
-| AWS CLI
 | AWS Certificate Manager (ACM)
 | AWS CloudHSM
-| AWS Compute Optimizer
-| AWS Config
-| AWS Control Tower
-| AWS Directory Service
-| AWS Elastic Disaster Recovery
 | AWS Firewall Manager
-| AWS IoT Core
 | AWS Key Management Service (AWS KMS)
-| AWS License Manager
-| AWS Management Console
-| AWS Marketplace
-| AWS Migration Hub
-| AWS Organizations
-| AWS Resource Access Manager (AWS RAM)
-| AWS Schema Conversion Tool (AWS SCT)
 | AWS Secrets Manager
 | AWS Security Hub
-| AWS Service Catalog
-| AWS Step Functions
-| AWS Support
-| AWS Trusted Advisor
-| AWS Well-Architected Tool
-| Amazon AppStream 2.0
-| Amazon Cognito
-| Amazon Comprehend
-| Amazon Connect
 | Amazon Detective
 | Amazon GuardDuty
 | Amazon Inspector
+| Amazon Macie
+
+## AI/ML & Natural Language
+| Amazon Comprehend
 | Amazon Kendra
 | Amazon Lex
-| Amazon Macie
-| Amazon OpenSearch Service
 | Amazon Polly
 | Amazon Q
 | Amazon Rekognition
 | Amazon SageMaker AI
-| Amazon Simple Email Service (Amazon SES)
 | Amazon Textract
 | Amazon Transcribe
 | Amazon Translate
+
+## Migration Services
+| AWS Application Discovery Service
+| AWS Application Migration Service
+| AWS Migration Hub
+| AWS Schema Conversion Tool (AWS SCT)
+| Migration Evaluator
+
+## Development & Deployment
+| AWS Amplify
+| AWS CLI
+| AWS Management Console
+
+## End-User Computing
+| Amazon AppStream 2.0
 | Amazon WorkSpaces
 | Amazon WorkSpaces Secure Browser
-| Migration Evaluator
-| Service Quotas
+
+## Disaster Recovery & Backup
+| AWS Backup
+| AWS Elastic Disaster Recovery
+
+## Identity & Access
+| AWS Directory Service
+| Amazon Cognito
+
+## API & Integration
+| AWS AppSync
+| AWS Step Functions
+
+## Communication
+| Amazon Simple Email Service (Amazon SES)
+| Amazon Connect
+
+## Other
+| AWS IoT Core
+| AWS Marketplace
+| AWS Support
+| Amazon OpenSearch Service
