@@ -13,16 +13,23 @@
 - [Global] AWS Organizations                複数アカウント
 - [Global] AWS IAM                          (Identity and Access Management) User Groups, User, Roles
 
+## Cost & Budgets
+| AWS IAM Identity Center
+| AWS Cost and Usage Reports
+| AWS Cost Explorer
+
 ## Resource Management
+### 最適化提案
 - [Global] AWS Compute Optimizer            EC2, Auto Scaling Groups, EBS volumes, Lambda, Aurora, RDS, ECS on Fargate, 14日以上設定課金
+### 監査
+- [Global] AWS Trusted Advisor              AWSのベストプラクティスに基づいてアカウントを分析し、改善提案を行う自動アドバイザリーサービス
+- [Global] AWS Well-Architected Tool        AWSワークロードをWell-Architectedフレームワークに基づいて評価・改善するための無料のセルフサービスツール
 - [Region] AWS Config                       「どのリソースが、いつ、どう変更されたか」を追跡, セキュリティとコンプライアンスのための構成監査
 - [Region] AWS License Manager              ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
+### 統制＆コントロール
 - [Region] AWS Resource Access Manager      (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
-
-| AWS Service Catalog
-| AWS Trusted Advisor
-| AWS Well-Architected Tool
-| Service Quotas
+- [Region] AWS Service Catalog              組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
+- [Region] Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 
 ## Security & Compliance
 | AWS Artifact
@@ -66,6 +73,7 @@
 | AWS CodePipeline
 
 ## Computing
+AWS Fargate
 
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
 | - | - | - | - | - | - | - |
@@ -146,11 +154,6 @@
 
 | AWS Shield
 | AWS WAF
-
-| AWS IAM Identity Center
-| AWS Fargate
-| AWS Cost and Usage Reports
-| AWS Cost Explorer
 
 ---
 
