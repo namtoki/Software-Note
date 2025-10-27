@@ -1,6 +1,7 @@
 # AWS
 
 ## Terminology
+- AWS Management Console
 - ARN (Amazon Resource Name):
   - format: `arn:partition:service:region:account-id:resource-type/resource-id`
     - `arn:aws:s3:::my-bucket/file.txt`
@@ -11,12 +12,31 @@
 ## Account
 - [Region] AWS Control Tower                ホームリージョンで管理しますが、複数のリージョンにまたがってガバナンスを適用できます
 - [Global] AWS Organizations                複数アカウント
+- [Global] AWS IAM Identity Center          シングルサインオン (SSO), マルチアカウント管理
 - [Global] AWS IAM                          (Identity and Access Management) User Groups, User, Roles
 
 ## Cost & Budgets
-| AWS IAM Identity Center
-| AWS Cost and Usage Reports
-| AWS Cost Explorer
+- [Global] AWS Cost and Usage Reports
+- [Global] AWS Cost Explorer
+
+## Compliance
+- [Global] AWS Artifact                     AWS のコンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
+- [Global] AWS Audit Manager                監査準備とコンプライアンス評価を自動化・簡素化するサービス
+
+## CLI & IaC
+- [Region] AWS CLI
+- [Region] AWS Cloud Development Kit (CDK)
+- [Region] AWS CloudFormation
+
+## All-in
+### BaaS
+- [Region] AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
+### PaaS
+- [Region] AWS Elastic Beanstalk
+
+## Identity & Access
+- [Region] AWS Directory Service            Microsoft Active Directory（AD）の機能を AWS クラウド内で提供するマネージドサービス
+- [Region] Amazon Cognito                   Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
 
 ## Resource Management
 ### 最適化提案
@@ -31,9 +51,9 @@
 - [Region] AWS Service Catalog              組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 - [Region] Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 
-## Security & Compliance
-| AWS Artifact
-| AWS Audit Manager
+---
+
+## Security
 | AWS Certificate Manager (ACM)
 | AWS CloudHSM
 | AWS Firewall Manager
@@ -44,29 +64,6 @@
 | Amazon GuardDuty
 | Amazon Inspector
 | Amazon Macie
-
-## Development & Deployment
-| AWS Amplify
-| AWS CLI
-| AWS Management Console
-
-## Identity & Access
-| AWS Directory Service
-| Amazon Cognito
-
-
-## IaC
-- AWS Cloud Development Kit (CDK)
-- AWS CloudFormation
-
-## PaaS
-- AWS Elastic Beanstalk
-
-## Organization
-| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
-| - | - | - | - | - | - | - |
-| Budgets | Global | Budgets | - | - | - |  |
-
 
 | AWS Systems Manager (SSM)
 | AWS CodeBuild
