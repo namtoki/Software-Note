@@ -51,24 +51,6 @@
 - [Region] AWS Service Catalog              組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 - [Region] Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 
----
-
-## Security
-| AWS Certificate Manager (ACM)
-| AWS CloudHSM
-| AWS Firewall Manager
-| AWS Key Management Service (AWS KMS)
-| AWS Secrets Manager
-| AWS Security Hub
-| Amazon Detective
-| Amazon GuardDuty
-| Amazon Inspector
-| Amazon Macie
-
-| AWS Systems Manager (SSM)
-| AWS CodeBuild
-| AWS CodePipeline
-
 ## Computing
 AWS Fargate
 
@@ -119,6 +101,24 @@ AWS Fargate
 | QuickSight | Region | Dashboards, Datasets, SPICE Capacity, Edition (Standard/Enterprise) | ✔️ | - | ✔️ | Business intelligence and data visualization service |
 
 
+---
+
+## Security
+| AWS Certificate Manager (ACM)
+| AWS CloudHSM
+| AWS Firewall Manager
+| AWS Key Management Service (AWS KMS)
+| AWS Secrets Manager
+| AWS Security Hub
+| Amazon Detective
+| Amazon GuardDuty
+| Amazon Inspector
+| Amazon Macie
+
+| AWS Systems Manager (SSM)
+| AWS CodeBuild
+| AWS CodePipeline
+
 ## Monitoring
 | Amazon CloudWatch
 | Amazon EventBridge
@@ -151,8 +151,6 @@ AWS Fargate
 
 | AWS Shield
 | AWS WAF
-
----
 
 ## AI/ML & Natural Language
 | Amazon Comprehend
