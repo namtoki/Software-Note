@@ -27,12 +27,9 @@
 - [Region] AWS CLI
 - [Region] AWS Cloud Development Kit (CDK)
 - [Region] AWS CloudFormation
-
-## All-in
-### BaaS
-- [Region] AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
-### PaaS
-- [Region] AWS Elastic Beanstalk
+- [Region] AWS Systems Manager (SSM)        AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
+- [Region] AWS CodeBuild                    ソースコードをコンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する CI サービス
+- [Region] AWS CodePipeline                 ソフトウェアのリリースプロセスを自動化するフルマネージドな継続的デリバリー（CD）サービス
 
 ## Identity & Access
 - [Region] AWS Directory Service            Microsoft Active Directory（AD）の機能を AWS クラウド内で提供するマネージドサービス
@@ -50,26 +47,37 @@
 - [Region] AWS Resource Access Manager      (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
 - [Region] AWS Service Catalog              組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 - [Region] Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
+### BaaS
+- [Region] AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
+### PaaS
+- [Region] AWS Elastic Beanstalk
 
 ## Computing
-AWS Fargate
+- [Region] EC2                              AMI, Instance Type, Key Pair, Instance Store, User Data
+  - Instance Store                        Temporary
+  - Auto Scaling                          Auto Scaling Group (ASG), Scaling Policy
+  - Image Builder
+  - Load Balancer
+  - Auto Scaling
+- [Region] AWS Fargate                      サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
+- [Region] ECS                              (Elastic Container Service)
+  - ECR                                   (Elastic Container Registry)
+  - EKS                                   (Elastic Kubernetes Service - Managed Kubernetes) Cluster, Node Groups, Fargate Profiles
+- [Region] EBS                              (Elastic Block Store) Volume Type, Size, IOPS, Snapshot ID, Encryption
+- [Region] Lambda                           Runtime, Memory, Timeout, Handler, Layers, Triggers
+- [Region] Batch                            Managed batch processing - Runs jobs on EC2/Fargate/Spot
+- [Region] API Gateway                      API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans
+- [Region] Lightsail                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
 
-| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
-| - | - | - | - | - | - | - |
-| EC2 | AZ | AMI, Instance Type, Key Pair, Instance Store, User Data  | ✔️| ✔️| ✔️|  |
-| ECS | AZ | Image | ✔️| ✔️| ✔️| Elastic Container Service |
-| + Instance Store | AZ |  | | | | Temporary |
-| + EBS | AZ | Volume Type, Size, IOPS, Snapshot ID, Encryption | | | | Elastic Block Store |
-| + Auto Scaling | Region | Auto Scaling Group (ASG), Scaling Policy | | | |  |
-| + Image Builder | Region |  | | | |  |
-| + Load Balancer | Region |  | ✔️| ✔️| |  |
-| + Auto Scaling | Region |  | ✔️| ✔️| |  |
-| + ECR |  |  |  |  | |  Elastic Container Registry |
-| + EKS | Region | Cluster, Node Groups, Fargate Profiles | ✔️| ✔️| ✔️| Elastic Kubernetes Service - Managed Kubernetes |
-| ★ Lambda | Region | Runtime, Memory, Timeout, Handler, Layers, Triggers | Optional | Optional | ✔️| Serverless compute - Event-driven, pay per invocation |
-| Batch | Region | Job Definitions, Job Queues, Compute Environments, Scheduling Policies | ✔️| ✔️| ✔️| Managed batch processing - Runs jobs on EC2/Fargate/Spot |
-| ★ API Gateway | Region | API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans | Optional | - | ✔️| Managed API service - Routing, throttling, auth, caching |
-| Lightsail | Region | Instance Plans, Blueprints, Static IP, Snapshots, Load Balancer, Databases | VPC Peering | Firewall | Limited | Simplified VPS - Bundled compute, storage, networking with predictable pricing |
+## Inter-Communication
+- [Region] Amazon SQS                       (Amazon Simple Queue Service)
+- [Region] Amazon SNS                       (Amazon Simple Notification Service)
+- [Region] Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
+- [Region] Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
+
+## Communication
+| Amazon Simple Email Service (Amazon SES)
+| Amazon Connect
 
 ## Storage
 | Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
@@ -104,92 +112,78 @@ AWS Fargate
 ---
 
 ## Security
-| AWS Certificate Manager (ACM)
-| AWS CloudHSM
-| AWS Firewall Manager
-| AWS Key Management Service (AWS KMS)
-| AWS Secrets Manager
-| AWS Security Hub
-| Amazon Detective
-| Amazon GuardDuty
-| Amazon Inspector
-| Amazon Macie
-
-| AWS Systems Manager (SSM)
-| AWS CodeBuild
-| AWS CodePipeline
+- AWS Certificate Manager (ACM)
+- AWS CloudHSM
+- AWS Firewall Manager
+- AWS Key Management Service (AWS KMS)
+- AWS Secrets Manager
+- AWS Security Hub
+- Amazon Detective
+- Amazon GuardDuty
+- Amazon Inspector
+- Amazon Macie
 
 ## Monitoring
-| Amazon CloudWatch
-| Amazon EventBridge
-| AWS CloudTrail
-| AWS X-Ray
-| AWS CodeGuru
-| AWS Health Dashboard
+- Amazon CloudWatch
+- Amazon EventBridge
+- AWS CloudTrail
+- AWS X-Ray
+- AWS CodeGuru
+- AWS Health Dashboard
 
 ## Global
-| Amazon Route 53
-| Amazon CloudFront
-| AWS Global Accelerator
-| AWS Outposts
-| AWS WaveLength
-| AWS Local Zones
+- Amazon Route 53
+- Amazon CloudFront
+- AWS Global Accelerator
+- AWS Outposts
+- AWS WaveLength
+- AWS Local Zones
 
-## Comm
-| Amazon Simple Queue Service (Amazon SQS)
-| Amazon Kinesis
-| Amazon Simple Notification Service (Amazon SNS)
-| Amazon MQ
+- Amazon VPC
+- AWS PrivateLink
+- AWS VPN
+- AWS Site-to-Site VPN
+- AWS Client VPN
+- AWS Direct Connect
+- AWS Transit Gateway
 
-| Amazon VPC
-| AWS PrivateLink
-| AWS VPN
-| AWS Site-to-Site VPN
-| AWS Client VPN
-| AWS Direct Connect
-| AWS Transit Gateway
-
-| AWS Shield
-| AWS WAF
+- AWS Shield
+- AWS WAF
 
 ## AI/ML & Natural Language
-| Amazon Comprehend
-| Amazon Kendra
-| Amazon Lex
-| Amazon Polly
-| Amazon Q
-| Amazon Rekognition
-| Amazon SageMaker AI
-| Amazon Textract
-| Amazon Transcribe
-| Amazon Translate
+- Amazon Comprehend
+- Amazon Kendra
+- Amazon Lex
+- Amazon Polly
+- Amazon Q
+- Amazon Rekognition
+- Amazon SageMaker AI
+- Amazon Textract
+- Amazon Transcribe
+- Amazon Translate
 
 ## Migration Services
-| AWS Application Discovery Service
-| AWS Application Migration Service
-| AWS Migration Hub
-| AWS Schema Conversion Tool (AWS SCT)
-| Migration Evaluator
+- AWS Application Discovery Service
+- AWS Application Migration Service
+- AWS Migration Hub
+- AWS Schema Conversion Tool (AWS SCT)
+- Migration Evaluator
 
 ## End-User Computing
-| Amazon AppStream 2.0
-| Amazon WorkSpaces
-| Amazon WorkSpaces Secure Browser
+- Amazon AppStream 2.0
+- Amazon WorkSpaces
+- Amazon WorkSpaces Secure Browser
 
 ## Disaster Recovery & Backup
-| AWS Backup
-| AWS Elastic Disaster Recovery
+- AWS Backup
+- AWS Elastic Disaster Recovery
 
 ## API & Integration
-| AWS AppSync
-| AWS Step Functions
-
-## Communication
-| Amazon Simple Email Service (Amazon SES)
-| Amazon Connect
+- AWS AppSync
+- AWS Step Functions
 
 ## Other
-| AWS IoT Core
-| AWS Marketplace
-| AWS Support
-| Amazon OpenSearch Service
+- AWS IoT Core
+- AWS Marketplace
+- AWS Support
+- Amazon OpenSearch Service
