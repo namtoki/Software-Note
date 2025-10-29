@@ -31,10 +31,6 @@
 - [Region] AWS CodeBuild                    ソースコードをコンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する CI サービス
 - [Region] AWS CodePipeline                 ソフトウェアのリリースプロセスを自動化するフルマネージドな継続的デリバリー（CD）サービス
 
-## Identity & Access
-- [Region] AWS Directory Service            Microsoft Active Directory（AD）の機能を AWS クラウド内で提供するマネージドサービス
-- [Region] Amazon Cognito                   Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
-
 ## Resource Management
 ### 最適化提案
 - [Global] AWS Compute Optimizer            EC2, Auto Scaling Groups, EBS volumes, Lambda, Aurora, RDS, ECS on Fargate, 14日以上設定課金
@@ -51,6 +47,38 @@
 - [Region] AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
 ### PaaS
 - [Region] AWS Elastic Beanstalk
+### BI
+- [Region] QuickSight                       Business intelligence and data visualization service |
+
+## Identity & Access
+- [Region] AWS Directory Service            Microsoft Active Directory（AD）の機能を AWS クラウド内で提供するマネージドサービス
+- [Region] Amazon Cognito                   Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
+
+## Localization
+- [-] AWS Outposts                          On-premises
+- [-] AWS Local Zones                       AWS サービスを主要都市圏の近くに配置するインフラストラクチャ
+- [-] AWS Wavelength                        AWSのコンピューティングとストレージサービスを5G通信事業者のネットワークエッジに組み込むサービス
+
+## Global Player
+- [Global] Amazon Route 53
+- [Global] Amazon CloudFront
+- [Global] Global Accelerator               TCP/UDPトラフィック向け、非HTTPアプリケーション対応
+- [Global] AWS Shield                       DDoS
+- [Global] AWS WAF                          (Web Application Firewall) SQLインジェクション、クロスサイトスクリプティング（XSS）、DDoS攻撃など
+
+## Regional Networking
+- [Region] Amazon VPC
+- [Region] AWS PrivateLink                  AWSサービス/VPC間のプライベート接続
+- [Region] AWS Site-to-Site VPN             オンプレミス⇔ AWS VPC
+- [Region] AWS Direct Connect               オンプレミス⇔ AWS専用線 (専用物理回線)
+- [Region] AWS Client VPN                   リモートユーザー(個人デバイス) ⇔ AWS VPC
+- [Region] AWS Transit Gateway              複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
+
+## Inter-Communication
+- [Region] Amazon SQS                       (Amazon Simple Queue Service)
+- [Region] Amazon SNS                       (Amazon Simple Notification Service)
+- [Region] Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
+- [Region] Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 
 ## Computing
 - [Region] EC2                              AMI, Instance Type, Key Pair, Instance Store, User Data
@@ -69,45 +97,31 @@
 - [Region] API Gateway                      API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans
 - [Region] Lightsail                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
 
-## Inter-Communication
-- [Region] Amazon SQS                       (Amazon Simple Queue Service)
-- [Region] Amazon SNS                       (Amazon Simple Notification Service)
-- [Region] Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
-- [Region] Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
-
-## Communication
-| Amazon Simple Email Service (Amazon SES)
-| Amazon Connect
-
 ## Storage
-| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
-| - | - | - | - | - | - | - |
-| FSx | AZ | Capacity | ✔️| ✔️|  | Amazon FSx |
-| EFS | AZ | Auto-Scaling | ✔️| ✔️|  | Amazon Elastic File System |
-| S3 | Region | Bucket Name, Versioning, Encryption, Storage Class | - | - | Bucket Policy | Simple Storage Service |
-| S3 Glacier | Region | Vault Name, Archive, Retrieval Options | - | - | Vault Access Policy | Long-term archival storage |
-| + Snowcone | Physical | 8-14 TB Storage, 2 vCPUs, 4 GB Memory | - | - | - | Smallest device, edge computing, 9 lbs |
-| + Snowball Edge Storage | Physical | 80 TB Storage, 40 vCPUs, 80 GB Memory | - | - | - | Large data migrations |
-| + Snowball Edge Compute | Physical | 28 TB NVMe, 104 vCPUs, 416 GB Memory, GPU | - | - | - | ML, video processing |
-| + Snowmobile | Physical | 100 PB per truck | - | - | - | Exabyte-scale migrations, 45-ft container |
-| + Storage Gateway | Hybrid | Gateway Type (File/FSx/Volume/Tape) | ✔️ | ✔️ | ✔️ | Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier) |
-| RDS | Region | Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server), Instance Class, Storage Type | ✔️ | ✔️ | ✔️ | Relational Database Service - Managed database |
-| Aurora | Region | Engine (MySQL/PostgreSQL), Deployment (Provisioned/Serverless v2/Global), Instance Class, Replicas | ✔️ | ✔️ | ✔️ | Cloud-native relational DB, 5x MySQL/3x PostgreSQL performance |
-| ElastiCache | Region | Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode | ✔️ | ✔️ | ✔️ | In-memory caching service for performance |
-| DynamoDB | Region | Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables | ✔️ | - | ✔️ | NoSQL key-value/document database |
-| Redshift | Region | Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned | ✔️ | ✔️ | ✔️ | Petabyte-scale data warehouse for analytics |
-| DocumentDB | Region | Cluster Configuration, Instance Class, Number of Replicas (up to 15), Storage Auto-Scaling | ✔️ | ✔️ | ✔️ | MongoDB-compatible document database |
-| Neptune | Region | Cluster Configuration, Instance Class, Graph Model (Property/RDF), Query Language (Gremlin/SPARQL) | ✔️ | ✔️ | ✔️ | Graph database for highly connected data |
-| EMR | Region | Cluster Configuration, Framework (Spark/Hadoop/Presto/Hive), Instance Types, Auto-Scaling | ✔️ | ✔️ | ✔️ | Elastic MapReduce - Big data processing platform |
-| Athena | Region | Workgroup, Data Catalog, Query Result Location (S3) | - | - | ✔️ | Serverless SQL queries on S3 data |
-| Glue | Region | Crawlers, Data Catalog, ETL Jobs, Job Triggers, Development Endpoints, DataBrew Recipes | ✔️ | ✔️ | ✔️ | Serverless ETL and data catalog service |
-| DMS | Region | Replication Instance, Source/Target Endpoints, Migration Tasks, CDC, Multi-AZ | ✔️ | ✔️ | ✔️ | Database Migration Service |
+- [AZ] Amazon FSx                           Capacity
+- [AZ] Amazon EFS                           (Elastic File System) Auto-Scaling
+- [Region] Amazon S3                        (Simple Storage Service) Bucket Name, Versioning, Encryption, Storage Class
+- [Region] Amazon S3 Glacier                Long-term archival storage, Vault Name, Archive, Retrieval Options
+- [Physical] AWS Snowcone                   8-14 TB Storage, 2 vCPUs, 4 GB Memory, Smallest device, edge computing, 9 lbs
+- [Physical] AWS Snowball Edge Storage      80 TB Storage, 40 vCPUs, 80 GB Memory, Large data migrations
+- [Physical] AWS Snowball Edge Compute      28 TB NVMe, 104 vCPUs, 416 GB Memory, GPU, ML, video processing
+- [Physical] AWS Snowmobile                 100 PB per truck, Exabyte-scale migrations, 45-ft container
+- [Hybrid] AWS Storage Gateway              Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier), Gateway Type (File/FSx/Volume/Tape)
+- [Region] Amazon RDS                       (Relational Database Service) Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server), Instance Class, Storage Type
+- [Region] Amazon Aurora                    Cloud-native relational DB, 5x MySQL/3x PostgreSQL performance, Engine (MySQL/PostgreSQL), Deployment (Provisioned/Serverless v2/Global)
+- [Region] Amazon ElastiCache               In-memory caching service for performance, Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode
+- [Region] Amazon DynamoDB                  NoSQL key-value/document database, Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables
+- [Region] Amazon Redshift                  Petabyte-scale data warehouse for analytics, Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned
+- [Region] Amazon DocumentDB                MongoDB-compatible document database, Cluster Configuration, Instance Class, Number of Replicas (up to 15), Storage Auto-Scaling
+- [Region] Amazon Neptune                   Graph database for highly connected data, Cluster Configuration, Instance Class, Graph Model (Property/RDF), Query Language (Gremlin/SPARQL)
+- [Region] Amazon EMR                       (Elastic MapReduce) Big data processing platform, Cluster Configuration, Framework (Spark/Hadoop/Presto/Hive), Instance Types, Auto-Scaling
+- [Region] Amazon Athena                    Serverless SQL queries on S3 data, Workgroup, Data Catalog, Query Result Location (S3)
+- [Region] AWS Glue                         Serverless ETL and data catalog service, Crawlers, Data Catalog, ETL Jobs, Job Triggers, Development Endpoints, DataBrew Recipes
+- [Region] AWS DMS                          (Database Migration Service) Replication Instance, Source/Target Endpoints, Migration Tasks, CDC, Multi-AZ
 
-## BI
-| Service | Where | Parameters | VPC | Security Group | IAM Role | Note |
-| - | - | - | - | - | - | - |
-| QuickSight | Region | Dashboards, Datasets, SPICE Capacity, Edition (Standard/Enterprise) | ✔️ | - | ✔️ | Business intelligence and data visualization service |
-
+## Others
+- [Region] Amazon Connect                   電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
+- [Region] Amazon SES                       (Simple Email Service) Transaction mail から Marketing mail まで、あらゆるタイプのメール送信を低コストで実現できる
 
 ---
 
@@ -130,25 +144,6 @@
 - AWS X-Ray
 - AWS CodeGuru
 - AWS Health Dashboard
-
-## Global
-- Amazon Route 53
-- Amazon CloudFront
-- AWS Global Accelerator
-- AWS Outposts
-- AWS WaveLength
-- AWS Local Zones
-
-- Amazon VPC
-- AWS PrivateLink
-- AWS VPN
-- AWS Site-to-Site VPN
-- AWS Client VPN
-- AWS Direct Connect
-- AWS Transit Gateway
-
-- AWS Shield
-- AWS WAF
 
 ## AI/ML & Natural Language
 - Amazon Comprehend
