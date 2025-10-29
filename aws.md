@@ -30,8 +30,11 @@
 - [Region] AWS Systems Manager (SSM)        AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
 - [Region] AWS CodeBuild                    ソースコードをコンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する CI サービス
 - [Region] AWS CodePipeline                 ソフトウェアのリリースプロセスを自動化するフルマネージドな継続的デリバリー（CD）サービス
+⏺ [Region] AWS Step Functions               複数の AWS サービスを組み合わせて、ワークフローを構築・管理するためのサーバーレスオーケストレーションサービス
 
 ## Resource Management
+## Support
+- [Global] AWS Support                      インフラ、サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど、様々なレベルのサポートを提供
 ### 最適化提案
 - [Global] AWS Compute Optimizer            EC2, Auto Scaling Groups, EBS volumes, Lambda, Aurora, RDS, ECS on Fargate, 14日以上設定課金
 ### 監査
@@ -47,8 +50,15 @@
 - [Region] AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
 ### PaaS
 - [Region] AWS Elastic Beanstalk
+### Store
+⏺ [Global] AWS Marketplace                  AWS 上で実行する Software を検索/購入/Deploy できるデジタルカタログ。サードパーティベンダー製品を簡単に調達・利用
 ### BI
 - [Region] QuickSight                       Business intelligence and data visualization service |
+### Backup
+⏺ [Region] AWS Elastic Disaster Recovery    (AWS DRS) 物理、仮想、Cloud Base Server を AWS に継続的にレプリケートし、迅速な災害復旧を実現するマネージドサービス
+
+## Monitoring
+⏺ [Region] Amazon OpenSearch Service        AWSが提供するフルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
 
 ## Identity & Access
 - [Region] AWS Directory Service            Microsoft Active Directory（AD）の機能を AWS クラウド内で提供するマネージドサービス
@@ -94,7 +104,6 @@
 - [Region] EBS                              (Elastic Block Store) Volume Type, Size, IOPS, Snapshot ID, Encryption
 - [Region] Lambda                           Runtime, Memory, Timeout, Handler, Layers, Triggers
 - [Region] Batch                            Managed batch processing - Runs jobs on EC2/Fargate/Spot
-- [Region] API Gateway                      API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans
 - [Region] Lightsail                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
 
 ## Storage
@@ -102,6 +111,7 @@
 - [AZ] Amazon EFS                           (Elastic File System) Auto-Scaling
 - [Region] Amazon S3                        (Simple Storage Service) Bucket Name, Versioning, Encryption, Storage Class
 - [Region] Amazon S3 Glacier                Long-term archival storage, Vault Name, Archive, Retrieval Options
+- [Region] Amazon Macie                     Amazon S3内の機密データを自動的に検出・分類・保護
 - [Physical] AWS Snowcone                   8-14 TB Storage, 2 vCPUs, 4 GB Memory, Smallest device, edge computing, 9 lbs
 - [Physical] AWS Snowball Edge Storage      80 TB Storage, 40 vCPUs, 80 GB Memory, Large data migrations
 - [Physical] AWS Snowball Edge Compute      28 TB NVMe, 104 vCPUs, 416 GB Memory, GPU, ML, video processing
@@ -118,10 +128,27 @@
 - [Region] Amazon Athena                    Serverless SQL queries on S3 data, Workgroup, Data Catalog, Query Result Location (S3)
 - [Region] AWS Glue                         Serverless ETL and data catalog service, Crawlers, Data Catalog, ETL Jobs, Job Triggers, Development Endpoints, DataBrew Recipes
 - [Region] AWS DMS                          (Database Migration Service) Replication Instance, Source/Target Endpoints, Migration Tasks, CDC, Multi-AZ
+- [Region] AWS Backup                       AWSサービス全体のバックアップを一元管理できるフルマネージド型のバックアップサービス
+
+## API
+- [Region] API Gateway                      API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans
+- [Region] AWS AppSync                      GraphQLを使用して、 Mobile, Web App 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
+
+## Remote
+⏺ [Resion] Amazon AppStream 2.0             Windows Desktop App を Web ブラウザ経由でストリーミング配信するフルマネージド型のアプリケーション仮想化サービス
+⏺ [Region] Amazon WorkSpaces                フルマネージド型の仮想デスクトップサービス（DaaS）。クラウド上でWindows/Linuxデスクトップ環境を提供
+- [-] Amazon WorkSpaces Secure Browser      フルマネージド型のセキュアWebブラウジングサービス。クラウド上で動作する専用ブラウザ環境を提供
 
 ## Others
 - [Region] Amazon Connect                   電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
 - [Region] Amazon SES                       (Simple Email Service) Transaction mail から Marketing mail まで、あらゆるタイプのメール送信を低コストで実現できる
+- [Region] Amazon IoT Core                  AWSが提供するフルマネージド型のIoTプラットフォームサービス
+⏺ [Region] Amazon Polly                     AWSが提供するテキスト読み上げ（Text-to-Speech, TTS）サービス
+⏺ [Region] Amazon Translate                 AWSが提供するニューラル機械翻訳サービス
+⏺ [Region] Amazon Q                         AWSが提供する生成AI搭載のビジネス向けアシスタント
+- [Region] Amazon Lex                       Alexaの技術を活用した、スケーラブルで高性能な会話型AIプラットフォーム。
+- [Region] Amazon Kendra                    Googleのような検索体験を企業内データに対して提供する、エンタープライズサーチのマネージドサービスです
+⏺ [Region] Amazon Transcribe                AWSが提供する自動音声認識（ASR: Automatic Speech Recognition）サービスです。
 
 ---
 
@@ -135,8 +162,6 @@
 - Amazon Detective
 - Amazon GuardDuty
 - Amazon Inspector
-- Amazon Macie
-
 ## Monitoring
 - Amazon CloudWatch
 - Amazon EventBridge
@@ -144,41 +169,14 @@
 - AWS X-Ray
 - AWS CodeGuru
 - AWS Health Dashboard
-
 ## AI/ML & Natural Language
 - Amazon Comprehend
-- Amazon Kendra
-- Amazon Lex
-- Amazon Polly
-- Amazon Q
 - Amazon Rekognition
 - Amazon SageMaker AI
 - Amazon Textract
-- Amazon Transcribe
-- Amazon Translate
-
 ## Migration Services
 - AWS Application Discovery Service
 - AWS Application Migration Service
 - AWS Migration Hub
 - AWS Schema Conversion Tool (AWS SCT)
 - Migration Evaluator
-
-## End-User Computing
-- Amazon AppStream 2.0
-- Amazon WorkSpaces
-- Amazon WorkSpaces Secure Browser
-
-## Disaster Recovery & Backup
-- AWS Backup
-- AWS Elastic Disaster Recovery
-
-## API & Integration
-- AWS AppSync
-- AWS Step Functions
-
-## Other
-- AWS IoT Core
-- AWS Marketplace
-- AWS Support
-- Amazon OpenSearch Service
