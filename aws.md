@@ -12,8 +12,8 @@
 ## Account
 - AWS Control Tower                     複数のリージョンにまたがってガバナンスを適用
 - AWS Organizations                     ==Global==
-- AWS IAM Identity Center               ==Global== シングルサインオン (SSO), マルチアカウント管理
-- IAM                                   ==Global== User Groups, User, Roles
+- `AWS IAM Identity Center` : ==!Global== / シングルサインオン (SSO), マルチアカウント管理
+- `AWS IAM` :                 ==!Global== / User Groups, User, Roles
 - Amazon WorkSpaces Secure Browser      フルマネージド型のセキュアWebブラウジングサービス。クラウド上で動作する専用ブラウザ環境を提供
 
 ## Cost & Budgets
@@ -22,10 +22,21 @@
 
 ## Compliance
 - AWS Artifact                     AWS のコンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
-- AWS Audit Manager                監査準備とコンプライアンス評価を自動化・簡素化するサービス
+- `AWS Audit Manager` : ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
+
+## Security
+- AWS Certificate Manager (ACM)
+- `AWS CloudHSM` : AWS 内で専有の FIPS 140-2 Level 3 認証を取得した==ハードウェアセキュリティモジュール==で、暗号鍵の生成、保管、管理
+- AWS Firewall Manager
+- AWS Key Management Service (AWS KMS)
+- AWS Secrets Manager
+- `AWS Security Hub` : 一元管理。==ダッシュボード==
+- Amazon Detective
+- `Amazon GuardDuty` : 異常な動作を継続的に監視・==検出== / 機械学習、異常検出、統合された脅威インテリジェンスを使用 / 従量課金
+- `Amazon Inspector` : EC2, コンテナ、Lambda を自動・継続的に==スキャン==、==脆弱性==や Network 到達可能性の問題を==予防== / 従量課金
 
 ## CLI & IaC
-- AWS CLI
+- `AWS CLI` : アクセスキー
 - AWS Cloud Development Kit (CDK)
 - AWS CloudFormation
 - AWS Systems Manager (SSM)        AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
@@ -35,10 +46,8 @@
 
 ## Resource Management
 - AWS Support                           ==Global== インフラ、サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど、サポートを提供
-### 最適化提案
-- AWS Compute Optimizer            EC2, Auto Scaling Groups, EBS volumes, Lambda, Aurora, RDS, ECS on Fargate, 14日以上設定課金
-### 監査
-- AWS Trusted Advisor                   ==Global== AWSのベストプラクティスに基づいてアカウントを分析し、改善提案を行う自動アドバイザリーサービス
+- `AWS Compute Optimizer` : ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
+- `AWS Trusted Advisor` :   ==!Global== / AWSの ==Best Practice== に基づいてアカウントを分析 改善提案を行う / ==SG のチェックも==
 - AWS Well-Architected Tool        AWSワークロードをWell-Architectedフレームワークに基づいて評価・改善するための無料のセルフサービスツール
 - AWS Config                       「どのリソースが、いつ、どう変更されたか」を追跡, セキュリティとコンプライアンスのための構成監査
 - AWS License Manager              ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
@@ -76,7 +85,7 @@
 
 ## Global Player
 - Amazon Route 53                       ==Global==
-- Amazon CloudFront                     ==Global==
+- `Amazon CloudFront` : ==!Global== / CDN
 - Global Accelerator                    ==Global== TCP/UDPトラフィック向け、非HTTPアプリケーション対応
 - AWS Shield                            ==Global== DDoS
 - AWS WAF (Web Application Firewall)    ==Global== SQLインジェクション、クロスサイトスクリプティング（XSS）、DDoS攻撃など
@@ -96,7 +105,7 @@
 - Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 
 ## Computing
-- EC2                              AMI, Instance Type, Key Pair, Instance Store, User Data
+- `EC2` :               AMI, Instance Type, Key Pair, Instance Store, User Data
   - Instance Store                        Temporary
   - Auto Scaling                          Auto Scaling Group (ASG), Scaling Policy
   - Image Builder
@@ -107,15 +116,15 @@
   - ECR                                   (Elastic Container Registry)
   - EKS                                   (Elastic Kubernetes Service - Managed Kubernetes) Cluster, Node Groups, Fargate Profiles
 - EBS                              (Elastic Block Store) Volume Type, Size, IOPS, Snapshot ID, Encryption
-- Lambda                           Runtime, Memory, Timeout, Handler, Layers, Triggers
+- `AWS Lambda`: Runtime, Memory, Timeout, Handler, Layers, Triggers
 - Batch                            Managed batch processing - Runs jobs on EC2/Fargate/Spot
 - Lightsail                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
 
 ## Storage
 - Amazon FSx                           Capacity
 - Amazon EFS                           (Elastic File System) Auto-Scaling
-- Amazon S3                        (Simple Storage Service) Bucket Name, Versioning, Encryption, Storage Class
-- Amazon S3 Glacier                Long-term archival storage, Vault Name, Archive, Retrieval Options
+- `Amazon S3` :         Bucket Name, Versioning, Encryption, Storage Class
+- `Amazon S3 Glacier` : Long-term archival storage, Vault Name, Archive, Retrieval Options
 - Amazon Macie                     Amazon S3内の機密データを自動的に検出・分類・保護
 - [Physical] AWS Snowcone                   8-14 TB Storage, 2 vCPUs, 4 GB Memory, Smallest device, edge computing, 9 lbs
 - [Physical] AWS Snowball Edge Storage      80 TB Storage, 40 vCPUs, 80 GB Memory, Large data migrations
@@ -123,7 +132,7 @@
 - [Physical] AWS Snowmobile                 100 PB per truck, Exabyte-scale migrations, 45-ft container
 - [Hybrid] AWS Storage Gateway              Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier), Gateway Type (File/FSx/Volume/Tape)
 - Amazon RDS                       (Relational Database Service) Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server), Instance Class, Storage Type
-- Amazon Aurora                    Cloud-native relational DB, 5x MySQL/3x PostgreSQL performance, Engine (MySQL/PostgreSQL), Deployment (Provisioned/Serverless v2/Global)
+- `Amazon Aurora` : Relational DB, 5x MySQL/3x PostgreSQL performance, Engine (MySQL/PostgreSQL)
 - Amazon ElastiCache               In-memory caching service for performance, Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode
 - Amazon DynamoDB                  NoSQL key-value/document database, Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables
 - Amazon Redshift                  Petabyte-scale data warehouse for analytics, Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned
@@ -139,9 +148,22 @@
 - API Gateway                      API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans
 - AWS AppSync                      GraphQLを使用して、 Mobile, Web App 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
 
+## AI / ML
+⏺ Amazon SageMaker AI   包括的な機械学習プラットフォーム。機械学習モデルの構築、トレーニング、デプロイまでのライフサイクル全体を管理
+⏺ Amazon Q              AWSが提供する生成AI搭載のビジネス向けアシスタント
+- `Amazon Kendra` :      Googleのような検索体験を企業内データに対して提供する、==エンタープライズサーチ==のマネージドサービス
+- `Amazon Lex` :         Chat
+⏺ `Amazon Rekognition` : 画像・動画分析
+⏺ `Amazon Textract` :    画像 --> Text
+⏺ `Amazon Transcribe` :  Speech --> Text
+⏺ `Amazon Translate` :   Text --> Text (翻訳)
+⏺ `Amazon Comprehend` :  Text --> Text (要約、抽出)
+⏺ `Amazon Polly` :       Text --> Speech
+⏺ Amazon CodeGuru       機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
+
 ## Remote
 ⏺ Amazon AppStream 2.0             Windows Desktop App を Web ブラウザ経由でストリーミング配信するフルマネージド型のアプリケーション仮想化サービス
-⏺ Amazon WorkSpaces                フルマネージド型の仮想デスクトップサービス（DaaS）。クラウド上でWindows/Linuxデスクトップ環境を提供
+⏺ `Amazon WorkSpaces` : フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
 - Amazon WorkSpaces Secure Browser      フルマネージド型のセキュアWebブラウジングサービス。クラウド上で動作する専用ブラウザ環境を提供
 
 ## Business
@@ -151,33 +173,9 @@
 ## IoT
 - Amazon IoT Core                  AWSが提供するフルマネージド型のIoTプラットフォームサービス
 
-## AI / ML
-⏺ Amazon SageMaker AI              包括的な機械学習プラットフォーム。機械学習モデルの構築、トレーニング、デプロイまでのライフサイクル全体を管理
-⏺ Amazon Q                         AWSが提供する生成AI搭載のビジネス向けアシスタント
-- Amazon Kendra                    Googleのような検索体験を企業内データに対して提供する、エンタープライズサーチのマネージドサービスです
-- Amazon Lex                       Chat
-⏺ Amazon Rekognition               画像・動画分析
-⏺ Amazon Textract                  画像 --> Text
-⏺ Amazon Transcribe                Speech --> Text
-⏺ Amazon Translate                 Text --> Text (翻訳)
-⏺ Amazon Comprehend                Text --> Text (要約、抽出)
-⏺ Amazon Polly                     Text --> Speech
-⏺ Amazon CodeGuru                  機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
-
 ## Migration Services
-- [us-west-2] Application Discovery Service オンプレミス環境のサーバー、アプリケーション、依存関係を自動検出し、AWS移行計画を支援するサービス
-- AWS Application Migration Service
-- AWS Migration Hub
+- AWS Migration Hub                 複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理できるサービス
+- Application Discovery Service     ==us-west-2== オンプレミス環境のサーバー、アプリケーション、依存関係を自動検出
+- AWS Application Migration Service 物理サーバー、仮想マシン、クラウドインスタンスを AWS に移行するためのリフトアンドシフト移行サービス
 - AWS Schema Conversion Tool (AWS SCT)
 - Migration Evaluator
-
-## Security
-- AWS Certificate Manager (ACM)
-- AWS CloudHSM
-- AWS Firewall Manager
-- AWS Key Management Service (AWS KMS)
-- AWS Secrets Manager
-- AWS Security Hub
-- Amazon Detective
-- Amazon GuardDuty
-- Amazon Inspector
