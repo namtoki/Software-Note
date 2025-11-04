@@ -9,6 +9,10 @@
     - `arn:aws:iam::123456789012:user/john`
       - partition: 通常は aws（中国リージョンは aws-cn、GovCloudは aws-us-gov）
 
+## Cost & Budgets
+- AWS Cost and Usage Reports
+- AWS Cost Explorer
+
 ## Account
 - AWS Control Tower                     複数のリージョンにまたがってガバナンスを適用
 - AWS Organizations                     ==Global==
@@ -16,9 +20,14 @@
 - `AWS IAM` :                 ==!Global== / User Groups, User, Roles
 - Amazon WorkSpaces Secure Browser      フルマネージド型のセキュアWebブラウジングサービス。クラウド上で動作する専用ブラウザ環境を提供
 
-## Cost & Budgets
-- AWS Cost and Usage Reports
-- AWS Cost Explorer
+## CLI & IaC
+- `AWS CLI` : アクセスキー
+- AWS Cloud Development Kit (CDK)
+- AWS CloudFormation
+- AWS Systems Manager (SSM)        AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
+- AWS CodeBuild                    ソースコードをコンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する CI サービス
+- AWS CodePipeline                 ソフトウェアのリリースプロセスを自動化するフルマネージドな継続的デリバリー（CD）サービス
+⏺ AWS Step Functions               複数の AWS サービスを組み合わせて、ワークフローを構築・管理するためのサーバーレスオーケストレーションサービス
 
 ## Compliance
 - AWS Artifact                     AWS のコンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
@@ -34,15 +43,6 @@
 - Amazon Detective
 - `Amazon GuardDuty` : 異常な動作を継続的に監視・==検出== / 機械学習、異常検出、統合された脅威インテリジェンスを使用 / 従量課金
 - `Amazon Inspector` : EC2, コンテナ、Lambda を自動・継続的に==スキャン==、==脆弱性==や Network 到達可能性の問題を==予防== / 従量課金
-
-## CLI & IaC
-- `AWS CLI` : アクセスキー
-- AWS Cloud Development Kit (CDK)
-- AWS CloudFormation
-- AWS Systems Manager (SSM)        AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
-- AWS CodeBuild                    ソースコードをコンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する CI サービス
-- AWS CodePipeline                 ソフトウェアのリリースプロセスを自動化するフルマネージドな継続的デリバリー（CD）サービス
-⏺ AWS Step Functions               複数の AWS サービスを組み合わせて、ワークフローを構築・管理するためのサーバーレスオーケストレーションサービス
 
 ## Resource Management
 - AWS Support                           ==Global== インフラ、サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど、サポートを提供
@@ -88,7 +88,7 @@
 - `Amazon CloudFront` : ==!Global== / CDN
 - Global Accelerator                    ==Global== TCP/UDPトラフィック向け、非HTTPアプリケーション対応
 - AWS Shield                            ==Global== DDoS
-- AWS WAF (Web Application Firewall)    ==Global== SQLインジェクション、クロスサイトスクリプティング（XSS）、DDoS攻撃など
+- `AWS WAF` : (Web Application Firewall) / ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==、DDoS攻撃など
 
 ## Regional Networking
 - Amazon VPC
@@ -99,17 +99,17 @@
 - AWS Transit Gateway              複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
 
 ## Inter-Communication
-- Amazon SQS                       (Amazon Simple Queue Service)
+- `Amazon SQS` : (Amazon Simple Queue Service)
 - Amazon SNS                       (Amazon Simple Notification Service)
 - Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 
 ## Computing
-- `EC2` :               AMI, Instance Type, Key Pair, Instance Store, User Data
+- `EC2` :                           AMI, Instance Type, Key Pair, Instance Store, User Data
   - Instance Store                        Temporary
   - Auto Scaling                          Auto Scaling Group (ASG), Scaling Policy
   - Image Builder
-  - Load Balancer
+  - `Application Load Balancer` :   レイヤ7
   - Auto Scaling
 - AWS Fargate                      サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
 - ECS                              (Elastic Container Service)
