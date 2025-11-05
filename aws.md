@@ -9,16 +9,26 @@
     - `arn:aws:iam::123456789012:user/john`
       - partition: 通常は aws（中国リージョンは aws-cn、GovCloudは aws-us-gov）
 
-## Cost & Budgets
-- AWS Cost and Usage Reports
-- AWS Cost Explorer
+## Cost
+- `AWS Budgets` :                特定のリソースにかかるコストや使用状況に対する予算を設定 / ==!3 予算目から課金==
+- `AWS Cost Explorer` :          コスト分析と可視化
+- `AWS Cost and Usage Reports` : CSV/Parquet 形式で S3 に出力 / 時間単位 / リソース ID 粒度 / ==!S3 使用料==
 
 ## Account
-- AWS Control Tower                     複数のリージョンにまたがってガバナンスを適用
-- AWS Organizations                     ==Global==
+- `AWS Control Tower` :       マルチアカウント環境を簡単にセットアップ / AWS のベストプラクティス / ダッシュボード
+- `AWS Organizations` :       ==!Global==
 - `AWS IAM Identity Center` : ==!Global== / シングルサインオン (SSO), マルチアカウント管理
 - `AWS IAM` :                 ==!Global== / User Groups, User, Roles
-- Amazon WorkSpaces Secure Browser      フルマネージド型のセキュアWebブラウジングサービス。クラウド上で動作する専用ブラウザ環境を提供
+
+## Compliance
+- `AWS Config` :              「どのリソースが、いつ、どう変更されたか」セキュリティとコンプライアンスのための構成監査
+
+## Migration Services
+- `AWS Migration Hub` :                    複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理
+  - `AWS Application Migration Service` :  物理サーバー、仮想マシン、クラウドインスタンスを AWS に移行する
+  - `AWS Application Discovery Service` :  ==us-west-2== / オンプレミス環境のアプリケーション間の依存関係を自動検出
+- `AWS Schema Conversion Tool (AWS SCT)` : データベースのスキーマとコードを異なるデータベースエンジン間で変換する
+- Migration Evaluator
 
 ## CLI & IaC
 - `AWS CLI` : アクセスキー
@@ -49,11 +59,10 @@
 - `AWS Compute Optimizer` : ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
 - `AWS Trusted Advisor` :   ==!Global== / AWSの ==Best Practice== に基づいてアカウントを分析 改善提案を行う / ==SG のチェックも==
 - AWS Well-Architected Tool        AWSワークロードをWell-Architectedフレームワークに基づいて評価・改善するための無料のセルフサービスツール
-- AWS Config                       「どのリソースが、いつ、どう変更されたか」を追跡, セキュリティとコンプライアンスのための構成監査
 - AWS License Manager              ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
 ### 統制＆コントロール
 - AWS Resource Access Manager      (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
-- AWS Service Catalog              組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
+- `AWS Service Catalog` : 組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 - Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 ### BaaS
 - AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
@@ -69,7 +78,6 @@
 ## Monitoring
 ⏺ Amazon CloudWatch                AWSリソースとアプリケーションの監視・管理。メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
 ⏺ Amazon OpenSearch Service        フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
-⏺ Amazon EventBridge               アプリケーション間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
 ⏺ Amazon CloudTrail                AWSアカウント内のAPI呼び出しとアクティビティを記録・監視するサービス
 ⏺ Amazon X-Ray                     分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
 ⏺ AWS Health Dashboard             AWSのサービス状態とアカウント固有のイベントを監視するサービス
@@ -91,7 +99,7 @@
 - `AWS WAF` : (Web Application Firewall) / ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==、DDoS攻撃など
 
 ## Regional Networking
-- Amazon VPC
+- `Amazon VPC`
 - AWS PrivateLink                  AWSサービス/VPC間のプライベート接続
 - AWS Site-to-Site VPN             オンプレミス⇔ AWS VPC
 - AWS Direct Connect               オンプレミス⇔ AWS専用線 (専用物理回線)
@@ -99,13 +107,19 @@
 - AWS Transit Gateway              複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
 
 ## Inter-Communication
-- `Amazon SQS` : (Amazon Simple Queue Service)
+- `Amazon SQS` :         (Amazon Simple Queue Service)
 - Amazon SNS                       (Amazon Simple Notification Service)
 - Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
+⏺ `Amazon EventBridge` : サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
 
 ## Computing
 - `EC2` :                           AMI, Instance Type, Key Pair, Instance Store, User Data
+  - `Option` :
+    - `オンデマンドインスタンス` : 時間単位
+    - `リザーブドインスタンス` :   (1 or 3 年) / 全額前払い, 一部前払い, 前払いなし
+    - `スポットインスタンス` :     余剰キャパシティを大幅な割引で使用 / 1 年間安定して稼働させるのには適していない
+    - `Dedicated Hosts` :          物理的な EC2 サーバを専有 / 特定のライセンス要件の場合使用
   - Instance Store                        Temporary
   - Auto Scaling                          Auto Scaling Group (ASG), Scaling Policy
   - Image Builder
@@ -131,8 +145,8 @@
 - [Physical] AWS Snowball Edge Compute      28 TB NVMe, 104 vCPUs, 416 GB Memory, GPU, ML, video processing
 - [Physical] AWS Snowmobile                 100 PB per truck, Exabyte-scale migrations, 45-ft container
 - [Hybrid] AWS Storage Gateway              Bridge on-premises to AWS storage (S3/FSx/EBS/Glacier), Gateway Type (File/FSx/Volume/Tape)
-- Amazon RDS                       (Relational Database Service) Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server), Instance Class, Storage Type
-- `Amazon Aurora` : Relational DB, 5x MySQL/3x PostgreSQL performance, Engine (MySQL/PostgreSQL)
+- `Amazon RDS` :      Relational DB / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
+  - `Amazon Aurora` : Relational DB / 5x MySQL/3x PostgreSQL performance
 - Amazon ElastiCache               In-memory caching service for performance, Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode
 - Amazon DynamoDB                  NoSQL key-value/document database, Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables
 - Amazon Redshift                  Petabyte-scale data warehouse for analytics, Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned
@@ -140,7 +154,7 @@
 - Amazon Neptune                   Graph database for highly connected data, Cluster Configuration, Instance Class, Graph Model (Property/RDF), Query Language (Gremlin/SPARQL)
 - Amazon EMR                       (Elastic MapReduce) Big data processing platform, Cluster Configuration, Framework (Spark/Hadoop/Presto/Hive), Instance Types, Auto-Scaling
 - Amazon Athena                    Serverless SQL queries on S3 data, Workgroup, Data Catalog, Query Result Location (S3)
-- AWS Glue                         Serverless ETL and data catalog service, Crawlers, Data Catalog, ETL Jobs, Job Triggers, Development Endpoints, DataBrew Recipes
+- `AWS Glue` : フルマネージド ETL サービス / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
 - AWS DMS                          (Database Migration Service) Replication Instance, Source/Target Endpoints, Migration Tasks, CDC, Multi-AZ
 - AWS Backup                       AWSサービス全体のバックアップを一元管理できるフルマネージド型のバックアップサービス
 
@@ -172,10 +186,3 @@
 
 ## IoT
 - Amazon IoT Core                  AWSが提供するフルマネージド型のIoTプラットフォームサービス
-
-## Migration Services
-- AWS Migration Hub                 複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理できるサービス
-- Application Discovery Service     ==us-west-2== オンプレミス環境のサーバー、アプリケーション、依存関係を自動検出
-- AWS Application Migration Service 物理サーバー、仮想マシン、クラウドインスタンスを AWS に移行するためのリフトアンドシフト移行サービス
-- AWS Schema Conversion Tool (AWS SCT)
-- Migration Evaluator
