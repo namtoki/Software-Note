@@ -45,9 +45,32 @@
 ⏺ `Amazon CloudTrail`                       AWSアカウント内のAPI呼び出しとアクティビティを記録・監視するサービス
 ⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知
 
+## Security
+- `AWS Security Hub`                        セキュリティーアラート / ==ダッシュボード==
+  - `AWS Secrets Manager`                   機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
+    - `AWS Key Management Service (AWS KMS)`データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
+    - `AWS CloudHSM`                        専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
+  - `AWS Firewall Manager`                  AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
+    - `AWS Shield`                          ==!Global== / ==DDoS==
+    - `AWS WAF (Web Application Firewall)`  ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
+  - `Amazon GuardDuty`                      ==悪意==のある異常な動作を継続的に監視・==検出==
+  - `Amazon Inspector`                      サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
+  - `Amazon Macie`                          ==Amazon S3== 内の機密データを自動的に検出・分類・保護
+  - `Amazon Detective`                      セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
+- `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
+
 ## Compliance
 - `AWS Artifact`                            コンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
 - `AWS Audit Manager`                       ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
+
+## Analytics
+- `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
+- `AWS Compute Optimizer`                   ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
+- `AWS Trusted Advisor`                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
+- `Amazon QuickSight`                       ==BI==
+⏺ `Amazon CloudWatch`                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
+⏺ `Amazon X-Ray`                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
+⏺ Amazon OpenSearch Service        フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
 
 ## Migration Services
 - `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
@@ -63,51 +86,31 @@
 ## Availavility
 - `Elastic Disaster Recovery (AWS DRS)`     災害復旧サービス / 物理、仮想、クラウドサーバーをAWSに継続的に複製し、迅速な復旧を可能に
 
-## Security
-- `AWS Security Hub`                        セキュリティーアラート / ==ダッシュボード==
-  - `AWS Secrets Manager`                   機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
-    - `AWS Key Management Service (AWS KMS)`データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
-    - `AWS CloudHSM`                        専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
-  - `AWS Firewall Manager`                  AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
-    - `AWS Shield`                          ==!Global== / ==DDoS==
-    - `AWS WAF (Web Application Firewall)`  ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
-  - `Amazon GuardDuty`                      ==悪意==のある異常な動作を継続的に監視・==検出==
-  - `Amazon Inspector`                      サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
-  - `Amazon Macie`                          ==Amazon S3== 内の機密データを自動的に検出・分類・保護
-  - `Amazon Detective`                      セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
-- `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
-
-## Analytics
-- `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
-- `AWS Compute Optimizer`                   ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
-- `AWS Trusted Advisor`                     ==!Global== / AWSの ==Best Practice== に基づきアカウントを分析改善提案 / ==SG チェック==
-- `Amazon QuickSight`                       ==BI==
-⏺ `Amazon CloudWatch`                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
-⏺ `Amazon X-Ray`                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
-
 ## Tools
-- `AWS Elastic Beanstalk`                   ==PaaS==
 ⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
 - `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
-- AWS Well-Architected Tool        AWSワークロードをWell-Architectedフレームワークに基づいて評価・改善するための無料のセルフサービスツール
+- `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==評価を提供==
+- `AWS Service Catalog`                     組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
+⏺ `AWS Marketplace`                         ==!Global== AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
 - AWS License Manager              ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
 ### 統制＆コントロール
 - AWS Resource Access Manager      (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
-- `AWS Service Catalog`   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 - Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 ### BaaS
 - AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
-### Store
-⏺ AWS Marketplace                       ==Global== Store
 
-## Regional Networking
+## Networking
 - `Amazon VPC`
   - `AWS PrivateLink`                       AWSサービス⇔ VPC間のプライベート接続
-  - `AWS Site-to-Site VPN`                  オンプレミス⇔ AWS VPC
+  - `Amazon VPN`
+    - `AWS Site-to-Site VPN`                オンプレミス⇔ AWS VPC
   - `AWS Direct Connect`                    オンプレミス⇔ AWS専用線 (==専用物理回線==)
   - `AWS Client VPN`                        リモートユーザー(個人デバイス) ⇔ AWS VPC
   - `AWS Transit Gateway`                   複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
+- `Amazon Route 53`                         ==!Global== / ルーティングポリシー (加重, IP ベース, レイテンシー, フェイルオーバー)
+- `Amazon CloudFront`                       ==!Global== / 静的コンテンツ / HTTP/S / CDN
+- `AWS Global Accelerator`                  ==!Global== / 動的コンテンツ / TCP/UDP / ==静的IPアドレス== / パフォーマンス向上 / (ALB,NLB,EC2,Elastic IP)
 
 ## CLI & IaC
 - `AWS CLI`                                 アクセスキー
@@ -118,9 +121,6 @@
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
 ⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
 
-## Monitoring
-⏺ Amazon OpenSearch Service        フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
-
 ## Others
 - `AWS Directory Service`                   ==Microsoft Active Directory (AD)== の機能を AWS クラウド内で提供するマネージドサービス
 - `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
@@ -130,17 +130,16 @@
 - AWS Local Zones                       AWS サービスを主要都市圏の近くに配置するインフラストラクチャ
 - AWS Wavelength                        AWSのコンピューティングとストレージサービスを5G通信事業者のネットワークエッジに組み込むサービス
 
-## Global Player
-- `Amazon Route 53`                         ==!Global== / ルーティングポリシー (加重, IP ベース, レイテンシー, フェイルオーバー)
-- `Amazon CloudFront`                       ==!Global== / CDN
-- Global Accelerator                      ==Global== TCP/UDPトラフィック向け、非HTTPアプリケーション対応
-
 ## Inter-Communication
 - `Amazon SQS`                              (Amazon Simple Queue Service)
 - Amazon SNS                       (Amazon Simple Notification Service)
 - Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 ⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
+
+## All-in
+- `Amazon Lightsail`                        ==VPS== / サーバー・ストレージ・データ転送・IPがパッケージ / 数クリックでデプロイ完了 / (WordPress、LAMP等)
+- `AWS Elastic Beanstalk`                   ==PaaS== / 裏側でEC2・ELB・Auto Scaling等を自動構築 / アプリケーションコードをデプロイするだけ
 
 ## Computing
 - `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
@@ -149,9 +148,9 @@
     - `リザーブドインスタンス`              (1 or 3 年) / 全額前払い, 一部前払い, 前払いなし
     - `スポットインスタンス`                余剰キャパシティを大幅な割引で使用 / 1 年間安定して稼働させるのには適していない
     - `Dedicated Hosts`                     物理的な EC2 サーバを専有 / 特定のライセンス要件の場合使用
-  - Instance Store                        Temporary
-  - Auto Scaling                          Auto Scaling Group (ASG), Scaling Policy
-  - Image Builder
+  - `Instance Store`                        Temporary
+  - `Auto Scaling`                          Auto Scaling Group (ASG), Scaling Policy
+  - `Image Builder`
   - `Amazon Elastic Load Balancing`         レイヤ7
   - `Auto Scaling`
 - `AWS Fargate`                             サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
@@ -161,7 +160,6 @@
 - `Amazon EBS`                              (Elastic Block Store)
 - `AWS Lambda`  Runtime, Memory, Timeout, Handler, Layers, Triggers
 - Batch                            Managed batch processing - Runs jobs on EC2/Fargate/Spot
-- `Amazon Lightsail`                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
 
 ## Storage
 - Amazon FSx                           Capacity
@@ -172,7 +170,7 @@
   - `Amazon Aurora`                         ==Relational DB== / 5x MySQL/3x PostgreSQL performance
 - `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
 - `Amazon DynamoDB`                         ==NoSQL== key-value/document database
-- Amazon Redshift                  Petabyte-scale data warehouse for analytics, Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned
+- `Amazon Redshift`                         ==Petabyte-scale data warehouse== for analytics
 - Amazon DocumentDB                MongoDB-compatible document database, Cluster Configuration, Instance Class, Number of Replicas (up to 15), Storage Auto-Scaling
 - `Amazon Neptune`                          ==Graph database== for highly connected data
 - `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
