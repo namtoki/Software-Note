@@ -69,11 +69,20 @@
   - `AWS Shield`                            ==!Global== / ==DDoS==
   - `AWS WAF (Web Application Firewall)`    ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
 - AWS Key Management Service (AWS KMS)
-- AWS Secrets Manager
+- `AWS Secrets Manager`                     機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
 - `AWS Security Hub`                        セキュリティーアラート / ==ダッシュボード==
 - Amazon Detective
-- `Amazon GuardDuty`                        悪意のある異常な動作を継続的に監視・==検出==
+- `Amazon GuardDuty`                        ==悪意==のある異常な動作を継続的に監視・==検出==
 - `Amazon Inspector`                        サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
+- `Amazon Macie`                            ==Amazon S3== 内の機密データを自動的に検出・分類・保護
+
+## Regional Networking
+- `Amazon VPC`
+  - `AWS PrivateLink`                       AWSサービス⇔ VPC間のプライベート接続
+  - `AWS Site-to-Site VPN`                  オンプレミス⇔ AWS VPC
+  - `AWS Direct Connect`                    オンプレミス⇔ AWS専用線 (==専用物理回線==)
+  - `AWS Client VPN`                        リモートユーザー(個人デバイス) ⇔ AWS VPC
+  - `AWS Transit Gateway`                   複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
 
 ## CLI & IaC
 - `AWS CLI`                                 アクセスキー
@@ -84,10 +93,14 @@
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
 ⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
 
-## Resource Management
-- AWS Support                           ==Global== インフラ、サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど、サポートを提供
-- `AWS Compute Optimizer`   ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
-- `AWS Trusted Advisor`     ==!Global== / AWSの ==Best Practice== に基づいてアカウントを分析 改善提案を行う / ==SG のチェックも==
+## Support
+- `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
+- `AWS Compute Optimizer`                   ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
+- `AWS Trusted Advisor`                     ==!Global== / AWSの ==Best Practice== に基づきアカウントを分析改善提案 / ==SG チェック==
+- `AWS Elastic Beanstalk`                   ==PaaS==
+⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
+⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
+- `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
 - AWS Well-Architected Tool        AWSワークロードをWell-Architectedフレームワークに基づいて評価・改善するための無料のセルフサービスツール
 - AWS License Manager              ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
 ### 統制＆コントロール
@@ -96,8 +109,6 @@
 - Service Quotas                   AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 ### BaaS
 - AWS Amplify                      フロントエンド開発者がフルスタックアプリを構築できるようにする統合プラットフォーム
-### PaaS
-- AWS Elastic Beanstalk
 ### Store
 ⏺ AWS Marketplace                       ==Global== Store
 ### BI
@@ -111,7 +122,7 @@
 
 ## Identity & Access
 - AWS Directory Service            Microsoft Active Directory（AD）の機能を AWS クラウド内で提供するマネージドサービス
-- Amazon Cognito                   Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
+- `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
 
 ## Localization
 - AWS Outposts                          On-premises
@@ -119,59 +130,50 @@
 - AWS Wavelength                        AWSのコンピューティングとストレージサービスを5G通信事業者のネットワークエッジに組み込むサービス
 
 ## Global Player
-- Amazon Route 53                       ==Global==
-- `Amazon CloudFront`   ==!Global== / CDN
-- Global Accelerator                    ==Global== TCP/UDPトラフィック向け、非HTTPアプリケーション対応
-
-## Regional Networking
-- `Amazon VPC`
-- AWS PrivateLink                  AWSサービス/VPC間のプライベート接続
-- AWS Site-to-Site VPN             オンプレミス⇔ AWS VPC
-- AWS Direct Connect               オンプレミス⇔ AWS専用線 (専用物理回線)
-- AWS Client VPN                   リモートユーザー(個人デバイス) ⇔ AWS VPC
-- AWS Transit Gateway              複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
+- `Amazon Route 53`                         ==!Global==
+- `Amazon CloudFront`                       ==!Global== / CDN
+- Global Accelerator                      ==Global== TCP/UDPトラフィック向け、非HTTPアプリケーション対応
 
 ## Inter-Communication
-- `Amazon SQS`           (Amazon Simple Queue Service)
+- `Amazon SQS`                              (Amazon Simple Queue Service)
 - Amazon SNS                       (Amazon Simple Notification Service)
 - Amazon MQ                        Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - Amazon Kinesis                   リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 ⏺ `Amazon EventBridge`   サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
 
 ## Computing
-- `EC2`                             AMI, Instance Type, Key Pair, Instance Store, User Data
+- `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
   - `Option`  
-    - `オンデマンドインスタンス`   時間単位
-    - `リザーブドインスタンス`     (1 or 3 年) / 全額前払い, 一部前払い, 前払いなし
-    - `スポットインスタンス`       余剰キャパシティを大幅な割引で使用 / 1 年間安定して稼働させるのには適していない
-    - `Dedicated Hosts`            物理的な EC2 サーバを専有 / 特定のライセンス要件の場合使用
+    - `オンデマンドインスタンス`            時間単位
+    - `リザーブドインスタンス`              (1 or 3 年) / 全額前払い, 一部前払い, 前払いなし
+    - `スポットインスタンス`                余剰キャパシティを大幅な割引で使用 / 1 年間安定して稼働させるのには適していない
+    - `Dedicated Hosts`                     物理的な EC2 サーバを専有 / 特定のライセンス要件の場合使用
   - Instance Store                        Temporary
   - Auto Scaling                          Auto Scaling Group (ASG), Scaling Policy
   - Image Builder
-  - `Application Load Balancer`     レイヤ7
-  - Auto Scaling
-- AWS Fargate                      サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
+  - `Amazon Elastic Load Balancing`         レイヤ7
+  - `Auto Scaling`
+- `AWS Fargate`                             サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
 - ECS                              (Elastic Container Service)
   - ECR                                   (Elastic Container Registry)
   - EKS                                   (Elastic Kubernetes Service - Managed Kubernetes) Cluster, Node Groups, Fargate Profiles
-- EBS                              (Elastic Block Store) Volume Type, Size, IOPS, Snapshot ID, Encryption
+- `Amazon EBS`                              (Elastic Block Store)
 - `AWS Lambda`  Runtime, Memory, Timeout, Handler, Layers, Triggers
 - Batch                            Managed batch processing - Runs jobs on EC2/Fargate/Spot
-- Lightsail                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
+- `Amazon Lightsail`                        Simplified VPS - Bundled compute, storage, networking with predictable pricing
 
 ## Storage
 - Amazon FSx                           Capacity
-- Amazon EFS                           (Elastic File System) Auto-Scaling
-- `Amazon S3`           Bucket Name, Versioning, Encryption, Storage Class
-- `Amazon S3 Glacier`   Long-term archival storage, Vault Name, Archive, Retrieval Options
-- Amazon Macie                     Amazon S3内の機密データを自動的に検出・分類・保護
-- `Amazon RDS`        Relational DB / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
-  - `Amazon Aurora`   Relational DB / 5x MySQL/3x PostgreSQL performance
-- Amazon ElastiCache               In-memory caching service for performance, Engine (Redis/Memcached), Node Type, Number of Nodes, Cluster Mode
-- Amazon DynamoDB                  NoSQL key-value/document database, Table Name, Primary Key (Partition/Sort), Capacity Mode (On-Demand/Provisioned), Global Tables
+- `Amazon EFS (Elastic File System)`        複数のEC2インスタンスから同時にアクセス可能な、NFSv4 ファイルストレージサービス
+- `Amazon S3`                               Bucket Name, Versioning, Encryption, Storage Class
+- `Amazon S3 Glacier`                       Long-term archival storage, Vault Name, Archive, Retrieval Options
+- `Amazon RDS`                              ==Relational DB== / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
+  - `Amazon Aurora`                         ==Relational DB== / 5x MySQL/3x PostgreSQL performance
+- `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
+- `Amazon DynamoDB`                         ==NoSQL== key-value/document database
 - Amazon Redshift                  Petabyte-scale data warehouse for analytics, Cluster Type, Node Type, Number of Nodes, Database Name, Serverless/Provisioned
 - Amazon DocumentDB                MongoDB-compatible document database, Cluster Configuration, Instance Class, Number of Replicas (up to 15), Storage Auto-Scaling
-- Amazon Neptune                   Graph database for highly connected data, Cluster Configuration, Instance Class, Graph Model (Property/RDF), Query Language (Gremlin/SPARQL)
+- `Amazon Neptune`                          ==Graph database== for highly connected data
 - Amazon EMR                       (Elastic MapReduce) Big data processing platform, Cluster Configuration, Framework (Spark/Hadoop/Presto/Hive), Instance Types, Auto-Scaling
 - Amazon Athena                    Serverless SQL queries on S3 data, Workgroup, Data Catalog, Query Result Location (S3)
 - `AWS Glue`   フルマネージド ETL サービス / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
@@ -194,11 +196,6 @@
 ⏺ `Amazon Comprehend`    Text --> Text (要約、抽出)
 ⏺ `Amazon Polly`         Text --> Speech
 ⏺ Amazon CodeGuru       機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
-
-## Remote
-⏺ Amazon AppStream 2.0             Windows Desktop App を Web ブラウザ経由でストリーミング配信するフルマネージド型のアプリケーション仮想化サービス
-⏺ `Amazon WorkSpaces`   フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
-- Amazon WorkSpaces Secure Browser      フルマネージド型のセキュアWebブラウジングサービス。クラウド上で動作する専用ブラウザ環境を提供
 
 ## Business
 - Amazon Connect                   電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
