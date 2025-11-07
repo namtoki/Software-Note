@@ -38,7 +38,7 @@
 - `AWS Cost and Usage Reports`              CSV/Parquet 形式で S3 に出力 / 時間単位 / リソース ID 粒度 / ==!S3 使用料==
 ## Account
 - `AWS Organizations`                       ==!Global==
-- `AWS Control Tower`                       マルチアカウント環境を簡単にセットアップ / AWS のベストプラクティス / ダッシュボード
+- `AWS Control Tower`                       マルチアカウント環境を簡単にセットアップ / ==ベストプラクティス== / ダッシュボード / ガードレール
 - `AWS IAM Identity Center`                 ==!Global== / シングルサインオン (SSO), マルチアカウント管理
 - `AWS IAM`                                 ==!Global== / User Groups, User, Roles
 ## Governance
@@ -47,7 +47,7 @@
 ⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 ## Security
-- `AWS Security Hub`                        セキュリティーアラート / ==ダッシュボード==
+- `AWS Security Hub`                        セキュリティーアラート / ==ダッシュボード== / ==CSPM==
   - `AWS Secrets Manager`                   機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
     - `AWS Key Management Service (AWS KMS)`データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
     - `AWS CloudHSM`                        専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
@@ -65,13 +65,13 @@
 - `AWS License Manager`                     ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
 ## Analytics
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
-- `AWS Compute Optimizer`                   ==最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
-- `AWS Trusted Advisor`                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
-  - `デベロッパー`                          個人開発者やスタートアップ向けのプラン。低料金で、基本的なサポート
-  - `ビジネス`                              中規模のビジネスやエンタープライズ向けのプラン。高度なサポートとAWS Trusted Advisorの==全機能==が利用できる
+  - `デベロッパー`                          ==テスト環境== / 個人開発者やスタートアップ向けのプラン。低料金で、基本的なサポート
+  - `ビジネス`                              ==本番環境== / 中規模のビジネス向けのプラン / 高度なサポートとAWS Trusted Advisorの==全機能==が利用できる
   - `エンタープライズ On-Ramp`              中規模のビジネス向けのプラン。エンタープライズより制約があるが、コスト効率が高いプラン
   - `エンタープライズ`                      大規模な企業向けのプラン。最も高度なサポートと専任のテクニカルアカウントマネージャーが提供される
-- `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==評価を提供==
+- `AWS Compute Optimizer`                   ==コンピュータリソースの最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
+- `AWS Trusted Advisor`                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
+- `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==アーキテクチャの評価を提供==
 - `Amazon QuickSight`                       ==BI==
 ⏺ `Amazon CloudWatch`                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
 ⏺ `Amazon X-Ray`                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
@@ -123,6 +123,8 @@
 - `Amazon Route 53`                         ==!Global== / ルーティングポリシー (加重, IP ベース, レイテンシー, フェイルオーバー)
 - `Amazon CloudFront`                       ==!Global== / 静的コンテンツ / HTTP/S / CDN
 - `AWS Global Accelerator`                  ==!Global== / 動的コンテンツ / TCP/UDP / ==静的IPアドレス== / パフォーマンス向上 / (ALB,NLB,EC2,Elastic IP)
+- `Amazon API Gateway`                      API 管理サービス / 開発者が RESTful API、HTTP API、WebSocket API を簡単に作成、公開、保守、監視、保護
+- `AWS AppSync`                             ==GraphQL==  / Mobile, Web 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
 ## Inter-Communication
 - `Amazon SQS`                              (Amazon Simple Queue Service)
 - `Amazon SNS`                              (Amazon Simple Notification Service)
@@ -142,12 +144,12 @@
   - `Amazon Elastic Load Balancing`         レイヤ7
   - `Auto Scaling`
 - `AWS Fargate`                             サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
-- ECS                              (Elastic Container Service)
-  - ECR                                   (Elastic Container Registry)
-  - EKS                                   (Elastic Kubernetes Service - Managed Kubernetes) Cluster, Node Groups, Fargate Profiles
-- `Amazon EBS`                              (Elastic Block Store)
+- `ECS (Elastic Container Service)`
+  - `ECR (Elastic Container Registry)`
+  - `EKS (Elastic Kubernetes Service)`
+- `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
-- AWS Batch                            Managed batch processing - Runs jobs on EC2/Fargate/Spot
+- `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
 ## Storage
 - `Amazon FSx`                              サードパーティ製ファイルシステム / Windows File Server, Lustre, NetApp, ONTAP, OpenZFS など
 - `Amazon EFS (Elastic File System)`        複数のEC2インスタンスから同時にアクセス可能な、NFSv4 ファイルストレージサービス
@@ -159,19 +161,16 @@
 - `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
 - `Amazon DynamoDB`                         ==NoSQL== key-value/document database
 - `Amazon Redshift`                         ==Petabyte-scale data warehouse== for analytics
-- Amazon DocumentDB                MongoDB-compatible document database, Cluster Configuration, Instance Class, Number of Replicas (up to 15), Storage Auto-Scaling
+- `Amazon DocumentDB`                       ==MongoDB== のワークロードをAWSクラウドで簡単に実行、管理、スケール
 - `Amazon Neptune`                          ==Graph database== for highly connected data
 - `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
 - `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
-- AWS DMS                          (Database Migration Service) Replication Instance, Source/Target Endpoints, Migration Tasks, CDC, Multi-AZ
+- `AWS DMS`                                 異なるデータベースエンジン間での移行、オンプレミスからクラウドへの移行、継続的なデータレプリケーション
 - `AWS Backup`                              AWSサービス全体のバックアップを一元管理できるフルマネージド型のバックアップサービス
-- `AWS Storage Gateway`                     オンプレと AWS ストレージをシームレスに接続するハイブリッドクラウドストレージサービス
-## API
-- API Gateway                      API Type (REST/HTTP/WebSocket), Stages, Integrations, Authorizers, Usage Plans
-- AWS AppSync                      GraphQLを使用して、 Mobile, Web App 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
+- `AWS Storage Gateway`                     オンプレと AWS ストレージをシームレスに接続するハイブリッドクラウドストレージサービス / ==物理テープも==
 ## AI / ML
 ⏺ `Amazon SageMaker AI`                     包括的な機械学習プラットフォーム。機械学習モデルの構築、トレーニング、デプロイまでのライフサイクル全体を管理
-⏺ Amazon Q              AWSが提供する生成AI搭載のビジネス向けアシスタント
+⏺ `Amazon Q`                                AWSが提供する生成AI搭載のビジネス向けアシスタント
 - `Amazon Kendra`                           Googleのような検索体験を企業内データに対して提供する、==エンタープライズサーチ==のマネージドサービス
 - `Amazon Lex`                              Chat
 ⏺ `Amazon Rekognition`                      画像・動画分析
@@ -180,7 +179,7 @@
 ⏺ `Amazon Translate`                        Text --> Text (翻訳)
 ⏺ `Amazon Comprehend`                       Text --> Text (要約、抽出)
 ⏺ `Amazon Polly`                            Text --> Speech
-⏺ Amazon CodeGuru       機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
+⏺ `Amazon CodeGuru`                         機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
 ## Others
 - `AWS Directory Service`                   ==Microsoft Active Directory (AD)== の機能を AWS クラウド内で提供するマネージドサービス
 - `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
