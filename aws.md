@@ -36,29 +36,39 @@
 - `AWS Budgets`                             特定のリソースにかかるコストや使用状況に対する予算を設定 / ==!3 予算目から課金==
 - `AWS Cost Explorer`                       コスト分析と可視化
 - `AWS Cost and Usage Reports`              CSV/Parquet 形式で S3 に出力 / 時間単位 / リソース ID 粒度 / ==!S3 使用料==
-## Account
-- `AWS Organizations`                       ==!Global==
-- `AWS Control Tower`                       マルチアカウント環境を簡単にセットアップ / ==ベストプラクティス== / ダッシュボード / ガードレール
-- `AWS IAM Identity Center`                 ==!Global== / シングルサインオン (SSO), マルチアカウント管理
-- `AWS IAM`                                 ==!Global== / User Groups, User, Roles
-## Governance
-- `AWS Config`                              「どのリソースが、いつ、どう変更されたか」セキュリティとコンプライアンスのための構成監査
-⏺ `Amazon CloudTrail`                       AWSアカウント内のAPI呼び出しとアクティビティを記録・監視するサービス
+
+## Account & Governance & Security
+
+### Services
+- `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
+  - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
+  - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
+  - `AWS IAM`                               ==!Global== / User Groups, User, Roles
+  - `AWS Config`                            「どのリソースが、いつ、どう変更されたか」セキュリティとコンプライアンスのための構成監査
+  ⏺ `Amazon CloudTrail`                     AWSアカウント内のAPI呼び出しとアクティビティを記録・監視するサービス
+  - `AWS Security Hub`                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
+    - `AWS Secrets Manager`                 機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
+      - `AWS Key Management Service (KMS)`  データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
+      - `AWS CloudHSM`                      専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
+    - `AWS Firewall Manager`                AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
+      - `AWS Shield`                        ==!Global== / ==DDoS==
+      - `AWS WAF (WebApplicationFirewall)`  ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
+    - `Amazon GuardDuty`                    ==悪意==のある異常な動作を継続的に監視・==検出== / ==マルウェア==
+    - `Amazon Inspector`                    サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
+    - `Amazon Macie`                        ==Amazon S3== 内の機密データを自動的に検出・分類・保護
+    - `Amazon Detective`                    セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
+  - `AWS Service Catalog`                   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 ⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
-## Security
-- `AWS Security Hub`                        セキュリティーアラート / ==ダッシュボード== / ==CSPM==
-  - `AWS Secrets Manager`                   機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
-    - `AWS Key Management Service (AWS KMS)`データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
-    - `AWS CloudHSM`                        専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
-  - `AWS Firewall Manager`                  AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
-    - `AWS Shield`                          ==!Global== / ==DDoS==
-    - `AWS WAF (Web Application Firewall)`  ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
-  - `Amazon GuardDuty`                      ==悪意==のある異常な動作を継続的に監視・==検出== / ==マルウェア==
-  - `Amazon Inspector`                      サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
-  - `Amazon Macie`                          ==Amazon S3== 内の機密データを自動的に検出・分類・保護
-  - `Amazon Detective`                      セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
 - `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
+
+### References
+> [AWS Control Tower 概要まとめ](https://zenn.dev/fusic/articles/a2592da23e3db5)
+> [始めての AWS Control Tower](https://blog.serverworks.co.jp/2025/07/27/105833)
+> [20分で分かる！Control Towerが実現できる効率的なマルチアカウント管理](https://dev.classmethod.jp/articles/cloud-security-fes-control-tower-basic/)
+> [AWS Control Towerで実現するマルチアカウント管理の完全ガイド](https://qiita.com/mkydk/items/d56e0e8c742391ae0314)
+> [【やってみた】AWS Control Towerワークショップ　その①（Control Towerセットアップ・ユーザー管理）](https://blog.serverworks.co.jp/2024/11/18/125830)
+
 ## Compliance
 - `AWS Artifact`                            コンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
 - `AWS Audit Manager`                       ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
@@ -98,7 +108,6 @@
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
 - `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
 ⏺ `AWS Marketplace`                         ==!Global== AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
-- `AWS Service Catalog`                     組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 - `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
 ## CLI & IaC
 - `AWS CLI`                                 アクセスキー
@@ -186,3 +195,29 @@
 - `Amazon Connect`                          電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
 - `Amazon SES (Simple Email Service)`       Transaction mail から Marketing mail まで、あらゆるタイプのメール送信を低コストで実現
 - `Amazon IoT Core`                         AWSが提供するフルマネージド型のIoTプラットフォームサービス
+
+---
+
+- AWS Data Exchange
+- AWS Data Pipeline
+- AWS Lake Formation
+- Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+- Amazon AppFlow
+- Saving Plans
+- AWS Serverless Application Repository
+- VMware Cloud on AWS
+- Amazon ECS Anywhere
+- Amazon EKS Anywhere
+- Amazon EKS Distro
+- Amazon Keyspaces (for Apache Cassandra)
+- Amazon Quantum Ledger Database (Amazon QLDB)
+- AWS Device Farm
+- Amazon Pinpoint
+- Amazon Forecast
+- Amazon Fraud Detector
+- Amazon Managed Grafana
+- Amazon Managed Service for Prometheus
+- AWS Proton
+- Amazon Elastic Transcoder
+- Amazon Kinesis Video Streams
+- AWS Transfer Family
