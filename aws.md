@@ -33,9 +33,12 @@
   - 6つの専門領域、すなわち ==ビジネス==, ==人材==, ==ガバナンス==, ==プラットフォーム==, ==セキュリティ==, ==オペレーション== に分かれている
 
 ## Cost
-- `AWS Budgets`                             特定のリソースにかかるコストや使用状況に対する予算を設定 / ==!3 予算目から課金==
-- `AWS Cost Explorer`                       コスト分析と可視化
-- `AWS Cost and Usage Reports`              CSV/Parquet 形式で S3 に出力 / 時間単位 / リソース ID 粒度 / ==!S3 使用料==
+
+### Services
+- `AWS Budgets`                             ==1 時間単位== / ==予防== / 特定のリソースにかかるコストや使用状況に対する予算を設定 / ==!3 予算目から課金==
+- ==!AWS Cost Explorer==                       ==1 時間単位== / ==分析== / コスト分析と可視化
+- `AWS Cost and Usage Reports`              ==1 時間単位== / ==詳細分析== / コストと使用状況の ==CSV/JSON== 形式で S3 に出力 / リソース ID 粒度 / ==!S3 使用料==
+- `AWS Billing and Cost Management`         ==月単位== / ==請求管理== / 請求情報の表示、ダウンロード、支払い
 
 ## Account & Governance & Security
 
@@ -46,7 +49,7 @@
   - `AWS IAM`                               ==!Global== / User Groups, User, Roles
   - `AWS Config`                            「どのリソースが、いつ、どう変更されたか」セキュリティとコンプライアンスのための構成監査
   ⏺ `Amazon CloudTrail`                     AWSアカウント内のAPI呼び出しとアクティビティを記録・監視するサービス
-  - `AWS Security Hub`                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
+  - ==!AWS Security Hub==                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
     - `AWS Secrets Manager`                 機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
       - `AWS Key Management Service (KMS)`  データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
       - `AWS CloudHSM`                      専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
@@ -58,7 +61,7 @@
     - `Amazon Macie`                        ==Amazon S3== 内の機密データを自動的に検出・分類・保護
     - `Amazon Detective`                    セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
   - `AWS Service Catalog`                   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
-⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知
+⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知 / Event Bridge で自動通知させると便利
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 - `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
 
@@ -73,6 +76,7 @@
 - `AWS Artifact`                            コンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
 - `AWS Audit Manager`                       ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
 - `AWS License Manager`                     ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
+
 ## Analytics
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
   - `デベロッパー`                          ==テスト環境== / 個人開発者やスタートアップ向けのプラン。低料金で、基本的なサポート
@@ -83,9 +87,10 @@
 - `AWS Trusted Advisor`                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
 - `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==アーキテクチャの評価を提供==
 - `Amazon QuickSight`                       ==BI==
-⏺ `Amazon CloudWatch`                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
-⏺ `Amazon X-Ray`                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
+⏺ ==!Amazon CloudWatch==                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
+⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
 ⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
+
 ## Migration Services
 - `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
 - `AWS Migration Hub`                       複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理
@@ -109,6 +114,7 @@
 - `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
 ⏺ `AWS Marketplace`                         ==!Global== AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
 - `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
+- `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
 ## CLI & IaC
 - `AWS CLI`                                 アクセスキー
 - `AWS Cloud Development Kit (CDK)`
@@ -198,7 +204,6 @@
 
 ---
 
-- AWS Data Exchange
 - AWS Data Pipeline
 - AWS Lake Formation
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
