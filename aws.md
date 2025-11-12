@@ -1,5 +1,7 @@
 # AWS
 
+---
+
 ## Terminology
 - AWS Management Console
 - ARN (Amazon Resource Name):
@@ -32,17 +34,19 @@
   - 組織がAWSクラウドへの移行を効果的に行うためのガイダンスとベストプラクティスを提供するフレームワーク
   - 6つの専門領域、すなわち ==ビジネス==, ==人材==, ==ガバナンス==, ==プラットフォーム==, ==セキュリティ==, ==オペレーション== に分かれている
 
+---
+
 ## Cost
 
-### Services
 - `AWS Budgets`                             ==1 時間単位== / ==予防== / 特定のリソースにかかるコストや使用状況に対する予算を設定 / ==!3 予算目から課金==
 - ==!AWS Cost Explorer==                       ==1 時間単位== / ==分析== / コスト分析と可視化
 - `AWS Cost and Usage Reports`              ==1 時間単位== / ==詳細分析== / コストと使用状況の ==CSV/JSON== 形式で S3 に出力 / リソース ID 粒度 / ==!S3 使用料==
 - `AWS Billing and Cost Management`         ==月単位== / ==請求管理== / 請求情報の表示、ダウンロード、支払い
 
+---
+
 ## Account & Governance & Security
 
-### Services
 - `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
@@ -65,31 +69,57 @@
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 - `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
 
-### References
-> [AWS Control Tower 概要まとめ](https://zenn.dev/fusic/articles/a2592da23e3db5)
-> [始めての AWS Control Tower](https://blog.serverworks.co.jp/2025/07/27/105833)
-> [20分で分かる！Control Towerが実現できる効率的なマルチアカウント管理](https://dev.classmethod.jp/articles/cloud-security-fes-control-tower-basic/)
-> [AWS Control Towerで実現するマルチアカウント管理の完全ガイド](https://qiita.com/mkydk/items/d56e0e8c742391ae0314)
-> [【やってみた】AWS Control Towerワークショップ　その①（Control Towerセットアップ・ユーザー管理）](https://blog.serverworks.co.jp/2024/11/18/125830)
+- [AWS Control Tower 概要まとめ](https://zenn.dev/fusic/articles/a2592da23e3db5)
+- [始めての AWS Control Tower](https://blog.serverworks.co.jp/2025/07/27/105833)
+- [20分で分かる！Control Towerが実現できる効率的なマルチアカウント管理](https://dev.classmethod.jp/articles/cloud-security-fes-control-tower-basic/)
+- [AWS Control Towerで実現するマルチアカウント管理の完全ガイド](https://qiita.com/mkydk/items/d56e0e8c742391ae0314)
+- [【やってみた】AWS Control Towerワークショップ　その①（Control Towerセットアップ・ユーザー管理）](https://blog.serverworks.co.jp/2024/11/18/125830)
+
+---
 
 ## Compliance
+
 - `AWS Artifact`                            コンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
 - `AWS Audit Manager`                       ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
 - `AWS License Manager`                     ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
 
-## Analytics
+- [AWS Artifactってなんだろ？](https://zenn.dev/mn87/articles/de5840d73aec9d)
+- [【AWSセキュリティ基礎】AWS Artifact](https://qiita.com/shihandai/items/1109f9d5717a76e11bf4)
+- [AWS ArtifactでNDAなしでコンプライアンスレポートがダウンロード](https://dev.classmethod.jp/articles/aws-artiface-compliance-report-download-and-share/)
+- [【AWS Audit Manager】フレームワーク、コントロールを継続的デプロイしてみた](https://dev.classmethod.jp/articles/continuous-compliance-monitoring-with-auditmanager/)
+- [AWS Audit Managerで監査の準備をしよう](https://blog.serverworks.co.jp/AWS_AuditManager)
+- [AWS Audit Managerの概要と主な用語とその関係](https://blog.serverworks.co.jp/overview-of-audit-manager)
+- [re:Invent 2024: AWSでのコンプライアンス自動化 - Audit ManagerとConfigの活用](https://zenn.dev/kiiwami/articles/bf066633b1e3c00d)
+- [AWS License Manager の新機能で SQL Server のライセンスを切り換えてみた](https://aws.taf-jp.com/blog/60314)
+
+---
+
+## Support
+
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
-  - `デベロッパー`                          ==テスト環境== / 個人開発者やスタートアップ向けのプラン。低料金で、基本的なサポート
-  - `ビジネス`                              ==本番環境== / 中規模のビジネス向けのプラン / 高度なサポートとAWS Trusted Advisorの==全機能==が利用できる
-  - `エンタープライズ On-Ramp`              中規模のビジネス向けのプラン。エンタープライズより制約があるが、コスト効率が高いプラン
-  - `エンタープライズ`                      大規模な企業向けのプラン。最も高度なサポートと専任のテクニカルアカウントマネージャーが提供される
-- `AWS Compute Optimizer`                   ==コンピュータリソースの最適化提案== / EC2, Auto Scaling Groups / 14日以上設定課金
-- `AWS Trusted Advisor`                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
+  - `Basic`                                 ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
+  - `Developer`                             ==!MAX($29/M, AWS利用料の3%)== / 技術サポートメール / 個人開発者やスタートアップ向け / 1アカウントにつき1名の連絡先
+  - `Business`                              ==!$100/M + α== / 365日技術サポート(chat,phone も) / 中規模のビジネス向け / AWS Trusted Advisorの==全機能==
+  - `Enterprise On-Ramp`                    ==!$5,500/M + α== / アーキテクチャレビュー、運用レビュー / 本番システム停止: 30分以内 / 業務重大影響: 30分以内
+  - `Enterprise`                            ==!$15,000/M + α== / 専任のTechnical Account Manager（TAM）/ 業務クリティカル停止: 15分以内 / 本番システム停止: 30分以内
+- ==!AWS Trusted Advisor==                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
+  - `セキュリティー`                        Basic / AWSのセキュリティー関連機能が有効化されているかどうか、アクセスキーが流出していないかなど、セキュリティーに関するチェック
+  - `サービス制限（クォーター）`            Basic / AWSアカウントが作成できるストレージやロールなどのリソースの最大数を監視し、80％を超えた場合にはアラートを発出
+  - `コスト最適化`                          Business / サービスや設定の使用状態をチェックし、活用されていないサービスを洗い出してコスト最適化の提案
+  - `パフォーマンス`                        Business / AWSリソースのパフォーマンス向上のため、スループットや有効化すべき設定をチェック
+  - `耐障害性`                              Business / 耐障害性、可用性や信頼性を向上させるため、オートスケーリングやヘルスチェック、その他有効／無効にすべき設定をチェック
+  - `運用上の優秀性`                        Business / AWS上のサービスが安定して稼働していること、問題発生時に迅速な対応を行える状態であることを確認
+- ==!AWS Compute Optimizer==                   直近 14 日間のコンピュータリソースの最適化提案 / EC2, Auto Scaling Groups, EBSボリューム, Lambda / ==!14日以上設定だと課金==
 - `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==アーキテクチャの評価を提供==
 - `Amazon QuickSight`                       ==BI==
 ⏺ ==!Amazon CloudWatch==                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
 ⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
 ⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
+
+- [AWS サポートに技術的な問い合わせをする手順をまとめてみた](https://zenn.dev/kobayasd/articles/67b0058552336a)
+- [AWS入門ブログリレー2024〜AWS Compute Optimizer編〜](https://dev.classmethod.jp/articles/introduction-2024-aws-compute-optimizer/)
+
+---
 
 ## Migration Services
 - `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
@@ -122,7 +152,6 @@
 - `AWS Systems Manager (SSM)`               AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
 - `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
-⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
 ## All-in
 - `Amazon Lightsail`                        ==VPS== / サーバー・ストレージ・データ転送・IPがパッケージ / 数クリックでデプロイ完了 / (WordPress、LAMP等)
 - `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
@@ -146,6 +175,10 @@
 - `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 ⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
+⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
+- `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
+- `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
+- `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
 ## Computing
 - `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
   - `Option`  
@@ -178,8 +211,6 @@
 - `Amazon Redshift`                         ==Petabyte-scale data warehouse== for analytics
 - `Amazon DocumentDB`                       ==MongoDB== のワークロードをAWSクラウドで簡単に実行、管理、スケール
 - `Amazon Neptune`                          ==Graph database== for highly connected data
-- `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
-- `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
 - `AWS DMS`                                 異なるデータベースエンジン間での移行、オンプレミスからクラウドへの移行、継続的なデータレプリケーション
 - `AWS Backup`                              AWSサービス全体のバックアップを一元管理できるフルマネージド型のバックアップサービス
 - `AWS Storage Gateway`                     オンプレと AWS ストレージをシームレスに接続するハイブリッドクラウドストレージサービス / ==物理テープも==
@@ -204,7 +235,6 @@
 
 ---
 
-- AWS Data Pipeline
 - AWS Lake Formation
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 - Amazon AppFlow
