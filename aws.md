@@ -111,17 +111,36 @@
   - `運用上の優秀性`                        Business / AWS上のサービスが安定して稼働していること、問題発生時に迅速な対応を行える状態であることを確認
 - ==!AWS Compute Optimizer==                   直近 14 日間のコンピュータリソースの最適化提案 / EC2, Auto Scaling Groups, EBSボリューム, Lambda / ==!14日以上設定だと課金==
 - `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==アーキテクチャの評価を提供==
-- `Amazon QuickSight`                       ==BI==
-⏺ ==!Amazon CloudWatch==                       リソースの監視・管理 / メトリクス収集、ログ管理、アラーム設定、ダッシュボード作成
-⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
-⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
 
 - [AWS サポートに技術的な問い合わせをする手順をまとめてみた](https://zenn.dev/kobayasd/articles/67b0058552336a)
 - [AWS入門ブログリレー2024〜AWS Compute Optimizer編〜](https://dev.classmethod.jp/articles/introduction-2024-aws-compute-optimizer/)
+- [AWS Well-Architected Tool でワークロードを定義しアーキテクチャをセルフレビューする](https://qiita.com/oreo367/items/f5140d12a746a465af5e)
 
 ---
 
-## Migration Services
+## Analytics
+
+- `Amazon QuickSight`                       ==!有料== / ==BI==
+⏺ ==!Amazon CloudWatch==                       ==メトリクス== (サービス毎のリソース情報) と==ログ==を収集 / アラーム設定、ダッシュボード作成
+  - 料金:
+    - 基本メトリクス（5分間隔）:          多くのAWSサービスで無料
+    - 詳細メトリクス（1分間隔）:          有料
+    - カスタムメトリクス:                 メトリクス数に応じた課金
+    - ログ:                               データ取り込み量と保存量に応じた課金
+    - ダッシュボード:                     月額 $3/ダッシュボード（最初の3つは無料）
+⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
+⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
+
+- [AWS入門ブログリレー2024〜 Amazon QuickSight 編〜](https://dev.classmethod.jp/articles/introduction-2024-amazon-quicksight/)
+- [AWSブログリレー：Amazon CloudWatchとは？無料枠で始めるAWSシステム監視のメリットと使い方](https://iret.media/172240)
+- [AWS X-Ray とは](https://qiita.com/miyuki_samitani/items/ba9330f621a3e9f50fb5)
+- [AWS再入門ブログリレー2022 X-Ray編](https://dev.classmethod.jp/articles/re-introduction-2022-x-ray/)
+- [Amazon OpenSearch Serviceとは？サービスの概要とその利用価値](https://www.issoh.co.jp/tech/details/3610/)
+
+---
+
+## Migration / Replication
+
 - `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
 - `AWS Migration Hub`                       複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理
   - `AWS Application Migration Service`     物理サーバー、仮想マシン、クラウドインスタンスを AWS に移行する
@@ -132,12 +151,18 @@
   - `AWS Snowball Edge Storage`             ==!Hardware== / 80 TB Storage, 40 vCPUs, 80 GB Memory, ==Large== data migrations
   - `AWS Snowball Edge Compute`             ==!Hardware== / 28 TB NVMe, 104 vCPUs, 416 GB Memory, ==GPU, ML, video processing==
   - `AWS Snowmobile`                        ==!Hardware== / 100 PB per truck, ==Exabyte-scale== migrations, 45-ft container
-## Edge Computing
-- `AWS Outposts`                            オンプレで AWS を利用できる / AWS が物理的なハードウェアを顧客のデータセンターや施設に設置
-- `AWS Local Zones`                         リージョンの拡張 / 主要都市や人口密集地域に配置された小規模なデータセンター
-- `AWS Wavelength`                          通信事業者の5Gネットワーク内に配置 / 5Gデバイスからインターネットを経由せずに直接AWSサービスにアクセス
-## Availavility
 - `Elastic Disaster Recovery (AWS DRS)`     災害復旧サービス / 物理、仮想、クラウドサーバーをAWSに継続的に複製し、迅速な復旧を可能に
+
+---
+
+## Edge
+
+- `AWS Outposts`                            ==!高額== / オンプレで AWS を利用できる / AWS が物理的なハードウェアを顧客のデータセンターや施設に設置
+- `AWS Local Zones`                         ==!Region より 10〜20% 高い== / リージョンの拡張 / 主要都市や人口密集地域に配置された小規模なデータセンター
+- `AWS Wavelength`                          ==!Region より 20〜30% 高い== / 通信事業者の5Gネットワーク内に配置 / 5Gデバイスからネットを経由せずに直接AWSにアクセス
+
+---
+
 ## Tools
 ⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
@@ -145,6 +170,7 @@
 ⏺ `AWS Marketplace`                         ==!Global== AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
 - `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
 - `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
+
 ## CLI & IaC
 - `AWS CLI`                                 アクセスキー
 - `AWS Cloud Development Kit (CDK)`
@@ -152,10 +178,12 @@
 - `AWS Systems Manager (SSM)`               AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
 - `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
+
 ## All-in
 - `Amazon Lightsail`                        ==VPS== / サーバー・ストレージ・データ転送・IPがパッケージ / 数クリックでデプロイ完了 / (WordPress、LAMP等)
 - `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
 - `AWS Amplify`                             ==BaaS== / ==フロントエンド・モバイル特化== / ビルド、デプロイ、ホスティングを簡素化
+
 ## Networking
 - `Amazon VPC`
   - `AWS PrivateLink`                       AWSサービス⇔ VPC間のプライベート接続
@@ -169,6 +197,7 @@
 - `AWS Global Accelerator`                  ==!Global== / 動的コンテンツ / TCP/UDP / ==静的IPアドレス== / パフォーマンス向上 / (ALB,NLB,EC2,Elastic IP)
 - `Amazon API Gateway`                      API 管理サービス / 開発者が RESTful API、HTTP API、WebSocket API を簡単に作成、公開、保守、監視、保護
 - `AWS AppSync`                             ==GraphQL==  / Mobile, Web 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
+
 ## Inter-Communication
 - `Amazon SQS`                              (Amazon Simple Queue Service)
 - `Amazon SNS`                              (Amazon Simple Notification Service)
@@ -179,6 +208,7 @@
 - `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
 - `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
 - `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
+
 ## Computing
 - `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
   - `Option`  
@@ -198,6 +228,7 @@
 - `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
 - `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
+
 ## Storage
 - `Amazon FSx`                              サードパーティ製ファイルシステム / Windows File Server, Lustre, NetApp, ONTAP, OpenZFS など
 - `Amazon EFS (Elastic File System)`        複数のEC2インスタンスから同時にアクセス可能な、NFSv4 ファイルストレージサービス
@@ -214,6 +245,8 @@
 - `AWS DMS`                                 異なるデータベースエンジン間での移行、オンプレミスからクラウドへの移行、継続的なデータレプリケーション
 - `AWS Backup`                              AWSサービス全体のバックアップを一元管理できるフルマネージド型のバックアップサービス
 - `AWS Storage Gateway`                     オンプレと AWS ストレージをシームレスに接続するハイブリッドクラウドストレージサービス / ==物理テープも==
+- `AWS Lake Formation`                      データレイクの構築、保護、管理を簡素化するフルマネージドサービス
+
 ## AI / ML
 ⏺ `Amazon SageMaker AI`                     包括的な機械学習プラットフォーム。機械学習モデルの構築、トレーニング、デプロイまでのライフサイクル全体を管理
 ⏺ `Amazon Q`                                AWSが提供する生成AI搭載のビジネス向けアシスタント
@@ -226,6 +259,7 @@
 ⏺ `Amazon Comprehend`                       Text --> Text (要約、抽出)
 ⏺ `Amazon Polly`                            Text --> Speech
 ⏺ `Amazon CodeGuru`                         機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
+
 ## Others
 - `AWS Directory Service`                   ==Microsoft Active Directory (AD)== の機能を AWS クラウド内で提供するマネージドサービス
 - `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
@@ -235,7 +269,6 @@
 
 ---
 
-- AWS Lake Formation
 - Amazon Managed Streaming for Apache Kafka (Amazon MSK)
 - Amazon AppFlow
 - Saving Plans
