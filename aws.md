@@ -64,6 +64,7 @@
     - `Amazon Inspector`                    サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
     - `Amazon Macie`                        ==Amazon S3== 内の機密データを自動的に検出・分類・保護
     - `Amazon Detective`                    セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
+    - `Amazon Fraud Detector`               ==不正検出== / 機械学習を活用して、オンライン詐欺や不正行為をリアルタイムで検出
   - `AWS Service Catalog`                   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
 ⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知 / Event Bridge で自動通知させると便利
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
@@ -184,19 +185,51 @@
 - `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
 - `AWS Amplify`                             ==BaaS== / ==フロントエンド・モバイル特化== / ビルド、デプロイ、ホスティングを簡素化
 
-## Networking
+---
+
+## Routing
+
 - `Amazon VPC`
-  - `AWS PrivateLink`                       AWSサービス⇔ VPC間のプライベート接続
-  - `Amazon VPN`
-    - `AWS Site-to-Site VPN`                オンプレミス⇔ AWS VPC
-  - `AWS Direct Connect`                    オンプレミス⇔ AWS専用線 (==専用物理回線==)
-  - `AWS Client VPN`                        リモートユーザー(個人デバイス) ⇔ AWS VPC
-  - `AWS Transit Gateway`                   複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
-- `Amazon Route 53`                         ==!Global== / ルーティングポリシー (加重, IP ベース, レイテンシー, フェイルオーバー)
+  - Rooting, Security
+    - `Route Table`                         サブネット単位 / 「このIPアドレス宛のパケットは、どこに送るか？」を決める道路標識
+    - `Network ACL`                         サブネット単位 / ステートレスなファイアウォール
+    - `Security Group`                      インスタンス単位 / ステートフルなファイアウォール
+  - Internet
+    - `Internet Gateway`                    ==!無料== / VPC ⇔ インターネット間の双方向通信 / 水平スケーリング、冗長性、高可用性を自動提供 / 1 VPC 1 IGW
+    - `NAT Gateway`                         ==!$0.045/h + 転送料金== / プライベートインスタンス用 / インバウンド接続は不可 / 自動スケーリング
+  - VPN
+    - Virtual Private Gateway
+      - `AWS Site-to-Site VPN`              ==!$0.05/h + 転送料金== / VPC ⇔ オンプレ (==ネット経由==)
+      - `AWS Direct Connect`                ==!高い== / VPC ⇔ オンプレ (==専用物理回線==)
+    - Clients VPN endpoints
+      - `AWS Client VPN`                    VPC ⇔ リモートユーザー(個人デバイス)
+  - Hub
+    - `AWS Transit Gateway`                 複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
+  - サービス接続 (`VPN Endpoint`)
+    - `Gateway Endoint`                     VPC ⇔ S3, DynamoDB
+    - `Interface Endpoint (AWS PrivateLink)`VPC ⇔ 他 AWS サービス
+- `Amazon Route 53`                         ==!$0.5/月・HostZone + $0.2~0.8/月・100万クエリ== / ==!Global== / 動的 IP 対応 (ALB,NLB,CloudFront,APIgw,S3,,,)
+  - ルーティングポリシ
+    - `シンプルルーティング`                1 ドメイン名 ⇔ 1 IPアドレス
+    - `位置情報ルーティング`                ユーザーの位置情報に基づいて適切なリソースを紐づける
+    - `地理的近接性ルーティング`            ユーザーに対し、地理的に近いリソースを紐づける
+    - `レイテンシールーティング`            データ転送の遅延時間である「レイテンシー」が最も小さいリソースに紐づける
+    - `加重ルーティング`                    通信に対してあらかじめ指定した比率でルーティングする
+    - `フェイルオーバールーティング`        メインサーバーに障害が発生した際にサブに切り替える
+    - `複数値回答ルーティング`              正常なレコードからランダムに選択する
+    - `IPベースのルーティング`              送信元のIPアドレスに応じて紐づける
+  - ヘルスチェック
+    -サーバーのパフォーマンスや状態などを監視する機能で、障害が発生した際も早期に異常を発見できます。サービスの可用性を高められる機能です。
 - `Amazon CloudFront`                       ==!Global== / 静的コンテンツ / HTTP/S / CDN
 - `AWS Global Accelerator`                  ==!Global== / 動的コンテンツ / TCP/UDP / ==静的IPアドレス== / パフォーマンス向上 / (ALB,NLB,EC2,Elastic IP)
 - `Amazon API Gateway`                      API 管理サービス / 開発者が RESTful API、HTTP API、WebSocket API を簡単に作成、公開、保守、監視、保護
 - `AWS AppSync`                             ==GraphQL==  / Mobile, Web 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
+
+- [【初心者向け】Amazon Route 53とは？主な機能や料金体系などを解説！](https://www.cloudsolution.tokai-com.co.jp/white-paper/2025/0305-553.html)
+- [Amazon Route 53を整理してみた](https://qiita.com/zumax/items/f9b617d3d8df6ff1d4ab)
+- [Amazon Route 53を整理してみた](https://qiita.com/zumax/items/f9b617d3d8df6ff1d4ab)
+
+---
 
 ## Inter-Communication
 - `Amazon SQS`                              (Amazon Simple Queue Service)
@@ -282,7 +315,6 @@
 - AWS Device Farm
 - Amazon Pinpoint
 - Amazon Forecast
-- Amazon Fraud Detector
 - Amazon Managed Grafana
 - Amazon Managed Service for Prometheus
 - AWS Proton
