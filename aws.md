@@ -42,6 +42,9 @@
 - ==!AWS Cost Explorer==                       ==1 時間単位== / ==分析== / コスト分析と可視化
 - `AWS Cost and Usage Reports`              ==1 時間単位== / ==詳細分析== / コストと使用状況の ==CSV/JSON== 形式で S3 に出力 / リソース ID 粒度 / ==!S3 使用料==
 - `AWS Billing and Cost Management`         ==月単位== / ==請求管理== / 請求情報の表示、ダウンロード、支払い
+- `Saving Plans`                            1年または3年の期間で一定の使用量（$/時間）をコミット
+  - `Compute Savings Plans`                 EC2、Lambda、Fargateなど計算リソース全般
+  - `EC2 Instance Savings Plans`            特定のEC2インスタンスファミリーに特化
 
 ---
 
@@ -69,6 +72,7 @@
 ⏺ `AWS Health Dashboard`                    ==Service Health Dashboard== と ==Your Account Health== を可視化し、影響を通知 / Event Bridge で自動通知させると便利
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 - `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
+- `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
 
 - [AWS Control Tower 概要まとめ](https://zenn.dev/fusic/articles/a2592da23e3db5)
 - [始めての AWS Control Tower](https://blog.serverworks.co.jp/2025/07/27/105833)
@@ -165,25 +169,15 @@
 ---
 
 ## Tools
+
 ⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
 - `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
-⏺ `AWS Marketplace`                         ==!Global== AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
-- `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
+⏺ `AWS Marketplace`                         ==!Global== / AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
 - `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
 
-## CLI & IaC
-- `AWS CLI`                                 アクセスキー
-- `AWS Cloud Development Kit (CDK)`
-- `AWS CloudFormation`
-- `AWS Systems Manager (SSM)`               AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
-- `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
-- `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
-
-## All-in
-- `Amazon Lightsail`                        ==VPS== / サーバー・ストレージ・データ転送・IPがパッケージ / 数クリックでデプロイ完了 / (WordPress、LAMP等)
-- `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
-- `AWS Amplify`                             ==BaaS== / ==フロントエンド・モバイル特化== / ビルド、デプロイ、ホスティングを簡素化
+- [AWS再入門ブログリレー Amazon AppStream 2.0 編](https://dev.classmethod.jp/articles/re-introduction-2020-appstream2/)
+- [データセットへの新たなアクセス手段 AWS Data Exchange for APIsが発表されました](https://dev.classmethod.jp/articles/aws-data-exchange-for-apis/)
 
 ---
 
@@ -227,11 +221,13 @@
 
 - [【初心者向け】Amazon Route 53とは？主な機能や料金体系などを解説！](https://www.cloudsolution.tokai-com.co.jp/white-paper/2025/0305-553.html)
 - [Amazon Route 53を整理してみた](https://qiita.com/zumax/items/f9b617d3d8df6ff1d4ab)
-- [Amazon Route 53を整理してみた](https://qiita.com/zumax/items/f9b617d3d8df6ff1d4ab)
+- [Amazon CloudFrontを試してみた](https://qiita.com/zumax/items/14582d1dff091fe2838c)
+- [AWS再入門ブログリレー2022 AWS Global Accelerator 編](https://dev.classmethod.jp/articles/re-introduction-2022-globalaccelerator/)
 
 ---
 
 ## Inter-Communication
+
 - `Amazon SQS`                              (Amazon Simple Queue Service)
 - `Amazon SNS`                              (Amazon Simple Notification Service)
 - `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
@@ -241,8 +237,12 @@
 - `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
 - `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
 - `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
+⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
+
+---
 
 ## Computing
+
 - `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
   - `Option`  
     - `オンデマンドインスタンス`            時間単位
@@ -262,7 +262,10 @@
 - `AWS Lambda`
 - `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
 
+---
+
 ## Storage
+
 - `Amazon FSx`                              サードパーティ製ファイルシステム / Windows File Server, Lustre, NetApp, ONTAP, OpenZFS など
 - `Amazon EFS (Elastic File System)`        複数のEC2インスタンスから同時にアクセス可能な、NFSv4 ファイルストレージサービス
 - `Amazon S3`                               Bucket Name, Versioning, Encryption, Storage Class
@@ -280,7 +283,10 @@
 - `AWS Storage Gateway`                     オンプレと AWS ストレージをシームレスに接続するハイブリッドクラウドストレージサービス / ==物理テープも==
 - `AWS Lake Formation`                      データレイクの構築、保護、管理を簡素化するフルマネージドサービス
 
+---
+
 ## AI / ML
+
 ⏺ `Amazon SageMaker AI`                     包括的な機械学習プラットフォーム。機械学習モデルの構築、トレーニング、デプロイまでのライフサイクル全体を管理
 ⏺ `Amazon Q`                                AWSが提供する生成AI搭載のビジネス向けアシスタント
 - `Amazon Kendra`                           Googleのような検索体験を企業内データに対して提供する、==エンタープライズサーチ==のマネージドサービス
@@ -293,7 +299,10 @@
 ⏺ `Amazon Polly`                            Text --> Speech
 ⏺ `Amazon CodeGuru`                         機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
 
+---
+
 ## Others
+
 - `AWS Directory Service`                   ==Microsoft Active Directory (AD)== の機能を AWS クラウド内で提供するマネージドサービス
 - `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
 - `Amazon Connect`                          電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
@@ -302,9 +311,26 @@
 
 ---
 
-- Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+## CLI & IaC
+
+- `AWS CLI`                                 アクセスキー
+- `AWS Cloud Development Kit (CDK)`
+- `AWS CloudFormation`
+- `AWS Systems Manager (SSM)`               AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
+- `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
+- `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
+
+---
+
+## All-in
+
+- `Amazon Lightsail`                        ==VPS== / サーバー・ストレージ・データ転送・IPがパッケージ / 数クリックでデプロイ完了 / (WordPress、LAMP等)
+- `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
+- `AWS Amplify`                             ==BaaS== / ==フロントエンド・モバイル特化== / ビルド、デプロイ、ホスティングを簡素化
+
+---
+
 - Amazon AppFlow
-- Saving Plans
 - AWS Serverless Application Repository
 - VMware Cloud on AWS
 - Amazon ECS Anywhere
