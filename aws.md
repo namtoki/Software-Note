@@ -174,6 +174,7 @@
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
 - `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
 ⏺ `AWS Marketplace`                         ==!Global== / AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
+- `AWS Serverless Application Repository`   開発者やチームが再利用可能なサーバーレスアプリケーションを簡単に見つけて、自分の AWSアカウントにデプロイ
 - `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
 
 - [AWS再入門ブログリレー Amazon AppStream 2.0 編](https://dev.classmethod.jp/articles/re-introduction-2020-appstream2/)
@@ -226,21 +227,6 @@
 
 ---
 
-## Inter-Communication
-
-- `Amazon SQS`                              (Amazon Simple Queue Service)
-- `Amazon SNS`                              (Amazon Simple Notification Service)
-- `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
-- `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
-⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
-⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
-- `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
-- `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
-- `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
-⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
-
----
-
 ## Computing
 
 - `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
@@ -261,6 +247,22 @@
 - `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
 - `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
+
+---
+
+## Inter-Communication
+
+- `Amazon SQS`                              (Amazon Simple Queue Service)
+- `Amazon SNS`                              (Amazon Simple Notification Service)
+- `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
+- `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
+⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
+⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
+- `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
+- `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
+- `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
+⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
+- `Amazon AppFlow`                          ノーコードで SaaS (Salesforce,,）と AWS（Amazon S3,,）間でデータ連携
 
 ---
 
@@ -330,8 +332,6 @@
 
 ---
 
-- Amazon AppFlow
-- AWS Serverless Application Repository
 - VMware Cloud on AWS
 - Amazon ECS Anywhere
 - Amazon EKS Anywhere
