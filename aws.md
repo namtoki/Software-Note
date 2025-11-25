@@ -248,6 +248,10 @@
   - ヘルスチェック
     -サーバーのパフォーマンスや状態などを監視する機能で、障害が発生した際も早期に異常を発見できます。サービスの可用性を高められる機能です。
 - `Amazon CloudFront`                       ==!Global== / 静的コンテンツ / HTTP/S / CDN
+  - `ディストリビューション`
+    - `オリジンサーバー`                    ELB, EC2, S3, API Gateway, オンプレ,,, / URL パスごとにオリジンサーバー設定可能
+    - `キャッシュルール`
+  - `Labdra@Edge`
 - `AWS Global Accelerator`                  ==!Global== / 動的コンテンツ / TCP/UDP / ==静的IPアドレス== / パフォーマンス向上 / (ALB,NLB,EC2,Elastic IP)
 - `Amazon API Gateway`                      API 管理サービス / 開発者が RESTful API、HTTP API、WebSocket API を簡単に作成、公開、保守、監視、保護
 - `AWS AppSync`                             ==GraphQL==  / Mobile, Web 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
@@ -279,6 +283,7 @@
 - `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
 - `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
+- `Amazon Elastic VMware Service (EVS)`     旧 VMware Cloud on AWS / Amazon EC2ベアメタルサーバ上にVMware SDDC（Software-Defined Data Center）
 
 ---
 
@@ -364,7 +369,6 @@
 
 ---
 
-- VMware Cloud on AWS
 - Amazon ECS Anywhere
 - Amazon EKS Anywhere
 - Amazon EKS Distro
