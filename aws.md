@@ -158,18 +158,10 @@
 ## Analytics
 
 - `Amazon QuickSight`                       ==!有料== / ==BI==
-⏺ ==!Amazon CloudWatch==                       ==メトリクス== (サービス毎のリソース情報) と==ログ==を収集 / アラーム設定、ダッシュボード作成
-  - 料金:
-    - 基本メトリクス（5分間隔）:          多くのAWSサービスで無料
-    - 詳細メトリクス（1分間隔）:          有料
-    - カスタムメトリクス:                 メトリクス数に応じた課金
-    - ログ:                               データ取り込み量と保存量に応じた課金
-    - ダッシュボード:                     月額 $3/ダッシュボード（最初の3つは無料）
 ⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
 ⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
 
 - [AWS入門ブログリレー2024〜 Amazon QuickSight 編〜](https://dev.classmethod.jp/articles/introduction-2024-amazon-quicksight/)
-- [AWSブログリレー：Amazon CloudWatchとは？無料枠で始めるAWSシステム監視のメリットと使い方](https://iret.media/172240)
 - [AWS X-Ray とは](https://qiita.com/miyuki_samitani/items/ba9330f621a3e9f50fb5)
 - [AWS再入門ブログリレー2022 X-Ray編](https://dev.classmethod.jp/articles/re-introduction-2022-x-ray/)
 - [Amazon OpenSearch Serviceとは？サービスの概要とその利用価値](https://www.issoh.co.jp/tech/details/3610/)
@@ -323,6 +315,7 @@
 - `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
 - `Amazon Connect`                          電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
 - `Amazon SES (Simple Email Service)`       Transaction mail から Marketing mail まで、あらゆるタイプのメール送信を低コストで実現
+- `Amazon Pinpoint`                         マーケティングコミュニケーションと顧客エンゲージメントのためのサービス / 複数チャネルでターゲットを絞ったメッセージを送信
 - `Amazon IoT Core`                         AWSが提供するフルマネージド型のIoTプラットフォームサービス
 
 ---
@@ -331,7 +324,6 @@
 
 - `AWS CLI`                                 アクセスキー
 - `AWS Cloud Development Kit (CDK)`
-- `AWS CloudFormation`
 - `AWS Systems Manager (SSM)`               AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
 - `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
@@ -352,11 +344,9 @@
 - Amazon Keyspaces (for Apache Cassandra)
 - Amazon Quantum Ledger Database (Amazon QLDB)
 - AWS Device Farm
-- Amazon Pinpoint
 - Amazon Forecast
 - Amazon Managed Grafana
 - Amazon Managed Service for Prometheus
-- AWS Proton
 - Amazon Elastic Transcoder
 - Amazon Kinesis Video Streams
 - AWS Transfer Family
