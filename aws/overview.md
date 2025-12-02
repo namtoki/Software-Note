@@ -85,9 +85,7 @@
 - `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
-  - `AWS IAM`                               ==!Global== / User Groups, User, Roles
   - `AWS Config`                            「どのリソースが、いつ、どう変更されたか」セキュリティとコンプライアンスのための構成監査
-  ⏺ `Amazon CloudTrail`                     AWSアカウント内のAPI呼び出しとアクティビティを記録・監視するサービス
   - ==!AWS Security Hub==                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
     - `AWS Secrets Manager`                 機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
       - `AWS Key Management Service (KMS)`  データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
@@ -343,8 +341,6 @@
 - Amazon EKS Distro
 - Amazon Keyspaces (for Apache Cassandra)
 - Amazon Quantum Ledger Database (Amazon QLDB)
-- AWS Device Farm
-- Amazon Forecast
 - Amazon Managed Grafana
 - Amazon Managed Service for Prometheus
 - Amazon Elastic Transcoder
