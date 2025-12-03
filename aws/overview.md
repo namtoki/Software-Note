@@ -244,9 +244,6 @@
   - `Amazon Elastic Load Balancing`         レイヤ7
   - `Auto Scaling`
 - `AWS Fargate`                             サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
-- `ECS (Elastic Container Service)`
-  - `ECR (Elastic Container Registry)`
-  - `EKS (Elastic Kubernetes Service)`
 - `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
 - `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
@@ -336,13 +333,11 @@
 
 ---
 
-- Amazon ECS Anywhere
 - Amazon EKS Anywhere
 - Amazon EKS Distro
 - Amazon Keyspaces (for Apache Cassandra)
 - Amazon Quantum Ledger Database (Amazon QLDB)
 - Amazon Managed Grafana
-- Amazon Managed Service for Prometheus
 - Amazon Elastic Transcoder
 - Amazon Kinesis Video Streams
 - AWS Transfer Family
