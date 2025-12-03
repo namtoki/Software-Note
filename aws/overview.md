@@ -85,7 +85,6 @@
 - `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
-  - `AWS Config`                            「どのリソースが、いつ、どう変更されたか」セキュリティとコンプライアンスのための構成監査
   - ==!AWS Security Hub==                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
     - `AWS Secrets Manager`                 機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
       - `AWS Key Management Service (KMS)`  データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
@@ -327,7 +326,6 @@
 
 ## All-in
 
-- `Amazon Lightsail`                        ==VPS== / サーバー・ストレージ・データ転送・IPがパッケージ / 数クリックでデプロイ完了 / (WordPress、LAMP等)
 - `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
 - `AWS Amplify`                             ==BaaS== / ==フロントエンド・モバイル特化== / ビルド、デプロイ、ホスティングを簡素化
 
