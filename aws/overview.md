@@ -205,26 +205,6 @@
 
 ## Routing
 
-- `Amazon VPC`
-  - Rooting, Security
-    - `Route Table`                         サブネット単位 / 「このIPアドレス宛のパケットは、どこに送るか？」を決める道路標識
-    - `Network ACL`                         サブネット単位 / ステートレスなファイアウォール
-    - `Security Group`                      インスタンス単位 / ステートフルなファイアウォール
-  - Internet
-    - `Internet Gateway`                    ==!無料== / VPC ⇔ インターネット間の双方向通信 / 水平スケーリング、冗長性、高可用性を自動提供 / 1 VPC 1 IGW
-    - `NAT Gateway`                         ==!$0.045/h + 転送料金== / プライベートインスタンス用 / インバウンド接続は不可 / 自動スケーリング
-  - VPN
-    - Virtual Private Gateway
-      - `AWS Site-to-Site VPN`              ==!$0.05/h + 転送料金== / VPC ⇔ オンプレ (==ネット経由==)
-      - `AWS Direct Connect`                ==!高い== / VPC ⇔ オンプレ (==専用物理回線==)
-    - Clients VPN endpoints
-      - `AWS Client VPN`                    VPC ⇔ リモートユーザー(個人デバイス)
-  - Hub
-    - `AWS Transit Gateway`                 複数のVPC、VPN、Direct Connectを相互接続するハブ。ネットワークトポロジーを簡素化
-  - サービス接続 (`VPN Endpoint`)
-    - `Gateway Endoint`                     VPC ⇔ S3, DynamoDB
-    - `Interface Endpoint (AWS PrivateLink)`VPC ⇔ 他 AWS サービス
-- `Amazon API Gateway`                      API 管理サービス / 開発者が RESTful API、HTTP API、WebSocket API を簡単に作成、公開、保守、監視、保護
 - `AWS AppSync`                             ==GraphQL==  / Mobile, Web 向けの API を簡単に構築, DynamoDB,Lambda,RDS,HTTP Endpoint 様々なデータソースに接続
 
 ---
@@ -335,7 +315,5 @@
 - Amazon EKS Distro
 - Amazon Keyspaces (for Apache Cassandra)
 - Amazon Quantum Ledger Database (Amazon QLDB)
-- Amazon Managed Grafana
 - Amazon Elastic Transcoder
-- Amazon Kinesis Video Streams
 - AWS Transfer Family
