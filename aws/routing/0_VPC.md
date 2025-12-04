@@ -35,8 +35,9 @@
     - `Route Table`:            各サブネットは 1つのテーブル に関連付け / 最長プレフィックスマッチ (最も具体的なルートが優先)
       - `Main Route Table`:     VPC作成時に自動作成、明示的に関連付けのないサブネットが使用
       - `Custom Route Table`:   必要に応じて作成
-    - `Network ACL`:            サブネット単位 / ==ステートレス==なファイアウォール
-    - `Security Group`          インスタンス単位 / ==ステートフル==なファイアウォール (戻りトラフィックの自動許可)
+    - ファイアウォール:
+      - `Network ACL`:          サブネット単位 / ==ステートレス== / 特定 IP のブロック / エフェメラルポート許可設定
+      - `Security Group`:       インスタンス単位 / ==ステートフル== (戻りトラフィックの自動許可)
   - `Internet Gateway (IGW)`:   VPCとインターネット間の通信 / ==高可用性 (Managed)== / 1VPCに1IGW / 
   - `NAT Gateway`:              ==$0.062/時間+$0.062/GB== / ==高可用性 (Managed, 単一AZ内)== / Elastic IPが必要 / 複数AZ可能
   - `VPC ピアリング`:           2つのVPC間でプライベート接続 / 異なるリージョン,アカウント 間でも可能
@@ -49,8 +50,8 @@
   - Virtual Private Gateway:
     - `Site-to-Site VPN`:       ==$0.05/h + 転送料金== / VPC ⇔ オンプレ (==ネット経由==)
     - `Direct Connect`:         ==!高い== / VPC ⇔ オンプレ (==専用物理回線==)
-  - Clients VPN endpoints
-    - `Client VPN`              VPC ⇔ リモートユーザー(個人デバイス) / OpenVPNベース
+  - Clients VPN endpoints:
+    - `Client VPN`:             VPC ⇔ リモートユーザー(個人デバイス) / OpenVPNベース
 - Hub:
-  - `AWS Transit Gateway`       ==$0.05/h+$0.02/GB== / 複数のVPC,VPN,Direct Connectを相互接続 / ネットワークトポロジーを簡素化
+  - `AWS Transit Gateway`:      ==$0.05/h+$0.02/GB== / 複数のVPC,VPN,Direct Connectを相互接続 / ネットワークトポロジーを簡素化
   - `Direct Connect Gateway`:   複数リージョンのVPCに1つのDirect Connectで接続
