@@ -205,17 +205,6 @@
 
 ## Computing
 
-- `EC2`                                     AMI, Instance Type, Key Pair, Instance Store, User Data
-  - `Option`  
-    - `オンデマンドインスタンス`            時間単位
-    - `リザーブドインスタンス`              (1 or 3 年) / 全額前払い, 一部前払い, 前払いなし
-    - `スポットインスタンス`                余剰キャパシティを大幅な割引で使用 / 1 年間安定して稼働させるのには適していない
-    - `Dedicated Hosts`                     物理的な EC2 サーバを専有 / 特定のライセンス要件の場合使用
-  - `Instance Store`                        Temporary
-  - `Auto Scaling`                          Auto Scaling Group (ASG), Scaling Policy
-  - `Image Builder`
-  - `Amazon Elastic Load Balancing`         レイヤ7
-  - `Auto Scaling`
 - `AWS Fargate`                             サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
 - `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
@@ -305,8 +294,6 @@
 
 ---
 
-- Amazon EKS Anywhere
-- Amazon EKS Distro
 - Amazon Keyspaces (for Apache Cassandra)
 - Amazon Quantum Ledger Database (Amazon QLDB)
 - Amazon Elastic Transcoder
