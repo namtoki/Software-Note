@@ -205,8 +205,6 @@
 
 ## Computing
 
-- `AWS Fargate`                             サーバーレスなコンテナ実行環境を提供するAWSのコンピューティングエンジン
-- `Amazon EBS (Elastic Block Store)`        ==唯一 1 つのインスタンスに接続==
 - `AWS Lambda`
 - `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
 - `Amazon Elastic VMware Service (EVS)`     旧 VMware Cloud on AWS / Amazon EC2ベアメタルサーバ上にVMware SDDC（Software-Defined Data Center）
