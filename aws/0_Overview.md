@@ -208,7 +208,3 @@
 - `Amazon SES (Simple Email Service)`       Transaction mail から Marketing mail まで、あらゆるタイプのメール送信を低コストで実現
 - `Amazon Pinpoint`                         マーケティングコミュニケーションと顧客エンゲージメントのためのサービス / 複数チャネルでターゲットを絞ったメッセージを送信
 - `Amazon IoT Core`                         AWSが提供するフルマネージド型のIoTプラットフォームサービス
-
-## Code
-- `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
-- `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
