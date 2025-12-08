@@ -69,7 +69,6 @@
 ---
 
 ## Account & Governance & Security
-
 - `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
@@ -90,21 +89,16 @@
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 - `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
 - `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
-
 - [AWS Control Tower 概要まとめ](https://zenn.dev/fusic/articles/a2592da23e3db5)
 - [始めての AWS Control Tower](https://blog.serverworks.co.jp/2025/07/27/105833)
 - [20分で分かる！Control Towerが実現できる効率的なマルチアカウント管理](https://dev.classmethod.jp/articles/cloud-security-fes-control-tower-basic/)
 - [AWS Control Towerで実現するマルチアカウント管理の完全ガイド](https://qiita.com/mkydk/items/d56e0e8c742391ae0314)
 - [【やってみた】AWS Control Towerワークショップ　その①（Control Towerセットアップ・ユーザー管理）](https://blog.serverworks.co.jp/2024/11/18/125830)
 
----
-
 ## Compliance
-
 - `AWS Artifact`                            コンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
 - `AWS Audit Manager`                       ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
 - `AWS License Manager`                     ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
-
 - [AWS Artifactってなんだろ？](https://zenn.dev/mn87/articles/de5840d73aec9d)
 - [【AWSセキュリティ基礎】AWS Artifact](https://qiita.com/shihandai/items/1109f9d5717a76e11bf4)
 - [AWS ArtifactでNDAなしでコンプライアンスレポートがダウンロード](https://dev.classmethod.jp/articles/aws-artiface-compliance-report-download-and-share/)
@@ -114,10 +108,7 @@
 - [re:Invent 2024: AWSでのコンプライアンス自動化 - Audit ManagerとConfigの活用](https://zenn.dev/kiiwami/articles/bf066633b1e3c00d)
 - [AWS License Manager の新機能で SQL Server のライセンスを切り換えてみた](https://aws.taf-jp.com/blog/60314)
 
----
-
 ## Support
-
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
   - `Basic`                                 ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
   - `Developer`                             ==!MAX($29/M, AWS利用料の3%)== / 技術サポートメール / 個人開発者やスタートアップ向け / 1アカウントにつき1名の連絡先
@@ -133,28 +124,20 @@
   - `運用上の優秀性`                        Business / AWS上のサービスが安定して稼働していること、問題発生時に迅速な対応を行える状態であることを確認
 - ==!AWS Compute Optimizer==                   直近 14 日間のコンピュータリソースの最適化提案 / EC2, Auto Scaling Groups, EBSボリューム, Lambda / ==!14日以上設定だと課金==
 - `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==アーキテクチャの評価を提供==
-
 - [AWS サポートに技術的な問い合わせをする手順をまとめてみた](https://zenn.dev/kobayasd/articles/67b0058552336a)
 - [AWS入門ブログリレー2024〜AWS Compute Optimizer編〜](https://dev.classmethod.jp/articles/introduction-2024-aws-compute-optimizer/)
 - [AWS Well-Architected Tool でワークロードを定義しアーキテクチャをセルフレビューする](https://qiita.com/oreo367/items/f5140d12a746a465af5e)
 
----
-
 ## Analytics
-
 - `Amazon QuickSight`                       ==!有料== / ==BI==
 ⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
 ⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
-
 - [AWS入門ブログリレー2024〜 Amazon QuickSight 編〜](https://dev.classmethod.jp/articles/introduction-2024-amazon-quicksight/)
 - [AWS X-Ray とは](https://qiita.com/miyuki_samitani/items/ba9330f621a3e9f50fb5)
 - [AWS再入門ブログリレー2022 X-Ray編](https://dev.classmethod.jp/articles/re-introduction-2022-x-ray/)
 - [Amazon OpenSearch Serviceとは？サービスの概要とその利用価値](https://www.issoh.co.jp/tech/details/3610/)
 
----
-
 ## Migration / Replication
-
 - `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
 - `AWS Migration Hub`                       複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理
   - `AWS Application Migration Service`     物理サーバー、仮想マシン、クラウドインスタンスを AWS に移行する
@@ -167,32 +150,22 @@
   - `AWS Snowmobile`                        ==!Hardware== / 100 PB per truck, ==Exabyte-scale== migrations, 45-ft container
 - `Elastic Disaster Recovery (AWS DRS)`     災害復旧サービス / 物理、仮想、クラウドサーバーをAWSに継続的に複製し、迅速な復旧を可能に
 
----
-
 ## Edge
-
 - `AWS Outposts`                            ==!高額== / オンプレで AWS を利用できる / AWS が物理的なハードウェアを顧客のデータセンターや施設に設置
 - `AWS Local Zones`                         ==!Region より 10〜20% 高い== / リージョンの拡張 / 主要都市や人口密集地域に配置された小規模なデータセンター
 - `AWS Wavelength`                          ==!Region より 20〜30% 高い== / 通信事業者の5Gネットワーク内に配置 / 5Gデバイスからネットを経由せずに直接AWSにアクセス
 
----
-
 ## Tools
-
 ⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
 - `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
 ⏺ `AWS Marketplace`                         ==!Global== / AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
 - `AWS Serverless Application Repository`   開発者やチームが再利用可能なサーバーレスアプリケーションを簡単に見つけて、自分の AWSアカウントにデプロイ
 - `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
-
 - [AWS再入門ブログリレー Amazon AppStream 2.0 編](https://dev.classmethod.jp/articles/re-introduction-2020-appstream2/)
 - [データセットへの新たなアクセス手段 AWS Data Exchange for APIsが発表されました](https://dev.classmethod.jp/articles/aws-data-exchange-for-apis/)
 
----
-
 ## Inter-Communication
-
 - `Amazon SQS`                              (Amazon Simple Queue Service)
 - `Amazon SNS`                              (Amazon Simple Notification Service)
 - `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
@@ -204,12 +177,7 @@
 ⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
 - `Amazon AppFlow`                          ノーコードで SaaS (Salesforce,,）と AWS（Amazon S3,,）間でデータ連携
 
----
-
-## Storage
-
-- `Amazon FSx`                              サードパーティ製ファイルシステム / Windows File Server, Lustre, NetApp, ONTAP, OpenZFS など
-- `Amazon EFS (Elastic File System)`        複数のEC2インスタンスから同時にアクセス可能な、NFSv4 ファイルストレージサービス
+## Database
 - `Amazon RDS`                              ==Relational DB== / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
   - `Amazon Aurora`                         ==Relational DB== / 5x MySQL/3x PostgreSQL performance
 - `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
@@ -218,14 +186,9 @@
 - `Amazon DocumentDB`                       ==MongoDB== のワークロードをAWSクラウドで簡単に実行、管理、スケール
 - `Amazon Neptune`                          ==Graph database== for highly connected data
 - `AWS DMS`                                 異なるデータベースエンジン間での移行、オンプレミスからクラウドへの移行、継続的なデータレプリケーション
-- `AWS Backup`                              AWSサービス全体のバックアップを一元管理できるフルマネージド型のバックアップサービス
-- `AWS Storage Gateway`                     オンプレと AWS ストレージをシームレスに接続するハイブリッドクラウドストレージサービス / ==物理テープも==
 - `AWS Lake Formation`                      データレイクの構築、保護、管理を簡素化するフルマネージドサービス
 
----
-
 ## AI / ML
-
 ⏺ `Amazon SageMaker AI`                     包括的な機械学習プラットフォーム。機械学習モデルの構築、トレーニング、デプロイまでのライフサイクル全体を管理
 ⏺ `Amazon Q`                                AWSが提供する生成AI搭載のビジネス向けアシスタント
 - `Amazon Kendra`                           Googleのような検索体験を企業内データに対して提供する、==エンタープライズサーチ==のマネージドサービス
@@ -238,10 +201,7 @@
 ⏺ `Amazon Polly`                            Text --> Speech
 ⏺ `Amazon CodeGuru`                         機械学習を使用してコードレビューとアプリケーションのパフォーマンス最適化を自動化するサービス
 
----
-
 ## Others
-
 - `AWS Directory Service`                   ==Microsoft Active Directory (AD)== の機能を AWS クラウド内で提供するマネージドサービス
 - `Amazon Cognito`                          Web/Mobile Application にユーザー認証・認可機能を簡単に追加できるマネージドサービス
 - `Amazon Connect`                          電話対応。クラウドの柔軟性とAWSのAI/ML機能を活用できる、次世代のカスタマーサポートプラットフォーム
@@ -249,11 +209,6 @@
 - `Amazon Pinpoint`                         マーケティングコミュニケーションと顧客エンゲージメントのためのサービス / 複数チャネルでターゲットを絞ったメッセージを送信
 - `Amazon IoT Core`                         AWSが提供するフルマネージド型のIoTプラットフォームサービス
 
----
-
-## CLI & IaC
-
-- `AWS CLI`                                 アクセスキー
-- `AWS Cloud Development Kit (CDK)`
+## Code
 - `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
