@@ -17,7 +17,7 @@
                  User A        User B        User C
 ```
 
-## Functions
+## Overview
 - Cache:
   - `Distribution`:                 配信設定単位
     - Components:

@@ -270,7 +270,6 @@
 
 - `AWS CLI`                                 アクセスキー
 - `AWS Cloud Development Kit (CDK)`
-- `AWS Systems Manager (SSM)`               AWSとオンプレミスのインフラストラクチャを一元的に管理・運用するための統合サービス
 - `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
 
