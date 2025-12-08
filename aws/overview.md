@@ -203,14 +203,6 @@
 
 ---
 
-## Computing
-
-- `AWS Lambda`
-- `AWS Batch`                               数十万規模のジョブを自動的にスケールし、最適なリソース (EC2/Fargate/Spot) を動的にプロビジョニング
-- `Amazon Elastic VMware Service (EVS)`     旧 VMware Cloud on AWS / Amazon EC2ベアメタルサーバ上にVMware SDDC（Software-Defined Data Center）
-
----
-
 ## Inter-Communication
 
 - `Amazon SQS`                              (Amazon Simple Queue Service)
@@ -220,7 +212,6 @@
 ⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
 ⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
 - `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
-- `AWS Glue`                                ==ETL== / Source (S3, RDS, Redshift, DynamoDB, オンプレミス)
 - `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
 ⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
 - `Amazon AppFlow`                          ノーコードで SaaS (Salesforce,,）と AWS（Amazon S3,,）間でデータ連携
@@ -292,7 +283,5 @@
 
 ---
 
-- Amazon Keyspaces (for Apache Cassandra)
-- Amazon Quantum Ledger Database (Amazon QLDB)
 - Amazon Elastic Transcoder
 - AWS Transfer Family
