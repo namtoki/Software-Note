@@ -68,18 +68,6 @@
 
 ---
 
-## Cost
-
-- `AWS Budgets`                             ==1 時間単位== / ==予防== / 特定のリソースにかかるコストや使用状況に対する予算を設定 / ==!3 予算目から課金==
-- ==!AWS Cost Explorer==                       ==1 時間単位== / ==分析== / コスト分析と可視化
-- `AWS Cost and Usage Reports`              ==1 時間単位== / ==詳細分析== / コストと使用状況の ==CSV/JSON== 形式で S3 に出力 / リソース ID 粒度 / ==!S3 使用料==
-- `AWS Billing and Cost Management`         ==月単位== / ==請求管理== / 請求情報の表示、ダウンロード、支払い
-- `Saving Plans`                            1年または3年の期間で一定の使用量（$/時間）をコミット
-  - `Compute Savings Plans`                 EC2、Lambda、Fargateなど計算リソース全般
-  - `EC2 Instance Savings Plans`            特定のEC2インスタンスファミリーに特化
-
----
-
 ## Account & Governance & Security
 
 - `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
@@ -222,9 +210,6 @@
 
 - `Amazon FSx`                              サードパーティ製ファイルシステム / Windows File Server, Lustre, NetApp, ONTAP, OpenZFS など
 - `Amazon EFS (Elastic File System)`        複数のEC2インスタンスから同時にアクセス可能な、NFSv4 ファイルストレージサービス
-- `Amazon S3`                               Bucket Name, Versioning, Encryption, Storage Class
-  - `Amazon S3 Glacier`                     Long-term archival storage, Vault Name, Archive, Retrieval Options
-  - `Amazon Athena`                         ==S3== に保存されたデータに対して ==SQLクエリ== を実行できる、サーバーレスなインタラクティブ分析サービス
 - `Amazon RDS`                              ==Relational DB== / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
   - `Amazon Aurora`                         ==Relational DB== / 5x MySQL/3x PostgreSQL performance
 - `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
@@ -272,15 +257,3 @@
 - `AWS Cloud Development Kit (CDK)`
 - `AWS CodeBuild`                           コンパイル、テスト実行し、デプロイ可能なソフトウェアパッケージを生成する ==CI== サービス
 - `AWS CodePipeline`                        ソフトウェアのリリースプロセスを自動化するフルマネージドな ==CD== サービス
-
----
-
-## All-in
-
-- `AWS Elastic Beanstalk`                   ==PaaS== / ==バックエンド・Webアプリ特化== / 裏側でEC2・ELB・Auto Scaling等を自動構築
-- `AWS Amplify`                             ==BaaS== / ==フロントエンド・モバイル特化== / ビルド、デプロイ、ホスティングを簡素化
-
----
-
-- Amazon Elastic Transcoder
-- AWS Transfer Family
