@@ -165,12 +165,8 @@
 ⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
 
 ## Database
-- `Amazon RDS`                              ==Relational DB== / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
-  - `Amazon Aurora`                         ==Relational DB== / 5x MySQL/3x PostgreSQL performance
 - `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
 - `Amazon DynamoDB`                         ==NoSQL== key-value/document database
-- `Amazon Redshift`                         ==Petabyte-scale data warehouse== for analytics
 - `Amazon DocumentDB`                       ==MongoDB== のワークロードをAWSクラウドで簡単に実行、管理、スケール
-- `Amazon Neptune`                          ==Graph database== for highly connected data
 - `AWS DMS`                                 異なるデータベースエンジン間での移行、オンプレミスからクラウドへの移行、継続的なデータレプリケーション
 - `AWS Lake Formation`                      データレイクの構築、保護、管理を簡素化するフルマネージドサービス
