@@ -52,7 +52,7 @@
 ## Options
 - `Concurrent Executions`:                  同時に実行できる関数インスタンス数 / Region Default: ==1,000== (引き上げ可能)
   - `Reserved Concurrency`:                 ==特定関数用に確保== / 他関数の影響を防ぐ / ==無料==
-  - `Provisioned Concurrency`:              ==事前にウォーム状態を維持== / Cold Start回避 / ==有料==
+  - `Provisioned Concurrency`:              ==事前にウォーム状態を維持== / Cold Start回避 / ==!有料==
     - `Cold Start`:                         新規インスタンス起動 / 初期化に時間がかかる
       - 要因:                             初回実行, スケールアウト時, コード更新後
       - 対策:                             ==Provisioned Concurrency==, メモリ増加, 軽量ランタイム

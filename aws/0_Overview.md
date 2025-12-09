@@ -73,9 +73,7 @@
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
   - ==!AWS Security Hub==                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
-    - `AWS Secrets Manager`                 機密情報を安全に管理し、自動ローテーション機能により運用負荷を削減
-      - `AWS Key Management Service (KMS)`  データの暗号化・復号化に使用する暗号化キーのライフサイクル全体を管理
-      - `AWS CloudHSM`                      専有の FIPS 140-2 Level 3 の ==Hardware Security Module== / 暗号鍵の生成、保管、管理
+    - `AWS Secrets Manager` / `AWS Key Management Service (KMS)` / `AWS CloudHSM`
     - `AWS Firewall Manager`                AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
       - `AWS Shield`                        ==!Global== / ==DDoS==
       - `AWS WAF (WebApplicationFirewall)`  ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
@@ -161,12 +159,10 @@
 ## Network
 - `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
-⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
 ⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
 - `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
 - `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
 ⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
-- `Amazon AppFlow`                          ノーコードで SaaS (Salesforce,,）と AWS（Amazon S3,,）間でデータ連携
 
 ## Database
 - `Amazon RDS`                              ==Relational DB== / Engine (Aurora/MySQL/PostgreSQL/MariaDB/Oracle/SQL Server)
