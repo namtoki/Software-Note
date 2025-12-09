@@ -15,7 +15,7 @@
 +----------------------------------------------------------+
 ```
 
-## Overview
+## Associate Level
 - 構成:
   - `Cluster`:                  タスクやサービスの論理グループ
     - `Service`:                指定数のタスクを==常に維持== / ALB/NLBとの連携 / Rolling Update / ==Auto Scaling==

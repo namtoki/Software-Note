@@ -10,7 +10,7 @@ Compute Environment (コンピューティング環境)
     EC2 / Fargate (実行)
 ```
 
-## Overview
+## Associate Level
 - バッチ処理サービス:                 ==フルマネージド== / ジョブの Scheduling・実行 / ジョブ数に応じて ==自動スケール==
   - 実行環境:                         ==EC2== または ==Fargate== / 実行時間無制限
   - 構成要素:

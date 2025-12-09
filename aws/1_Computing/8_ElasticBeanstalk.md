@@ -19,7 +19,7 @@
          ↑ コードをアップロードするだけ
 ```
 
-## Overview
+## Associate Level
 - PaaS (Platform as a Service):       EC2, ELB, Auto Scaling, RDS 等を ==自動プロビジョニング== / ==Beanstalk自体は無料== (使用リソースのみ課金)
   - 制御:                             ==フルコントロール可能== (設定変更、SSHアクセス可)
   - Components:

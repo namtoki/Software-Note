@@ -108,7 +108,15 @@
 - [re:Invent 2024: AWSでのコンプライアンス自動化 - Audit ManagerとConfigの活用](https://zenn.dev/kiiwami/articles/bf066633b1e3c00d)
 - [AWS License Manager の新機能で SQL Server のライセンスを切り換えてみた](https://aws.taf-jp.com/blog/60314)
 
-## Support
+## Tools
+⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
+⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
+- `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
+⏺ `AWS Marketplace`                         ==!Global== / AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
+- `AWS Serverless Application Repository`   開発者やチームが再利用可能なサーバーレスアプリケーションを簡単に見つけて、自分の AWSアカウントにデプロイ
+- `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
+- [AWS再入門ブログリレー Amazon AppStream 2.0 編](https://dev.classmethod.jp/articles/re-introduction-2020-appstream2/)
+- [データセットへの新たなアクセス手段 AWS Data Exchange for APIsが発表されました](https://dev.classmethod.jp/articles/aws-data-exchange-for-apis/)
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
   - `Basic`                                 ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
   - `Developer`                             ==!MAX($29/M, AWS利用料の3%)== / 技術サポートメール / 個人開発者やスタートアップ向け / 1アカウントにつき1名の連絡先
@@ -150,24 +158,7 @@
   - `AWS Snowmobile`                        ==!Hardware== / 100 PB per truck, ==Exabyte-scale== migrations, 45-ft container
 - `Elastic Disaster Recovery (AWS DRS)`     災害復旧サービス / 物理、仮想、クラウドサーバーをAWSに継続的に複製し、迅速な復旧を可能に
 
-## Edge
-- `AWS Outposts`                            ==!高額== / オンプレで AWS を利用できる / AWS が物理的なハードウェアを顧客のデータセンターや施設に設置
-- `AWS Local Zones`                         ==!Region より 10〜20% 高い== / リージョンの拡張 / 主要都市や人口密集地域に配置された小規模なデータセンター
-- `AWS Wavelength`                          ==!Region より 20〜30% 高い== / 通信事業者の5Gネットワーク内に配置 / 5Gデバイスからネットを経由せずに直接AWSにアクセス
-
-## Tools
-⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
-⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
-- `Amazon WorkSpaces Secure Browser`        クラウド上で動作する専用ブラウザ環境を提供
-⏺ `AWS Marketplace`                         ==!Global== / AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
-- `AWS Serverless Application Repository`   開発者やチームが再利用可能なサーバーレスアプリケーションを簡単に見つけて、自分の AWSアカウントにデプロイ
-- `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
-- [AWS再入門ブログリレー Amazon AppStream 2.0 編](https://dev.classmethod.jp/articles/re-introduction-2020-appstream2/)
-- [データセットへの新たなアクセス手段 AWS Data Exchange for APIsが発表されました](https://dev.classmethod.jp/articles/aws-data-exchange-for-apis/)
-
-## Inter-Communication
-- `Amazon SQS`                              (Amazon Simple Queue Service)
-- `Amazon SNS`                              (Amazon Simple Notification Service)
+## Network
 - `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
 - `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
 ⏺ `Amazon EventBridge`                      サービス間でイベントを簡単に接続し、イベント駆動型アーキテクチャを構築
