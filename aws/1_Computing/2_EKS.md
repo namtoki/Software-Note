@@ -18,26 +18,25 @@
 +------------------------------------------------------------------+
 ```
 
-## Associate Level
-- Kubernetes サービス:            ==フルマネージド== Kubernetes / ==$0.10/時間/クラスター== + ノード料金
-  - 構成要素:
-    - Control Plane:              ==AWS マネージド== (複数AZ冗長, etcd暗号化)
-    - Data Plane:                 顧客管理 (EC2 or Fargate)
-      - Node Types:
-        | 項目 | マネージドノード | セルフマネージド | Fargate |
-        |------|----------------|-----------------|---------|
-        | 管理負荷 | ==低== | 高 | ==最低== |
-        | カスタマイズ | 中 | 高 | 低 |
-        | GPU サポート | ○ | ○ | ==✗== |
-        | DaemonSet | ○ | ○ | ==✗== |
-        | コスト | EC2 料金 | EC2 料金 | Pod 単位 |
+## Overview
+- Kubernetes サービス:    フルマネージド Kubernetes / ==!$0.10/時間/クラスター + ノード料金==
+  - `Control Plane`:        ==AWS マネージド== (複数AZ冗長, etcd暗号化)
+  - `Data Plane`:           顧客管理 (EC2 or Fargate)
+    - Node Types:
+      | 項目 | マネージドノード | セルフマネージド | Fargate |
+      |------|----------------|-----------------|---------|
+      | 管理負荷 | ==低== | 高 | ==最低== |
+      | カスタマイズ | 中 | 高 | 低 |
+      | GPU サポート | ○ | ○ | ==✗== |
+      | DaemonSet | ○ | ○ | ==✗== |
+      | コスト | EC2 料金 | EC2 料金 | Pod 単位 |
 
-      - `IRSA`:                     IAM Roles for Service Accounts / Pod に ==AWS サービスへのアクセス権限== を付与
-      - Load Balancing:
-        | K8s リソース | AWS Load Balancer |
-        |-------------|-------------------|
-        | Ingress | ==ALB== |
-        | Service (type: LoadBalancer) | ==NLB== |
+    - `IRSA`:               IAM Roles for Service Accounts / Pod に ==AWS サービスへのアクセス権限== を付与
+    - Load Balancing:
+      | K8s リソース | AWS Load Balancer |
+      |-------------|-------------------|
+      | Ingress | ==ALB== |
+      | Service (type: LoadBalancer) | ==NLB== |
 
 - EKS ファミリー
   | 項目 | Amazon EKS | EKS Distro | EKS Anywhere |
@@ -47,5 +46,5 @@
   | 料金 | $0.10/時間 | 無料 | 無料 (サポート有料) |
   | ユースケース | クラウドネイティブ | カスタム構築 | ハイブリッド |
 - EKS Anywhere
-  - プロバイダー:                 ==VMware vSphere==, ==Bare Metal==, Nutanix, ==AWS Snow==
-  - `EKS Connector`:                AWS コンソールで可視化 (読み取り専用)
+  - プロバイダー:         ==VMware vSphere==, ==Bare Metal==, Nutanix, ==AWS Snow==
+  - `EKS Connector`:        AWS コンソールで可視化 (読み取り専用)

@@ -1,7 +1,7 @@
 # Amazon SQS (Simple Queue Service)
 
-## Associate Level
-- メッセージキューサービス:       フルマネージド / ==デカップリング== (疎結合) / 非同期処理 / ==プル型== (コンシューマーがメッセージを取得)
+## Overview
+- メッセージキューサービス:   フルマネージド / ==デカップリング== (疎結合) / 非同期処理 / ==プル型== (コンシューマーがメッセージを取得)
   - Queue タイプ:
     | 項目 | ==Standard Queue== | ==FIFO Queue== |
     |------|-------------------|----------------|
@@ -13,7 +13,7 @@
   - 重要な設定:
     | 設定 | 説明 | デフォルト |
     |------|------|-----------|
-    | ==Visibility Timeout== | 処理中のメッセージを他から隠す時間 | 30秒 (最大12時間) |
-    | ==Message Retention== | メッセージ保持期間 | 4日 (最大==14日==) |
-    | ==Dead Letter Queue (DLQ)== | 処理失敗メッセージの退避先 | - |
-    | ==Long Polling== | メッセージ待機 (API コール削減) | 0秒 (Short Polling) |
+    | `Visibility Timeout` | 処理中のメッセージを他から隠す時間 | 30秒 (最大12時間) |
+    | `Message Retention` | メッセージ保持期間 | 4日 (最大==14日==) |
+    | `Dead Letter Queue (DLQ)` | ==処理失敗メッセージの退避先== | - |
+    | `Long Polling` | メッセージ待機 (API コール削減) | 0秒 (Short Polling) |

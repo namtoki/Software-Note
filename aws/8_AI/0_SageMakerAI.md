@@ -7,10 +7,10 @@
 +-------------+     +-------------+     +-------------+     +-------------+
 ```
 
-## Associate Level
+## Overview
 - 機械学習開発基盤:               ==機械学習モデル==の構築・トレーニング・デプロイを行うフルマネージドサービス
 
-## Specialty Level
+## Options
 - 主要コンポーネント:
   - `SageMaker Studio`:             ==統合開発環境 (IDE)== / Notebook, 実験管理, デプロイ
   - `Notebook Instance`:            Jupyter Notebook 環境 / モデル開発・実験

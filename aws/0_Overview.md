@@ -1,7 +1,5 @@
 # AWS
 
----
-
 ## Terminology
 - AWS Management Console
 - ARN (Amazon Resource Name):
@@ -10,7 +8,7 @@
     - `arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0`
     - `arn:aws:iam::123456789012:user/john`
       - partition: 通常は aws（中国リージョンは aws-cn、GovCloudは aws-us-gov）
-- `AWS Well-Architectedフレームワーク` ==お世辞パコ痔==
+- `AWS Well-Architectedフレームワーク`
   - 目的: クラウドアーキテクチャを評価・改善するための一貫した基準を提供
   - `レビュープロセス`: 現状評価 → リスク特定 → 改善計画 → 継続的改善（3-6ヶ月ごと）
   1. ==オペレーショナルエクセレンス==（運用上の優秀性）
@@ -87,25 +85,11 @@
 - `AWS Service Quotas`                      AWSサービスのクォータ（制限値）を一元管理・表示・引き上げリクエストできるサービス
 - `AWS Certificate Manager (ACM)`           SSL/TLS証明書を管理 / ==HTTPS通信== に必要な証明書を、無料で発行・更新・管理
 - `AWS Resource Access Manager`             (RAM) マルチアカウント環境でリソースを効率的に共有し、重複を避ける
-- [AWS Control Tower 概要まとめ](https://zenn.dev/fusic/articles/a2592da23e3db5)
-- [始めての AWS Control Tower](https://blog.serverworks.co.jp/2025/07/27/105833)
-- [20分で分かる！Control Towerが実現できる効率的なマルチアカウント管理](https://dev.classmethod.jp/articles/cloud-security-fes-control-tower-basic/)
-- [AWS Control Towerで実現するマルチアカウント管理の完全ガイド](https://qiita.com/mkydk/items/d56e0e8c742391ae0314)
-- [【やってみた】AWS Control Towerワークショップ　その①（Control Towerセットアップ・ユーザー管理）](https://blog.serverworks.co.jp/2024/11/18/125830)
-
 ## Compliance
 - `AWS Artifact`                            コンプライアンス関連ドキュメントへのセルフサービスアクセスを提供するサービス
 - `AWS Audit Manager`                       ==監査==準備とコンプライアンス評価を自動化・簡素化するサービス
 - `AWS License Manager`                     ソフトウェアライセンスの使用量管理と制限, 「ライセンスを何個使っているか、超過していないか」を管理
-- [AWS Artifactってなんだろ？](https://zenn.dev/mn87/articles/de5840d73aec9d)
-- [【AWSセキュリティ基礎】AWS Artifact](https://qiita.com/shihandai/items/1109f9d5717a76e11bf4)
-- [AWS ArtifactでNDAなしでコンプライアンスレポートがダウンロード](https://dev.classmethod.jp/articles/aws-artiface-compliance-report-download-and-share/)
-- [【AWS Audit Manager】フレームワーク、コントロールを継続的デプロイしてみた](https://dev.classmethod.jp/articles/continuous-compliance-monitoring-with-auditmanager/)
-- [AWS Audit Managerで監査の準備をしよう](https://blog.serverworks.co.jp/AWS_AuditManager)
-- [AWS Audit Managerの概要と主な用語とその関係](https://blog.serverworks.co.jp/overview-of-audit-manager)
-- [re:Invent 2024: AWSでのコンプライアンス自動化 - Audit ManagerとConfigの活用](https://zenn.dev/kiiwami/articles/bf066633b1e3c00d)
-- [AWS License Manager の新機能で SQL Server のライセンスを切り換えてみた](https://aws.taf-jp.com/blog/60314)
-
+- AWS License Manager の新機能で SQL Server のライセンスを切り換えてみた](https://aws.taf-jp.com/blog/60314)
 ## Tools
 ⏺ `Amazon AppStream 2.0`                    Windows Desktop App を Web ブラウザ経由でストリーミング配信
 ⏺ `Amazon WorkSpaces`                       フルマネージド型の仮想デスクトップ / ==DaaS== / ==Windows/Linux== デスクトップ環境を提供
@@ -113,8 +97,6 @@
 ⏺ `AWS Marketplace`                         ==!Global== / AWS上で動作するソフトウェア、データ、サービスを検索・購入・デプロイできる==デジタルカタログ==
 - `AWS Serverless Application Repository`   開発者やチームが再利用可能なサーバーレスアプリケーションを簡単に見つけて、自分の AWSアカウントにデプロイ
 - `AWS Data Exchange`                       ==データマーケットプレイス== / ライセンス管理と課金 / データ更新の自動化
-- [AWS再入門ブログリレー Amazon AppStream 2.0 編](https://dev.classmethod.jp/articles/re-introduction-2020-appstream2/)
-- [データセットへの新たなアクセス手段 AWS Data Exchange for APIsが発表されました](https://dev.classmethod.jp/articles/aws-data-exchange-for-apis/)
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
   - `Basic`                                 ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
   - `Developer`                             ==!MAX($29/M, AWS利用料の3%)== / 技術サポートメール / 個人開発者やスタートアップ向け / 1アカウントにつき1名の連絡先
@@ -130,19 +112,6 @@
   - `運用上の優秀性`                        Business / AWS上のサービスが安定して稼働していること、問題発生時に迅速な対応を行える状態であることを確認
 - ==!AWS Compute Optimizer==                   直近 14 日間のコンピュータリソースの最適化提案 / EC2, Auto Scaling Groups, EBSボリューム, Lambda / ==!14日以上設定だと課金==
 - `AWS Well-Architected Tool`               AWSワークロードをWell-Architectedフレームワークに基づいて==アーキテクチャの評価を提供==
-- [AWS サポートに技術的な問い合わせをする手順をまとめてみた](https://zenn.dev/kobayasd/articles/67b0058552336a)
-- [AWS入門ブログリレー2024〜AWS Compute Optimizer編〜](https://dev.classmethod.jp/articles/introduction-2024-aws-compute-optimizer/)
-- [AWS Well-Architected Tool でワークロードを定義しアーキテクチャをセルフレビューする](https://qiita.com/oreo367/items/f5140d12a746a465af5e)
-
-## Analytics
-- `Amazon QuickSight`                       ==!有料== / ==BI==
-⏺ ==!Amazon X-Ray==                            分散アプリケーションのパフォーマンス分析とデバッグを支援するサービス
-⏺ `Amazon OpenSearch Service`               フルマネージド型の検索・分析サービス。OpenSearch, Elasticsearchをベースにした検索・分析エンジン
-- [AWS入門ブログリレー2024〜 Amazon QuickSight 編〜](https://dev.classmethod.jp/articles/introduction-2024-amazon-quicksight/)
-- [AWS X-Ray とは](https://qiita.com/miyuki_samitani/items/ba9330f621a3e9f50fb5)
-- [AWS再入門ブログリレー2022 X-Ray編](https://dev.classmethod.jp/articles/re-introduction-2022-x-ray/)
-- [Amazon OpenSearch Serviceとは？サービスの概要とその利用価値](https://www.issoh.co.jp/tech/details/3610/)
-
 ## Migration / Replication
 - `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
 - `AWS Migration Hub`                       複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理
@@ -155,18 +124,3 @@
   - `AWS Snowball Edge Compute`             ==!Hardware== / 28 TB NVMe, 104 vCPUs, 416 GB Memory, ==GPU, ML, video processing==
   - `AWS Snowmobile`                        ==!Hardware== / 100 PB per truck, ==Exabyte-scale== migrations, 45-ft container
 - `Elastic Disaster Recovery (AWS DRS)`     災害復旧サービス / 物理、仮想、クラウドサーバーをAWSに継続的に複製し、迅速な復旧を可能に
-
-## Network
-- `Amazon MQ`                               Apache ActiveMQ とRabbitMQ のマネージド型メッセージブローカーサービス
-- `Amazon Kinesis`                          リアルタイムのストリーミングデータを収集、処理、分析するための完全マネージド型サービス
-⏺ `AWS Step Functions`                      複数のサービスを視覚的な Workflow / 分散 App や MicroService を構築, オーケストレーション
-- `Amazon EMR (Elastic MapReduce)`          Big data processing platform, ==MapReduce (Spark/Hadoop/Presto/Hive)==
-- `AWS Data Pipeline`                       サービス間でデータを自動的に移動 / スケジュール実行可能 / (S3,RDS,DynamoDB,Redshift,オンプレ) / EMR でデータ処理可能
-⏺ `Managed Streaming for Apache Kafka`      フルマネージド型の Apache Kafka サービス / リアルタイムデータストリーミング / ログ集約・分析
-
-## Database
-- `Amazon ElastiCache`                      ==In-memory caching== service for performance / Engine (==Redis/Memcached==)
-- `Amazon DynamoDB`                         ==NoSQL== key-value/document database
-- `Amazon DocumentDB`                       ==MongoDB== のワークロードをAWSクラウドで簡単に実行、管理、スケール
-- `AWS DMS`                                 異なるデータベースエンジン間での移行、オンプレミスからクラウドへの移行、継続的なデータレプリケーション
-- `AWS Lake Formation`                      データレイクの構築、保護、管理を簡素化するフルマネージドサービス

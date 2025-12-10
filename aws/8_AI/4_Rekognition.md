@@ -1,6 +1,6 @@
 # Amazon Rekognition
 
-## Associate Level
+## Overview
 - 画像・動画分析サービス:             機械学習による視覚的コンテンツ分析
   - 主要機能:
     - `顔検出・認識`:                   顔の検出、比較、検索
@@ -12,5 +12,3 @@
   -  対応メディア:
     - `Image`:                          S3 または Base64 エンコード
     - `Video`:                          S3 / Kinesis Video Streams
-
-## Specialty Level

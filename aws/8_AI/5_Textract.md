@@ -1,6 +1,6 @@
 # Amazon Textract
 
-## Associate Level
+## Overview
 - OCRサービス:                    ==ドキュメント==からテキスト・データを抽出する
   - 機能:
     - `テキスト抽出`:               印刷・手書きテキストを抽出

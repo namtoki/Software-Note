@@ -16,7 +16,7 @@
 └─────────────────────────────────────────────────────┘
 ```
 
-## Associate Level
-- VMware実行サービス:                 ==VMware Cloud Foundation (VCF)== を AWS VPC内でネイティブ実行
-  - 基盤:                             ==EC2ベアメタル== (i4i.metal) / AWS Nitro System
-  - 目的:                             既存VMwareワークロードを ==再プラットフォームなし== で移行
+## Overview
+- VMware実行サービス:     ==VMware Cloud Foundation (VCF)== を AWS VPC内でネイティブ実行
+  - 基盤:                 ==EC2ベアメタル== (i4i.metal) / AWS Nitro System
+  - 目的:                 既存VMwareワークロードを ==再プラットフォームなし== で移行

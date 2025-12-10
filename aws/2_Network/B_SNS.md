@@ -1,7 +1,7 @@
 # Amazon SNS (Simple Notification Service)
 
-## Associate Level
-- Pub/Subメッセージングサービス:      フルマネージド / ==プッシュ型== (パブリッシャーがメッセージを配信) / ==複数のサブスクライバー==に配信
+## Overview
+- Pub/Sub:    フルマネージド / ==プッシュ型== (パブリッシャーがメッセージを配信) / ==複数のサブスクライバー==に配信
   - Topic type:
     | 項目 | ==Standard Topic== | ==FIFO Topic== |
     |------|-------------------|----------------|
