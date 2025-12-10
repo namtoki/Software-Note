@@ -66,8 +66,11 @@
 
 ---
 
-## Account & Governance & Security
+## Operation
 - `AWS Control Tower`                       1 時間以内に==Landing Zone==構築 / ベストプラクティス / ダッシュボード / SCP によるガードレール
+  - `AWS Service Catalog`                   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
+
+## Govenance
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
   - ==!AWS Security Hub==                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
@@ -79,7 +82,7 @@
     - `Amazon Macie`                        ==Amazon S3== 内の機密データを自動的に検出・分類・保護
     - `Amazon Detective`                    セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
     - `Amazon Fraud Detector`               ==不正検出== / 機械学習を活用して、オンライン詐欺や不正行為をリアルタイムで検出
-  - `AWS Service Catalog`                   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
+
 ## Tools
 - `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
   - `Basic`                                 ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
