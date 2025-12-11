@@ -63,36 +63,10 @@
 - `AWS CAF`
   - 組織がAWSクラウドへの移行を効果的に行うためのガイダンスとベストプラクティスを提供するフレームワーク
   - 6つの専門領域、すなわち ==ビジネス==, ==人材==, ==ガバナンス==, ==プラットフォーム==, ==セキュリティ==, ==オペレーション== に分かれている
+- `AWS Support`:            ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
+  - `Basic`:                ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
+  - `Developer`:            ==!MAX($29/M, AWS利用料の3%)== / 技術サポートメール / 個人開発者やスタートアップ向け / 1アカウントにつき1名の連絡先
+  - `Business`:             ==!$100/M + α== / 365日技術サポート(chat,phone も) / 中規模のビジネス向け / AWS Trusted Advisorの==全機能==
+  - `Enterprise On-Ramp`:   ==!$5,500/M + α== / アーキテクチャレビュー、運用レビュー / 本番システム停止: 30分以内 / 業務重大影響: 30分以内
+  - `Enterprise`:           ==!$15,000/M + α== / 専任のTechnical Account Manager（TAM）/ 業務クリティカル停止: 15分以内 / 本番システム停止: 30分以内
 
----
-
-## Govenance
-  - ==!AWS Security Hub==                      セキュリティーアラート / ==ダッシュボード== / ==CSPM==
-    - `AWS Firewall Manager`                AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
-      - `AWS Shield`                        ==!Global== / ==DDoS==
-      - `AWS WAF (WebApplicationFirewall)`  ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
-    - `Amazon GuardDuty`                    ==悪意==のある異常な動作を継続的に監視・==検出== / ==マルウェア==
-    - `Amazon Inspector`                    サービスの==脆弱性==に関する Best Pradctice の順守を==自動的に評価==
-    - `Amazon Macie`                        ==Amazon S3== 内の機密データを自動的に検出・分類・保護
-    - `Amazon Detective`                    セキュリティ上の問題が発生した際に、根本原因を特定するための探偵の役割
-    - `Amazon Fraud Detector`               ==不正検出== / 機械学習を活用して、オンライン詐欺や不正行為をリアルタイムで検出
-
-## Tools
-- `AWS Support`                             ==!Global== サービスの利用方法、トラブルシューティング、アーキテクチャガイダンスなど
-  - `Basic`                                 ==!無料== / 技術サポートなし / カスタマーサービス（請求・アカウント関連）/ AWS Health Dashboard /AWS Trusted Advisor
-  - `Developer`                             ==!MAX($29/M, AWS利用料の3%)== / 技術サポートメール / 個人開発者やスタートアップ向け / 1アカウントにつき1名の連絡先
-  - `Business`                              ==!$100/M + α== / 365日技術サポート(chat,phone も) / 中規模のビジネス向け / AWS Trusted Advisorの==全機能==
-  - `Enterprise On-Ramp`                    ==!$5,500/M + α== / アーキテクチャレビュー、運用レビュー / 本番システム停止: 30分以内 / 業務重大影響: 30分以内
-  - `Enterprise`                            ==!$15,000/M + α== / 専任のTechnical Account Manager（TAM）/ 業務クリティカル停止: 15分以内 / 本番システム停止: 30分以内
-- ==!AWS Trusted Advisor==                     ==!Global== / ==Best Practice== 基づき分析改善提案 / 不使用インスタンス /  ==SG チェック==
-  - `セキュリティー`                        Basic / AWSのセキュリティー関連機能が有効化されているかどうか、アクセスキーが流出していないかなど、セキュリティーに関するチェック
-  - `サービス制限（クォーター）`            Basic / AWSアカウントが作成できるストレージやロールなどのリソースの最大数を監視し、80％を超えた場合にはアラートを発出
-  - `コスト最適化`                          Business / サービスや設定の使用状態をチェックし、活用されていないサービスを洗い出してコスト最適化の提案
-  - `パフォーマンス`                        Business / AWSリソースのパフォーマンス向上のため、スループットや有効化すべき設定をチェック
-  - `耐障害性`                              Business / 耐障害性、可用性や信頼性を向上させるため、オートスケーリングやヘルスチェック、その他有効／無効にすべき設定をチェック
-  - `運用上の優秀性`                        Business / AWS上のサービスが安定して稼働していること、問題発生時に迅速な対応を行える状態であることを確認
-- `AWS Snow Family`
-  - `AWS Snowcone`                          ==!Hardware== / 8-14 TB Storage, 2 vCPUs, 4 GB Memory, ==Smallest== device, edge computing, 9 lbs
-  - `AWS Snowball Edge Storage`             ==!Hardware== / 80 TB Storage, 40 vCPUs, 80 GB Memory, ==Large== data migrations
-  - `AWS Snowball Edge Compute`             ==!Hardware== / 28 TB NVMe, 104 vCPUs, 416 GB Memory, ==GPU, ML, video processing==
-  - `AWS Snowmobile`                        ==!Hardware== / 100 PB per truck, ==Exabyte-scale== migrations, 45-ft container
