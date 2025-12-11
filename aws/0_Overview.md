@@ -66,9 +66,6 @@
 
 ---
 
-## Operation
-  - `AWS Service Catalog`                   組織で承認されたAWSリソース（CloudFormationテンプレート）をカタログとして提供
-
 ## Govenance
   - `AWS Organizations`                     ==!Global== / 複数 AWS アカウントに Service Control Policy (==SCP==) を ==OU==（Organizational Unit）単位で適用
   - `AWS IAM Identity Center`               ==!Global== / 1回のログインで全アカウントにアクセス可能 / 一元的なアクセス管理 / 外部IDプロバイダー連携 (SSO)
@@ -96,7 +93,6 @@
   - `パフォーマンス`                        Business / AWSリソースのパフォーマンス向上のため、スループットや有効化すべき設定をチェック
   - `耐障害性`                              Business / 耐障害性、可用性や信頼性を向上させるため、オートスケーリングやヘルスチェック、その他有効／無効にすべき設定をチェック
   - `運用上の優秀性`                        Business / AWS上のサービスが安定して稼働していること、問題発生時に迅速な対応を行える状態であることを確認
-- `Migration Evaluator`                     オンプレミス環境のデータを収集・分析 / AWS 移行時のコスト見積もりとビジネスケースを作成
 - `AWS Migration Hub`                       複数の AWS およびパートナーツールを使用した移行を一元的に追跡・管理
   - `AWS Application Migration Service`     物理サーバー、仮想マシン、クラウドインスタンスを AWS に移行する
   - `AWS Application Discovery Service`     ==!us-west-2== / オンプレミス環境のアプリケーション間の依存関係を自動検出
