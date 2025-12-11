@@ -38,8 +38,12 @@
   - `VPC Flow Logs`:            VPC内のIPトラフィックをキャプチャ / 出力先: CloudWatch Logs, S3, Kinesis Data Firehose
   - `Elastic IP アドレス`:      静的 Public IPv4 Addr / 1Regionあたり5個上限 / Instance 間で付け替え可能
 - `VPC Endpoint`:               インターネットを経由せずにAWSサービスにプライベート接続
-  - `Gateway Endoint`:          ==!無料== / VPC ⇔ S3, DynamoDB / VPC内からのみアクセス可能
-  - `Interface Endpoint`:       ==!$0.014/時間+$0.01/GB== / ==別称 AWS PrivateLink== / VPC ⇔ 他 AWS サービス
+  - `Gateway Endpoint`:         ==無料== / VPC ⇔ S3, DynamoDB / VPC内からのみアクセス可能
+  - `Interface Endpoint`:       ==$0.014/時間+$0.01/GB== / VPC ⇔ 他 AWS サービス / ENI を作成
+  - `AWS PrivateLink`:          VPC間でプライベートサービス公開
+    - 構成:                     サービス提供側に ==NLB 必須== + VPCエンドポイントサービス
+    - 利用側:                   Interface Endpoint で接続 / ==DNS名でアクセス可==
+    - 特徴:                     インターネット非経由 / VPCピアリング不要
 - VPN:
   - Virtual Private Gateway:
     - `Site-to-Site VPN`:       ==!$0.05/h + 転送料金== / VPC ⇔ オンプレ (==ネット経由==)
