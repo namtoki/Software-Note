@@ -28,4 +28,4 @@
     - 転送中暗号化:   ==TLS必須==
 
 ## Options
-- `IoT Greengrass`:                    ==エッジでLambda実行== / ==オフライン対応== / ローカル処理
+- `IoT Greengrass`:     ==エッジでLambda実行== / ==オフライン対応== / ローカル処理
