@@ -1,5 +1,20 @@
 # Elastic Load Balancing (ELB)
 
+```
+【ALB】 Layer 7 - HTTP/HTTPS ルーティング
+Client → ALB → /api/*     → API Server
+              → /images/* → Image Server
+              → /*        → Web Server
+
+【NLB】 Layer 4 - TCP/UDP 高速転送
+Client → NLB (静的IP) → Server1
+                      → Server2
+                      → Server3
+
+【GWLB】 Layer 3 - セキュリティアプライアンス経由
+Client → GWLB → Firewall/IDS (検査) → GWLB → Server
+```
+
 ## Overview
 - ロードバランサー:               トラフィックを複数のターゲットに==自動分散==する
   - `ALB`:                          Layer 7 (HTTP/HTTPS) / 静的 IP なし (DNS) / WebSocket あり / ==Lambda ターゲット== → ALB のみ
@@ -23,8 +38,9 @@
   - `NLB`:                          Layer 4 (TCP/UDP/TLS) / WebSocket あり
     - 静的IP:                     ==AZごとに固定IP== / Elastic IP 割り当て可
     - ユースケース:               ==超低レイテンシ、静的IP== / ゲーム、IoT、金融取引
-  - `GLB`:                          Layer 3 (IP)
+  - `GWLB (Gateway LB)`:            Layer 3 (IP) / ==全トラフィックを検査アプライアンス経由==
     - `GENEVE`:                     6081番ポート
+    - 構成:                       GWLB → セキュリティアプライアンス (検査) → 戻す
     - ユースケース:               ==サードパーティアプライアンス== (ファイアウォール、IDS/IPS)
   - 共通機能:
     - `ヘルスチェック`:             ターゲットの正常性を監視

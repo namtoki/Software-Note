@@ -35,8 +35,30 @@
       - `Fraud Detector`:       ==不正検出== / 機械学習を活用して、オンライン詐欺や不正行為をリアルタイムで検出
       - `IAM Access Analyzer`:  ==外部からアクセス可能なリソースを検出==
       - `AWS Firewall Manager`: AWS Organizations 全体でファイアウォールルールとセキュリティポリシーを一元管理
-        - `AWS Shield`:         ==!Global== / ==DDoS==
+        - `AWS Shield`:         ==!Global== / ==DDoS== / ==!無料で自動的に有効==
+          - 対象サービス:
+            - CloudFront
+            - Route 53
+            - Global Accelerator
+            - ALB / NLB / CLB
+            - Elastic IP (EC2)
         - `AWS WAF`:            ==!Global== / ==SQLインジェクション、クロスサイトスクリプティング（XSS）==
+          - 対象サービス:     NLB, CLB, EC2 直接には==アタッチ不可==
+            | サービス                  | 用途               |
+            |-----------------------|------------------|
+            | CloudFront        | CDN (グローバルエッジ)   |
+            | ALB               | ロードバランサー (リージョン) |
+            | API Gateway       | REST API         |
+            | AppSync           | GraphQL API      |
+            | Cognito User Pool | 認証               |
+          - WAF ルール:
+            | ルール              | 説明                                    |
+            |------------------|---------------------------------------|
+            | ==AWS マネージドルール== | OWASP Top 10, Bot 対策等 (推奨)            |
+            | IP セット           | 特定 IP の許可/拒否                          |
+            | レートベース           | ==同一 IP から N リクエスト/5分== で制限 (DDoS 対策) |
+            | カスタムルール          | SQL インジェクション, XSS 等                   |
+            | 地理的制限            | ==特定の国からのアクセスをブロック==                               |
       - `Config`:               ==設定変更・非準拠==
   - `セキュリティチェック`:     設定ミスや脆弱性を自動検出
   - `コンプライアンス`:         標準に基づいたスコアリング

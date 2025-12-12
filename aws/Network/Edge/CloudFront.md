@@ -47,7 +47,7 @@
     - `署名付き URL`:               個別ファイルへのアクセス制御
     - `署名付き Cookie`:            複数ファイル / ストリーミング
     - `Geo Restriction`:            国別でホワイトリスト / ブラックリスト
-    - `OAC`:                        S3 を CloudFront 経由のみに制限 (旧 OAI)
+    - `OAC(Origin Access Control)`: ==S3 を CloudFront 経由のみに制限 (旧 OAI)==
     - `AWS WAF 統合`:               SQLi, XSS, DDoS 対策、レート制限
   - エッジコンピューティング:
     - `Lambda@Edge`:                ==us-east-1== で作成 / Node.js, Python / 複雑な処理 (認証等)
