@@ -16,9 +16,3 @@
 - `Permission Set`:                    ==IAMポリシーのテンプレート== / アカウントに割り当て
 - `AWS管理ポリシー`:                   事前定義済み (AdministratorAccess等)
 - `カスタムポリシー`:                  独自の権限を定義
-
-## SAA試験ポイント
-- ==複数アカウントへのSSO== → IAM Identity Center
-- ==Organizations + SSO== → IAM Identity Center
-- ==外部IdP連携 (SAML)== → IAM Identity Center
-- ==単一アカウントのフェデレーション== → IAM (SAML/OIDC)

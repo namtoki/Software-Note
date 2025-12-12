@@ -1,101 +1,43 @@
-# DynamoDB
+# Amazon DynamoDB
 
-```HCL
-resource "aws_dynamodb_table" "hoge" {      # (Required) ローカルの識別子
-  attribute {
-    name = "UserId"
-    type = "S"
-  }
-  attribute {
-    name = "GameTitle"
-    type = "S"
-  }
-  attribute {
-    name = "TopScore"
-    type = "N"
-  }
-
-  name           = "GameScores"             # (Required) AWS Region 内での識別子
-  hash_key       = "UserId"                 # (Required) Attribute to use as the hash (partition) key.
-
-  range_key      = "GameTitle"              # Sort Key
-  region         = ~~                       # Optional
-
-  # -----------
-  # Table class
-  # -----------
-  table_class = "STANDARD"                  # Standard or Standard-IA (STANDARD_INFREQUENT_ACCESS)
-
-  # -------------------
-  # Capacity calculator
-  # -------------------
-  read_capacity  = 20
-  write_capacity = 20
-
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = true
-  }
-
-  import_table                = ~~
-
-  # ----------------------------
-  # Read/write capacity settings
-  # ----------------------------
-  billing_mode   = "PROVISIONED"            # Capacity Mode / "PAY_PER_REQUEST" or "PROVISIONED"
-
-  # ---------------
-  # Warm throughput
-  # ---------------
-  warm_throughput {                         # 即座に処理できるスループット容量を事前に確保する機能
-    read_units_per_second  = 1000
-    write_units_per_second = 500
-  }
-
-  # -----------------
-  # Secondary indexes
-  # -----------------
-  global_secondary_index {                  # GSI
-    name               = "GameTitleIndex"
-    hash_key           = "GameTitle"
-    range_key          = "TopScore"
-    write_capacity     = 10
-    read_capacity      = 10
-    projection_type    = "INCLUDE"
-    non_key_attributes = ["UserId"]
-  }
-
-  # ------------------
-  # Encryption at rest
-  # ------------------
-  server_side_encryption {
-    enabled = true                          # if false, AWS-own key
-    kms_key_arn =                           # if enabled = true and this is specified, AWS KMS-managed key
-  }                                         # else, Customer managed key
-
-  # -------------------
-  # Deletion protection
-  # -------------------
-  deletion_protection_enabled = false       # 削除する前に削除保護を無効化する手順を踏ませるようにできる
-
-  # ----
-  # Tags
-  # ----
-  tags = {
-    Name = local.table_name                 # Key = Value
-  }
-}
+```
++----------------------------------------------------------+
+|                     Amazon DynamoDB                      |
+|  +----------------------------------------------------+  |
+|  |                      Table                         |  |
+|  |  +----------------------------------------------+  |  |
+|  |  |  Partition Key (PK)  |  Sort Key (SK) [opt]  |  |  |
+|  |  +----------------------------------------------+  |  |
+|  |  |              Attributes (schemaless)         |  |  |
+|  |  +----------------------------------------------+  |  |
+|  |  +------------------+  +----------------------+    |  |
+|  |  |       GSI        |  |         LSI          |    |  |
+|  |  +------------------+  +----------------------+    |  |
+|  +----------------------------------------------------+  |
++----------------------------------------------------------+
 ```
 
-    local_secondary_index
-    on_demand_throughput
-    point_in_time_recovery
-    replica
-    global_table_witness
-    restore_date_time
-    restore_source_name
-    restore_source_table_arn
-    restore_to_latest_time
-    stream_enabled
-    stream_view_type
-    ttl
+## Overview
+- キーバリュー DB:            ==フルマネージド== / ==サーバーレス== / ==ミリ秒レイテンシー==
+  - Key:
+    - `Partition Key (PK)`:     ==必須== / ハッシュ関数でパーティション決定
+    - `Sort Key (SK)`:          オプション / PK + SK で複合キー / 範囲クエリ可能
+  - Capacity:
+    - `On-Demand`:              ==自動スケーリング== / 予測不可能なワークロード向け / ==従量課金==
+    - `Provisioned`:            ==RCU/WCU を事前設定== / 予測可能なワークロード向け / ==Auto Scaling 可==
+      - RCU:                  1 RCU = 4KB/秒 (強い整合性) / 8KB/秒 (結果整合性)
+      - WCU:                  1 WCU = 1KB/秒
+  - Index:
+    - `GSI`:                    ==別の PK/SK== でクエリ / ==テーブル作成後も追加可== / 独自の RCU/WCU
+    - `LSI`:                    ==同じ PK, 別の SK== / ==テーブル作成時のみ== / テーブルの RCU/WCU 共有
+  - Consistency:
+    - `Eventually Consistent`:  デフォルト / 低レイテンシー / ==0.5 RCU==
+    - `Strongly Consistent`:    ==最新データ保証== / ==1 RCU==
+  - `DynamoDB Streams`:         変更をキャプチャ / ==Lambda トリガー== / 24時間保持
+  - `Global Tables`:            ==Global に分散== / マルチリージョン / アクティブ-アクティブ / 自動レプリケーション
+  - `DAX`:                      ==DynamoDB 専用インメモリキャッシュ== / マイクロ秒レイテンシー / 読み取り負荷軽減
+
+## Options
+- `TTL`:                        自動削除 / 追加コストなし
+- `Point-in-Time Recovery`:     ==35日間== / 秒単位で復元可能
+- `Transactions`:               複数項目の ACID 操作

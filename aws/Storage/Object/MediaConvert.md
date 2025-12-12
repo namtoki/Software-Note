@@ -1,9 +1,9 @@
 # AWS Elemental MediaConvert / Amazon Elastic Transcoder
 
 ```
-S3 (入力)                                    S3 (出力)
+S3 (入力)                                   S3 (出力)
 ┌─────────┐                                ┌─────────┐
-│ video.  │ → MediaConvert / Transcoder → │ video.  │
+│ video.  │ → MediaConvert / Transcoder →  │ video.  │
 │ mov     │                                │ mp4/hls │
 └─────────┘                                └─────────┘
 ```
