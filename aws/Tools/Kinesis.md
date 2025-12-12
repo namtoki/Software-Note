@@ -35,8 +35,22 @@
 | 配信先 | カスタム | S3, Redshift等に限定 |
 | データ保持 | 24時間〜365日 | ==保持しない== (配信のみ) |
 
+## 典型的な構成パターン
+
+```
+【リアルタイム処理 + S3 格納】
+センサー/IoT → Firehose → Data Analytics (SQL分析) → リアルタイム配信
+                   ↓
+                  S3 (データレイク)
+```
+
+- Firehose: 高頻度データを効率的に S3 へ格納
+- Data Analytics: SQL でリアルタイム統計処理
+- 両方を組み合わせて「リアルタイム配信 + 分析用蓄積」を実現
+
 ## SAA試験ポイント
 - ==リアルタイム + カスタム処理== → Data Streams
 - ==S3/Redshift に配信== → Firehose
 - ==シャード管理不要== → Firehose
 - ==SQLでストリーム分析== → Data Analytics
+- ==リアルタイム処理 + S3格納 を同時に== → ==Firehose + Data Analytics==
