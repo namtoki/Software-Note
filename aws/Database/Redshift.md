@@ -9,6 +9,7 @@
     | クエリ | 単純、頻繁 | `複雑、大量データ` |
     | AWS サービス | `RDS, Aurora, DynamoDB` | `Redshift, Athena` |
   - `Redshift Spectrum`:    ==S3 のデータを直接クエリ== (Redshift にロード不要) / Redshift クラスターから SQL で S3 を分析
+    - 注意:               ==分析用途のみ== / レイテンシ秒〜分 / オンラインシステムには不適切
     ```
     ┌─────────────┐        ┌─────────────┐
     │  Redshift   │──SQL──>│     S3      │
